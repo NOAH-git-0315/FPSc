@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import com.FPSc.entity.User;
 import com.FPSc.repository.UserRepository;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,5 +36,9 @@ public class UserService {
         } else {
             logger.error("ユーザーが既に存在します: {}", userId);
         }
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

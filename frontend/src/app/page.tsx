@@ -5,6 +5,31 @@ import DiscordProfileCard from '@/component/profcard';
 import { testdata } from '@/component/後で消す';
 const MotionBox = motion(Box);
 
+async function getUsers() {
+  try {
+    const response = await fetch('http://localhost:8080/users/all');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data; // 戻り値を返す
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+    return null; // エラー時はnullを返す
+  }
+}
+
+async function displayUsers() {
+  const users = await getUsers(); // 非同期関数の戻り値を取得
+  if (users) {
+    console.log(users); // ユーザーのデータを表示
+  } else {
+    console.log('ユーザーのデータを取得できませんでした');
+  }
+}
+
+displayUsers(); // 関数を実行して結果を表示
+
 export default function Home() {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 13 }}>

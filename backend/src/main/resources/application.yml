@@ -1,7 +1,9 @@
-
 logging:
   level:
+    org.springframework.security: DEBUG
     com.FPSc: DEBUG
+  file:
+    name: logs/spring-boot-app.log
 spring:
   security:
     oauth2:
@@ -34,3 +36,4 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      

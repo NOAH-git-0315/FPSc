@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, SxProps } from '@mui/material';
+import { Box, SxProps } from '@mui/material';
 import DiscordProfileCard from '@/component/profcard';
 import { useState } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -10,6 +10,7 @@ import SetGame from '@/component/profile/setGame';
 import SetTime from '@/component/profile/setTime';
 import SetIntroduction from '@/component/profile/setintroduction';
 import SetOptions from '@/component/profile/setOptions';
+import SetPlayStyle from '@/component/profile/setPlayStyle';
 import { UserCard } from '../type';
 import Submit from '@/component/profile/submit';
 
@@ -17,7 +18,7 @@ const sx: SxProps<Theme> = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: 20,
+  gap: 8,
   height: '100vh',
 };
 
@@ -46,6 +47,7 @@ export default function Profiles() {
         <Box component="form" onSubmit={handleSubmit}>
           <SetGame setUser={setState} defGames={state.games} />
           <SetTime setUser={setState} />
+          <SetPlayStyle />
           <SetIntroduction
             setUser={setState}
             defIntroduction={state.introduction}

@@ -1,5 +1,5 @@
 import { Box, Typography, SxProps, Theme } from '@mui/material';
-import theme from '../../theme';
+import theme from '../../../theme';
 
 const sxStyles: SxProps<Theme> = {
   position: 'fixed',

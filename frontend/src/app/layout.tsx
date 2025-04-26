@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './style.scss';
-import Header from '@/component/header';
-import Footer from '@/component/footer';
-import Menu from   '@/component/menu';
+import Header from '@/component/main/header';
+import Footer from '@/component/main/footer';
+import Menu from '@/component/main/menu';
 export const metadata: Metadata = {
   title: 'FPSc',
   description: 'FPSc-top',
