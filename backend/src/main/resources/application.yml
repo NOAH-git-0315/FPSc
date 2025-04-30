@@ -1,3 +1,6 @@
+jwt:
+  secret: asdfjuoaheaoh12!hoaefaeovaenoaevaGaef?aefaohiehfaenjvoair12-9ef`faefaejae@feafafap:jiwefawji23-923qfvnma
+  expiration: 86400
 logging:
   level:
     org.springframework.security: DEBUG
@@ -10,9 +13,9 @@ spring:
       client:
         registration:
           discord:
-            client-id: 1364319913577283594
-            client-secret: SvTwPjbi3tiqQXyJIOYAbIeqwWE5g5bQ
-            scope: identify,email,connections
+            client-id: 1366417359237025823
+            client-secret: kRd1ncYmWj4N0Y8jkicfnweP5C5loUxn
+            scope: identify
             authorization-grant-type: authorization_code
             redirect-uri: "http://localhost:8080/login/oauth2/code/discord"
             client-name: Discord

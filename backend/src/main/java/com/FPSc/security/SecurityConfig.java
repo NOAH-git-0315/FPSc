@@ -13,33 +13,35 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 public class SecurityConfig implements WebMvcConfigurer {
 
+    @SuppressWarnings({ "deprecation", "removal" })
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // CSRF無効化
-            .sessionManagement(session -> 
+            .csrf(csrf -> csrf.disable())
+            .sessionManagement(session ->
                 session
-                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)  // セッションは必要に応じて作成
+                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                    .maximumSessions(1)
             )
-            .authorizeRequests(auth -> 
+            .authorizeRequests(auth ->
                 auth
-                    .requestMatchers("/users/all").permitAll()  // 認証なしで許可
-                    .requestMatchers("/login").permitAll()  // /loginも認証なしで許可
-                    .requestMatchers("/error").permitAll()  // エラーページも認証なしで許可
-                    .anyRequest().authenticated()  // その他は認証が必要
+                    .requestMatchers("/login").permitAll()
+                    .requestMatchers("/error").permitAll()
+                    .anyRequest().authenticated()
             )
-            .oauth2Login()  // OAuth2ログインを有効にする
-            .defaultSuccessUrl("/home", true)  // 認証成功後にリダイレクトされるURL
-            .failureUrl("/login?error");  // 認証失敗時にリダイレクトされるURL
-
+            .oauth2Login(oauth -> oauth
+                .defaultSuccessUrl("/users/auth", true)
+                .failureUrl("/login?error")
+                );
         return http.build();
     }
-
+    
+    @SuppressWarnings("null")
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")  // フロントエンドのURL
+                .allowedOrigins("http://localhost:3000")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowCredentials(false);  // クレデンシャル許可
+                .allowCredentials(true); 
     }
 }
