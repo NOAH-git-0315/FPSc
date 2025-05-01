@@ -20,8 +20,6 @@ public class UserService {
     }
 
     public void saveUser(String userId, String username, String useravatar, String userGlobalName) {
-        logger.debug("ユーザー情報を保存: userId={}, username={}, avatar={}, globalName={}", userId, username, useravatar, userGlobalName);
-
         User existingUser = userRepository.findById(userId).orElse(null);
     
         if (existingUser == null) {
@@ -40,5 +38,8 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+    public User getUserById(String userId) {
+        return userRepository.findById(userId).orElse(null);
     }
 }
