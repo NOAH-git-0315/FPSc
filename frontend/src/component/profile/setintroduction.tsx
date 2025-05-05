@@ -10,7 +10,10 @@ type Props = {
 
 export default function SetIntroduction({ setUser, defIntroduction }: Props) {
   function handleBlur(e: FocusEvent<HTMLInputElement>) {
-    setUser((state: UserCard) => ({ ...state, introduction: e.target.value }));
+    setUser((state: UserCard) => ({
+      ...state,
+      userInfo: { ...state.userInfo, introduction: e.target.value },
+    }));
   }
 
   return (

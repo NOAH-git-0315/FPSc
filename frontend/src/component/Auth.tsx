@@ -1,14 +1,23 @@
 'use client';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
-type AuthContextTYpe = {
-  user: string | null;
+type User = {
+  id: string;
+  name: string;
+  avatar: string;
+  globalName: string | null;
 };
 
-const AuthContext = createContext<AuthContextTYpe>({ user: null });
+type AuthContextType = {
+  user: User | null;
+};
+
+const AuthContext = createContext<AuthContextType>({
+  user: null,
+});
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   useEffect(() => {
     const checkAuth = async () => {
       const res = await fetch('http://localhost:8080/check', {
@@ -19,8 +28,8 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         throw new Error('Network response was not ok');
       }
 
-      const text = await res.text();
-      setUser(text);
+      const data = await res.json();
+      setUser(data);
     };
     checkAuth();
   }, []);

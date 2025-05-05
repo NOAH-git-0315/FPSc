@@ -1,5 +1,6 @@
 import { UserCard } from '@/app/type';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
+import { userInfo } from 'os';
 
 const sx = {
   width: 330,
@@ -13,9 +14,14 @@ const sx = {
 const Margin = 1;
 
 export default function DiscordProfileCard(props: UserCard) {
-  const { name, id, games, playtime1, playtime2, playstyle, introduction } =
-    props;
-  const icon = props.icon || 'https://example.com/avatar.jpg';
+  const {
+    userAuth: { name, globalName },
+    userInfo: { icon, games, playtime1, playtime2, playstyle, introduction },
+    option: { showGender, showAge, showGenderToSameSex, showProfile },
+    cardOption: { color, motion },
+  } = props;
+
+  console.log(icon);
   const Names: React.FC<{ children?: React.ReactNode }> = (props) => {
     return (
       <Box
@@ -31,9 +37,9 @@ export default function DiscordProfileCard(props: UserCard) {
           <Typography fontSize={14} color="gray">
             name
           </Typography>
-          <Typography variant="h6">{name}</Typography>
+          <Typography variant="h6">{globalName}</Typography>
           <Typography fontSize={14} color="gray">
-            {id}
+            {name}
           </Typography>
         </Box>
       </Box>
@@ -68,7 +74,7 @@ export default function DiscordProfileCard(props: UserCard) {
             p: 0.5,
           }}
         >
-          {playstyle}
+          {playstyle?.join(', ')}
         </Typography>
       </Box>
     );

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FormGroup, FormControlLabel, Checkbox, Box } from '@mui/material';
 
 const optionLs = [
-  { label: '性別を公開する', def: true },
+  { label: '性別を公開する', def: false },
   { label: '年齢を公開する', def: false },
   { label: '同性にのみプロフィールを公開する', def: false },
   { label: 'プロフィールを非公開にする', def: false },

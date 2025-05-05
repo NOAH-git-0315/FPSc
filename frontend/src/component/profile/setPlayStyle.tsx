@@ -1,3 +1,4 @@
+'use client';
 import { Box, Typography } from '@mui/material';
 
 import * as React from 'react';
@@ -8,6 +9,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import { autocompleteClasses } from '@mui/material/Autocomplete';
+import { UserCard } from '@/app/type';
 
 const Root = styled('div')(({ theme }) => ({
   color: 'rgba(0,0,0,0.85)',
@@ -166,7 +168,15 @@ const Listbox = styled('ul')(({ theme }) => ({
   },
 }));
 
-export function CustomizedHook() {
+type CustomizedHookProps = {
+  onChange: (value: playStyleType[]) => void;
+  defaultValue?: playStyleType[];
+};
+
+export function CustomizedHook({
+  onChange,
+  defaultValue,
+}: CustomizedHookProps) {
   const {
     getRootProps,
     getInputLabelProps,
@@ -180,10 +190,13 @@ export function CustomizedHook() {
     setAnchorEl,
   } = useAutocomplete({
     id: 'customized-hook-demo',
-    defaultValue: [playStyleList[1]],
+    defaultValue: defaultValue,
     multiple: true,
     options: playStyleList,
     getOptionLabel: (option) => option.title,
+    onChange: (_, newValue) => {
+      onChange(newValue);
+    },
   });
 
   return (
@@ -191,7 +204,7 @@ export function CustomizedHook() {
       <div {...getRootProps()}>
         <Label {...getInputLabelProps()}></Label>
         <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
-          {value.map((option: FilmOptionType, index: number) => {
+          {value.map((option: option, index: number) => {
             const { key, ...tagProps } = getTagProps({ index });
             return <StyledTag key={key} {...tagProps} label={option.title} />;
           })}
@@ -215,9 +228,8 @@ export function CustomizedHook() {
   );
 }
 
-interface FilmOptionType {
-  title: string;
-  year: number;
+interface playStyleType {
+  index: number;
 }
 
 const playStyleList = [
@@ -231,13 +243,31 @@ const playStyleList = [
   { title: 'コーチング募集' },
 ];
 
-export default function setPlayStyle() {
+type Props = {
+  defPlayStyle: playStyleType[];
+  setUser: React.Dispatch<React.SetStateAction<UserCard>>;
+};
+
+export default function setPlayStyle({ setUser, defPlayStyle }: Props) {
+  const handlePlayStyleChange = (value: playStyleType) => {
+    setUser((state: UserCard) => ({
+      ...state,
+      userInfo: {
+        ...state.userInfo,
+        playstyle: value.map((v) => v.title),
+      },
+    }));
+  };
+
   return (
     <Root sx={{ marginTop: 4 }}>
       <Typography fontSize={14} color="gray">
         プレイスタイル
       </Typography>
-      <CustomizedHook />
+      <CustomizedHook
+        onChange={handlePlayStyleChange}
+        defaultValue={defPlayStyle}
+      />
     </Root>
   );
 }

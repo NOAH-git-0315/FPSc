@@ -11,14 +11,18 @@ export interface Game {
 export type Cardcolor = 'black' | 'sakura';
 
 //ここから下
+export interface UserAuth {
+  id: string; //不同一の番号
+  name: string; //noah_ow
+  avatar: string; //avatarNumber
+  globalName: string; //ノア
+}
 export interface UserInfo {
   icon: string;
-  name: string;
-  id: string;
   games: Game[];
   playtime1: Playtime;
   playtime2: Playtime;
-  playstyle: string;
+  playstyle: String[];
   introduction: string;
 }
 
@@ -34,6 +38,7 @@ export interface CardOption {
   motion: null;
 }
 export interface UserCard {
+  userAuth: UserAuth;
   userInfo: UserInfo;
   option: Option;
   cardOption: CardOption;

@@ -4,6 +4,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { UserCard, Game } from '@/app/type';
+import { userInfo } from 'os';
 
 const names = [
   'Apex Legends',
@@ -55,51 +56,58 @@ const Title: React.FC<{ children?: React.ReactNode }> = (props) => {
 const ComboBox: React.FC<ComboBoxProps> = ({ defGames, setUser }) => {
   const handleTitleChange = (_: any, value: string | null) => {
     setUser((prev) => {
-      const newGames = [...prev.games];
+      const newGames = [...prev.userInfo.games];
       if (!newGames[0]) newGames[0] = { title: '', rank: '' };
       newGames[0].title = value || '';
       return { ...prev, games: newGames };
     });
   };
 
-  const handleRankChange = (_: any, value: string | null) => {
-    setUser((prev) => {
-      const newGames = [...prev.games];
-      if (!newGames[0]) newGames[0] = { title: '', rank: '' };
-      newGames[0].rank = value || '';
-      return { ...prev, games: newGames };
-    });
+  const handleRankChange = (value,index) => {
+    const newGames = {title:value.title, rank:value.rank};
+    setUser((prev)=>{...prev, userInfo.games[index] =
+    })
   };
 
   return (
-    <Box sx={{ display: 'flex', gap: 3 }}>
-      <Autocomplete
-        onChange={handleTitleChange}
-        options={names}
-        defaultValue={defGames[0]?.title || ''}
-        sx={{ width: 245, marginTop: 1 }}
-        renderInput={(params) => (
-          <TextField {...params} label="ゲームタイトル" />
-        )}
-      />
-      <Autocomplete
-        onChange={handleRankChange}
-        options={overwatchRanks}
-        defaultValue={defGames[0]?.rank || ''}
-        sx={{ width: 190, marginTop: 1 }}
-        renderInput={(params) => (
-          <TextField {...params} label="ランクを選択" variant="standard" />
-        )}
-      />
+    <Box>
+      {defGames.map((game, index) => (
+        <Box sx={{ display: 'flex', gap: 3 }}>
+          <Autocomplete
+            onChange={(value, index) => handleTitleChange}
+            options={names}
+            defaultValue={game.title || ''}
+            sx={{ width: 245, marginTop: 1 }}
+            renderInput={(params) => (
+              <TextField {...params} label="ゲームタイトル" />
+            )}
+          />
+          <Autocomplete
+            onChange={handleRankChange}
+            options={overwatchRanks}
+            defaultValue={game.rank || ''}
+            sx={{ width: 190, marginTop: 1 }}
+            renderInput={(params) => (
+              <TextField {...params} label="ランクを選択" variant="standard" />
+            )}
+          />
+        </Box>
+      ))}
     </Box>
   );
 };
+
+const setGame = [{ title: '', rank: '' }];
 
 export default function SetGame({ setUser, defGames }: SetGameProps) {
   return (
     <Box>
       <Title />
       <ComboBox defGames={defGames} setUser={setUser} />
+      <ComboBox defGames={setGame} setUser={setUser} />
     </Box>
   );
 }
+
+//配列を受け取る→map ＋1
+//

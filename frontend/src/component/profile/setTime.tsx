@@ -18,25 +18,37 @@ export default function SetTime({ setUser }: SetTimeProps) {
       case 'weekdayStart':
         setUser((state) => ({
           ...state,
-          playtime1: { ...state.playtime1, start: formatted },
+          userInfo: {
+            ...state.userInfo,
+            playtime1: { ...state.userInfo.playtime1, start: formatted },
+          },
         }));
         break;
       case 'weekdayEnd':
         setUser((state) => ({
           ...state,
-          playtime1: { ...state.playtime1, end: formatted },
+          userInfo: {
+            ...state.userInfo,
+            playtime1: { ...state.userInfo.playtime1, end: formatted },
+          },
         }));
         break;
       case 'holidayStart':
         setUser((state) => ({
           ...state,
-          playtime2: { ...state.playtime2, start: formatted },
+          userInfo: {
+            ...state.userInfo,
+            playtime2: { ...state.userInfo.playtime2, start: formatted },
+          },
         }));
         break;
       case 'holidayEnd':
         setUser((state) => ({
           ...state,
-          playtime2: { ...state.playtime2, end: formatted },
+          userInfo: {
+            ...state.userInfo,
+            playtime2: { ...state.userInfo.playtime2, end: formatted },
+          },
         }));
         break;
       default:

@@ -12,10 +12,10 @@ async function getUsers() {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    return data; // 戻り値を返す
+    return data;
   } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
-    return null; // エラー時はnullを返す
+    return null;
   }
 }
 
