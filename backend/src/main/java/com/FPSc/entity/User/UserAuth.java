@@ -1,18 +1,26 @@
-package com.FPSc.entity;
+package com.FPSc.entity.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
-@Table(name = "account")
+@Table(name = "user_auth")
 @Entity
-public class User {
+public class UserAuth {
     
     @Id
     private String id;
     private String name;
     private String avatar;
     private String globalName;
+
+    @OneToOne(mappedBy = "userAuth")
+    private UserInfo userInfo;
+    @OneToOne(mappedBy = "userAuth")
+    private UserOption userOption;
+    @OneToOne(mappedBy = "userAuth")
+    private CardOption cardOption;
 
     public String getId() {
         return id;

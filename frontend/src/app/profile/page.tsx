@@ -1,8 +1,8 @@
 'use client';
 
 import { Box, SxProps } from '@mui/material';
-import DiscordProfileCard from '@/component/profcard';
-import { useState, useContext, useEffect } from 'react';
+import DiscordProfileCard from '@/component/templates/profcard';
+import { useContext } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Theme } from '@emotion/react';
@@ -11,9 +11,8 @@ import SetTime from '@/component/profile/setTime';
 import SetIntroduction from '@/component/profile/setintroduction';
 import SetOptions from '@/component/profile/setOptions';
 import SetPlayStyle from '@/component/profile/setPlayStyle';
-import { UserCard } from '../type';
 import Submit from '@/component/profile/submit';
-import { AuthContext } from '@/component/Auth';
+import { AuthContext } from '@/component/templates/Auth';
 
 const sx: SxProps<Theme> = {
   display: 'flex',
@@ -24,55 +23,17 @@ const sx: SxProps<Theme> = {
 };
 
 export default function Profiles() {
-  const { user } = useContext(AuthContext);
-  console.log(user);
-  const [state, setState] = useState<UserCard>({
-    userAuth: {
-      id: user?.id || '',
-      name: user?.name || '',
-      avatar: user?.avatar || '',
-      globalName: user?.globalName || '',
-    },
-    userInfo: {
-      icon: `https://cdn.discordapp.com/avatars/${user?.id}/${user?.avatar}`,
-      games: [{ title: 'Overwatch2', rank: 'ゴールド' }],
-      playtime1: { start: '未設定', end: '未設定' },
-      playtime2: { start: '未設定', end: '未設定' },
-      playstyle: [],
-      introduction: '自分が管理者です！皆さん一緒に仲良くプレイしましょう！',
-    },
-    option: {
-      showGender: true,
-      showAge: true,
-      showGenderToSameSex: true,
-      showProfile: true,
-    },
-    cardOption: {
-      color: 'black',
-      motion: null,
-    },
-  });
+  const context = useContext(AuthContext);
 
-  useEffect(() => {
-    if (!user) return;
-    setState((prevState) => ({
-      ...prevState,
-      userAuth: {
-        ...prevState.userAuth,
-        globalName: user.globalName || '',
-        name: user.name || '',
-      },
-      userInfo: {
-        ...prevState.userInfo,
-        icon: `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`,
-      },
-    }));
-  }, [user]);
+  if (!context) {
+    return <div>Loading...</div>;
+  }
+
+  const { userCard: state, setUserCard: setState } = context;
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
   }
-
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box sx={sx}>

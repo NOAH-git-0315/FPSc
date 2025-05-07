@@ -1,10 +1,10 @@
-import { UserCard } from '@/app/type';
+import { User } from '@/app/type';
 import { Box, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
 import { Dayjs } from 'dayjs';
 import { Dispatch, SetStateAction } from 'react';
 
-type SetUser = Dispatch<SetStateAction<UserCard>>;
+type SetUser = Dispatch<React.SetStateAction<UserCard>>;
 
 interface SetTimeProps {
   setUser: SetUser;
@@ -14,46 +14,40 @@ export default function SetTime({ setUser }: SetTimeProps) {
   function handleTimeChange(id: string, value: Dayjs | null) {
     const formatted = value ? value.format('HH:mm') : '';
 
-    switch (id) {
-      case 'weekdayStart':
-        setUser((state) => ({
+    if (!setUser) return;
+
+    setUser((state) => {
+      if (!state) return state;
+
+      const updatePlaytime = (
+        playtimeKey: 'playtime1' | 'playtime2',
+        timeKey: 'start' | 'end',
+      ) => {
+        return {
           ...state,
           userInfo: {
             ...state.userInfo,
-            playtime1: { ...state.userInfo.playtime1, start: formatted },
+            [playtimeKey]: {
+              ...state.userInfo[playtimeKey],
+              [timeKey]: formatted,
+            },
           },
-        }));
-        break;
-      case 'weekdayEnd':
-        setUser((state) => ({
-          ...state,
-          userInfo: {
-            ...state.userInfo,
-            playtime1: { ...state.userInfo.playtime1, end: formatted },
-          },
-        }));
-        break;
-      case 'holidayStart':
-        setUser((state) => ({
-          ...state,
-          userInfo: {
-            ...state.userInfo,
-            playtime2: { ...state.userInfo.playtime2, start: formatted },
-          },
-        }));
-        break;
-      case 'holidayEnd':
-        setUser((state) => ({
-          ...state,
-          userInfo: {
-            ...state.userInfo,
-            playtime2: { ...state.userInfo.playtime2, end: formatted },
-          },
-        }));
-        break;
-      default:
-        break;
-    }
+        };
+      };
+
+      switch (id) {
+        case 'weekdayStart':
+          return updatePlaytime('playtime1', 'start');
+        case 'weekdayEnd':
+          return updatePlaytime('playtime1', 'end');
+        case 'holidayStart':
+          return updatePlaytime('playtime2', 'start');
+        case 'holidayEnd':
+          return updatePlaytime('playtime2', 'end');
+        default:
+          return state;
+      }
+    });
   }
 
   return (
@@ -64,10 +58,12 @@ export default function SetTime({ setUser }: SetTimeProps) {
       <Box sx={{ display: 'flex' }}>
         <TimePicker
           label="開始時刻"
+          minutesStep={30}
           onChange={(value) => handleTimeChange('weekdayStart', value)}
         />
         <TimePicker
           label="終了時刻"
+          minutesStep={30}
           onChange={(value) => handleTimeChange('weekdayEnd', value)}
         />
       </Box>
@@ -77,10 +73,12 @@ export default function SetTime({ setUser }: SetTimeProps) {
         </Typography>
         <TimePicker
           label="開始時刻"
+          minutesStep={30}
           onChange={(value) => handleTimeChange('holidayStart', value)}
         />
         <TimePicker
           label="終了時刻"
+          minutesStep={30}
           onChange={(value) => handleTimeChange('holidayEnd', value)}
         />
       </Box>

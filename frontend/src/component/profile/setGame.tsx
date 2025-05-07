@@ -3,8 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
-import { UserCard, Game } from '@/app/type';
-import { userInfo } from 'os';
+import { User, Game } from '@/app/type';
 
 const names = [
   'Apex Legends',
@@ -33,7 +32,7 @@ const overwatchRanks = [
   'Top 500',
 ];
 
-type SetUser = React.Dispatch<React.SetStateAction<UserCard>>;
+type SetUser = React.Dispatch<React.SetStateAction<User>>;
 
 interface ComboBoxProps {
   defGames: Game[];
@@ -63,11 +62,7 @@ const ComboBox: React.FC<ComboBoxProps> = ({ defGames, setUser }) => {
     });
   };
 
-  const handleRankChange = (value,index) => {
-    const newGames = {title:value.title, rank:value.rank};
-    setUser((prev)=>{...prev, userInfo.games[index] =
-    })
-  };
+  const handleRankChange = (value, index) => {};
 
   return (
     <Box>

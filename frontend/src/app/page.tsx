@@ -1,7 +1,7 @@
 'use client';
 import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
-import DiscordProfileCard from '@/component/profcard';
+import DiscordProfileCard from '@/component/templates/profcard';
 import { testdata } from '@/component/後で消す';
 const MotionBox = motion(Box);
 
@@ -18,17 +18,6 @@ async function getUsers() {
     return null;
   }
 }
-
-async function displayUsers() {
-  const users = await getUsers(); // 非同期関数の戻り値を取得
-  if (users) {
-    console.log(users); // ユーザーのデータを表示
-  } else {
-    console.log('ユーザーのデータを取得できませんでした');
-  }
-}
-
-displayUsers(); // 関数を実行して結果を表示
 
 export default function Home() {
   return (
@@ -74,5 +63,3 @@ export default function Home() {
     </Box>
   );
 }
-
-//あとで、プロフィール一覧はフェッチして取ってくるようにしないとね

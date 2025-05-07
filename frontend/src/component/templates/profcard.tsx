@@ -1,4 +1,4 @@
-import { UserCard } from '@/app/type';
+import { User } from '@/app/type';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
 import { userInfo } from 'os';
 
@@ -13,7 +13,7 @@ const sx = {
 
 const Margin = 1;
 
-export default function DiscordProfileCard(props: UserCard) {
+export default function DiscordProfileCard(props: User) {
   const {
     userAuth: { name, globalName },
     userInfo: { icon, games, playtime1, playtime2, playstyle, introduction },

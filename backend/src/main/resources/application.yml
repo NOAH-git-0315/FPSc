@@ -26,7 +26,7 @@ spring:
             user-info-uri: https://discord.com/api/users/@me
             user-name-attribute: username
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:C:/Users/Shuya/Desktop/FPSc-main/db/mydb;AUTO_SERVER=TRUE
     driverClassName: org.h2.Driver
     username: sa
     password: password
@@ -39,4 +39,3 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-      

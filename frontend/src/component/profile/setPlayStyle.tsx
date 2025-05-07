@@ -9,7 +9,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import { autocompleteClasses } from '@mui/material/Autocomplete';
-import { UserCard } from '@/app/type';
+import { User } from '@/app/type';
 
 const Root = styled('div')(({ theme }) => ({
   color: 'rgba(0,0,0,0.85)',
@@ -229,6 +229,7 @@ export function CustomizedHook({
 }
 
 interface playStyleType {
+  title: string;
   index: number;
 }
 
@@ -245,18 +246,22 @@ const playStyleList = [
 
 type Props = {
   defPlayStyle: playStyleType[];
-  setUser: React.Dispatch<React.SetStateAction<UserCard>>;
+  setUser: React.Dispatch<React.SetStateAction<User>>;
 };
 
 export default function setPlayStyle({ setUser, defPlayStyle }: Props) {
-  const handlePlayStyleChange = (value: playStyleType) => {
-    setUser((state: UserCard) => ({
-      ...state,
-      userInfo: {
-        ...state.userInfo,
-        playstyle: value.map((v) => v.title),
-      },
-    }));
+  const handlePlayStyleChange = (value: playStyleType[]) => {
+    setUser((state) => {
+      if (!state) return state;
+
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          playstyle: value.map((v) => v.title),
+        },
+      };
+    });
   };
 
   return (

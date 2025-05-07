@@ -1,7 +1,7 @@
 package com.FPSc.controller;
 
 import com.FPSc.service.JwtService;
-import com.FPSc.service.UserService;
+import com.FPSc.service.UserAuthService;
 
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +13,12 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UserAuthController {
 
-    private final UserService userService;
+    private final UserAuthService userService;
     private final JwtService jwtService;
 
-    public UserController(UserService userService, JwtService jwtService) {
+    public UserAuthController(UserAuthService userService, JwtService jwtService) {
         this.userService = userService;
         this.jwtService = jwtService;
     }

@@ -1,6 +1,6 @@
 'use client';
 import { useContext } from 'react';
-import { AuthContext } from '@/component/Auth';
+import { AuthContext } from '@/component/templates/Auth';
 
 export default function Test2() {
   const { user } = useContext(AuthContext);

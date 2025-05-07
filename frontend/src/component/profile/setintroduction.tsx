@@ -1,16 +1,16 @@
 'use clinet';
-import { UserCard } from '@/app/type';
+import { User } from '@/app/type';
 import { Box, Typography, TextField } from '@mui/material';
 import { MutableRefObject, FocusEvent, useRef } from 'react';
 
 type Props = {
   defIntroduction: string;
-  setUser: React.Dispatch<React.SetStateAction<UserCard>>;
+  setUser: React.Dispatch<React.SetStateAction<User>>;
 };
 
 export default function SetIntroduction({ setUser, defIntroduction }: Props) {
   function handleBlur(e: FocusEvent<HTMLInputElement>) {
-    setUser((state: UserCard) => ({
+    setUser((state: User) => ({
       ...state,
       userInfo: { ...state.userInfo, introduction: e.target.value },
     }));

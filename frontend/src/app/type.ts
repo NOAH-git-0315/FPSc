@@ -12,13 +12,13 @@ export type Cardcolor = 'black' | 'sakura';
 
 //ここから下
 export interface UserAuth {
-  id: string; //不同一の番号
-  name: string; //noah_ow
-  avatar: string; //avatarNumber
-  globalName: string; //ノア
+  id: string | null; //不同一の番号
+  name: string | null; //noah_ow
+  avatar: string | null; //avatarNumber
+  globalName: string | null; //ノア
 }
 export interface UserInfo {
-  icon: string;
+  icon: string | null;
   games: Game[];
   playtime1: Playtime;
   playtime2: Playtime;
@@ -37,7 +37,7 @@ export interface CardOption {
   color: Cardcolor;
   motion: null;
 }
-export interface UserCard {
+export interface User {
   userAuth: UserAuth;
   userInfo: UserInfo;
   option: Option;
@@ -48,3 +48,8 @@ export interface UserCard {
 //fs通貨を採用して、プロフィールを買えるようにしたい
 
 //option
+
+//playtimeはstartからendまでの30分おきの時間を並べた配列
+//playstyleは配列
+//gamesはゲームIDと、ランクIDの組み合わせレコード
+//いずれも、userテーブルと、中間テーブルだったもので構成する

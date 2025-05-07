@@ -1,5 +1,4 @@
 'use client';
-console.log(document.cookie);
 const discordClientId = '1366417359237025823';
 const backendRedirectUri = 'http://localhost:8080/login/oauth2/code/discord';
 

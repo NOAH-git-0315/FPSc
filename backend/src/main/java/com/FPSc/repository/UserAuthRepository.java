@@ -1,9 +1,10 @@
 package com.FPSc.repository;
 
-import com.FPSc.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.FPSc.entity.User.UserAuth;
+
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
 }
