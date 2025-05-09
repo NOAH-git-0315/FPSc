@@ -26,19 +26,20 @@ public class SecurityConfig implements WebMvcConfigurer {
             )
             .authorizeRequests(auth -> 
                 auth
-                    .requestMatchers("/login").permitAll()  // ログインページは許可
-                    .requestMatchers("/error").permitAll()  // エラーページは許可
-                    .requestMatchers("/h2-console/**").permitAll()  // H2コンソールのアクセスを許可
-                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()  // OPTIONSメソッドを許可
+                    .requestMatchers("/login").permitAll()
+                    .requestMatchers("/Home").permitAll()
+                    .requestMatchers("/error").permitAll()
+                    .requestMatchers("/h2-console/**").permitAll()
+                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             )
             .oauth2Login(oauth -> 
                 oauth
-                    .defaultSuccessUrl("/users/auth", true)  // 認証成功後のリダイレクト先
-                    .failureUrl("/login?error")  // 認証失敗時のリダイレクト先
+                    .defaultSuccessUrl("/users/auth", true)
+                    .failureUrl("/login?error")
             )
             .headers(headers -> 
                 headers
-                    .frameOptions().disable()  // H2コンソールでフレームオプションを無効にする
+                    .frameOptions().disable()
             );
         return http.build();
     }
@@ -46,8 +47,8 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000")  // フロントエンドのURLを許可
+                .allowedOrigins("http://localhost:3000")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowCredentials(true);  // Cookieのやり取りを許可
+                .allowCredentials(true);
     }
 }

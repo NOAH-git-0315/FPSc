@@ -1,64 +1,87 @@
 'use client';
-import { Box } from '@mui/material';
-import { motion } from 'framer-motion';
 import DiscordProfileCard from '@/component/templates/profcard';
-import { testdata } from '@/component/後で消す';
-const MotionBox = motion(Box);
+import { Box } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { UserInfo } from './type';
 
-async function getUsers() {
-  try {
-    const response = await fetch('http://localhost:8080/users/all');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('There was a problem with the fetch operation:', error);
-    return null;
-  }
+interface User {
+  id: string;
+  avatar: string;
+  name: string;
+  globalName: string;
+  userInfo: UserInfo;
 }
 
-export default function Home() {
+export default function UserList() {
+  const [users, setUsers] = useState<User[]>([]); // User型で指定
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('http://localhost:8080/Home', {
+          method: 'GET',
+          credentials: 'include',
+        });
+
+        if (!res.ok) {
+          const errorData = await res.text();
+          setError(errorData);
+          return;
+        }
+
+        const json = await res.json();
+        setUsers(json.content);
+      } catch (error) {
+        setError('Error fetching data: ' + error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 13 }}>
+    <Box sx={{ marginTop: 15 }}>
       <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 6,
           justifyItems: 'center',
+          gap: 5,
+          padding: 2,
+          maxWidth: 1200, // 最大幅を指定
+          margin: '0 auto', // 左右中央寄せ
         }}
       >
-        {testdata.map((player, index) => (
-          <MotionBox
-            key={index}
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.6,
-              delay: index * 0.1,
-              ease: 'easeOut',
+        {users.map((user) => (
+          <DiscordProfileCard
+            key={user.id}
+            userAuth={{
+              id: user.id,
+              avatar: user.avatar,
+              name: user.name,
+              globalName: user.globalName,
             }}
-            sx={{
-              width: '100%',
-              boxSizing: 'border-box',
-              paddingBottom: 4,
+            userInfo={{
+              games: user.userInfo.games,
+              playtime1: ['10:00', '11:30'],
+              playtime2: ['10:00', '11:30'],
+              playstyle: ['ちゃんとうまくいってほしい', 'お願いだ！'],
+              introduction: '私は天才だ',
             }}
-          >
-            <DiscordProfileCard
-              icon={player.icon}
-              name={player.name}
-              id={player.id}
-              games={player.games}
-              playtime1={player.playtime1}
-              playtime2={player.playtime2}
-              playstyle={player.playstyle}
-              introduction={player.introduction}
-              color={'black'}
-            />
-          </MotionBox>
+            option={{
+              showGender: true,
+              showAge: true,
+              showGenderToSameSex: true,
+              showProfile: true,
+            }}
+            cardOption={{
+              color: 'black',
+              motion: null,
+            }}
+          />
         ))}
+        {error && <div className="text-red-500">{error}</div>}
       </Box>
     </Box>
   );

@@ -15,10 +15,9 @@ const initialUserCard: User = {
     globalName: 'no_name',
   },
   userInfo: {
-    icon: null,
     games: [],
-    playtime1: { start: '未設定', end: '未設定' },
-    playtime2: { start: '未設定', end: '未設定' },
+    playtime1: [],
+    playtime2: [],
     playstyle: [],
     introduction: '未設定',
   },
@@ -61,10 +60,9 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             globalName: data.globalName,
           },
           userInfo: {
-            icon: `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}`,
             games: [],
-            playtime1: { start: '未設定', end: '未設定' },
-            playtime2: { start: '未設定', end: '未設定' },
+            playtime1: [],
+            playtime2: [],
             playstyle: [],
             introduction:
               '自分が管理者です！皆さん一緒に仲良くプレイしましょう！',

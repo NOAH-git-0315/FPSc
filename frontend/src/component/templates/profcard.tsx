@@ -1,6 +1,7 @@
 import { User } from '@/app/type';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
 import { userInfo } from 'os';
+import { relative } from 'path';
 
 const sx = {
   width: 330,
@@ -15,11 +16,10 @@ const Margin = 1;
 
 export default function DiscordProfileCard(props: User) {
   const {
-    userAuth: { name, globalName },
-    userInfo: { icon, games, playtime1, playtime2, playstyle, introduction },
-    option: { showGender, showAge, showGenderToSameSex, showProfile },
-    cardOption: { color, motion },
+    userAuth: { id, avatar, name, globalName },
+    userInfo: { games, playtime1, playtime2, playstyle, introduction },
   } = props;
+  const icon = `https://cdn.discordapp.com/avatars/${id}/${avatar}`;
 
   console.log(icon);
   const Names: React.FC<{ children?: React.ReactNode }> = (props) => {
@@ -94,7 +94,7 @@ export default function DiscordProfileCard(props: User) {
           </Typography>
           <Box>
             <Typography sx={typeSx}>
-              {playtime1?.start || '未設定'} ~ {playtime1?.end || '未設定'}
+              {playtime1 || '未設定'} ~ {playtime1 || '未設定'}
             </Typography>
           </Box>
         </Box>
@@ -104,7 +104,7 @@ export default function DiscordProfileCard(props: User) {
           </Typography>
           <Box>
             <Typography sx={typeSx}>
-              {playtime2?.start || '未設定'} ~ {playtime2?.end || '未設定'}
+              {playtime2 || '未設定'} ~ {playtime2 || '未設定'}
             </Typography>
           </Box>
         </Box>
@@ -140,7 +140,7 @@ export default function DiscordProfileCard(props: User) {
         variant="contained"
         color="primary"
         fullWidth
-        sx={{ marginTop: Margin * 2 }}
+        sx={{ marginTop: Margin * 2, bottom: 2 }}
       >
         IDをコピー
       </Button>

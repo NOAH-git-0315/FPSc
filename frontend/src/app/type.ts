@@ -1,8 +1,4 @@
-export interface Playtime {
-  start: string;
-  end: string;
-}
-
+import { userInfo } from 'os';
 export interface Game {
   title: string;
   rank: string;
@@ -18,10 +14,9 @@ export interface UserAuth {
   globalName: string | null; //ノア
 }
 export interface UserInfo {
-  icon: string | null;
   games: Game[];
-  playtime1: Playtime;
-  playtime2: Playtime;
+  playtime1: String[];
+  playtime2: String[];
   playstyle: String[];
   introduction: string;
 }

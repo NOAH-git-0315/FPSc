@@ -25,15 +25,18 @@ export default function Submit() {
         },
         body: JSON.stringify({
           userInfo: {
-            games:[{title:"オーバーウォッチ",rank:"ダイヤ"},{title:"ぱっかすれじぇんず",rank:"ひっかからないな～"}],
-            playtime1: ["10:00", "10:30", "11:00"],
-            playtime2: ["12:00", "12:30"],
-            playStyle: ["Casual", "Aggressive"]
+            games: [
+              { title: 'オーバーウォッチ', rank: 'ダイヤ' },
+              { title: 'ぱっかすれじぇんず', rank: 'ひっかからないな～' },
+            ],
+            playtime1: ['10:00', '10:30', '11:00'],
+            playtime2: ['12:00', '12:30'],
+            playStyle: ['Casual', 'Aggressive'],
           },
           userOption: UserOption,
           cardOption: CardOption,
         }),
-        credentials: 'include'
+        credentials: 'include',
       });
 
       // レスポンスが正しいかどうかをチェック
@@ -73,7 +76,5 @@ export default function Submit() {
     </>
   );
 }
-
-
 
 //

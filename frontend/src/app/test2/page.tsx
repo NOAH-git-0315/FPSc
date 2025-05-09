@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function Test2() {
   const [data, setData] = useState(null);
-  const [error, setError] = useState<string | null>(null); // エラーメッセージ用のステート
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,15 +14,15 @@ export default function Test2() {
         });
 
         if (!res.ok) {
-          const errorData = await res.text(); // エラーメッセージをテキストとして取得
-          setError(errorData); // エラーメッセージをステートに保存
+          const errorData = await res.text();
+          setError(errorData);
           return;
         }
 
         const data = await res.json();
         setData(data); // 正常なレスポンスを保存
       } catch (error) {
-        setError("Error fetching data: " + error); // 例外発生時のエラーメッセージ
+        setError("Error fetching data: " + error);
       }
     };
 
@@ -32,7 +32,7 @@ export default function Test2() {
   return (
     <div className="flex items-center justify-center h-screen">
       {error ? (
-        <div className="text-red-500">{error}</div> // エラーメッセージを表示
+        <div className="text-red-500">{error}</div>
       ) : (
         data ? JSON.stringify(data) : "Loading..."
       )}

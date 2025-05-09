@@ -22,6 +22,8 @@ public class UserAuth {
     @OneToOne(mappedBy = "userAuth")
     private CardOption cardOption;
 
+    
+
     public String getId() {
         return id;
     }
@@ -52,5 +54,29 @@ public class UserAuth {
 
     public void setGlobalName(String globalName) {
         this.globalName = globalName;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    public UserOption getUserOption() {
+        return userOption;
+    }
+
+    public void setUserOption(UserOption userOption) {
+        this.userOption = userOption;
+    }
+
+    public CardOption getCardOption() {
+        return cardOption;
+    }
+
+    public void setCardOption(CardOption cardOption) {
+        this.cardOption = cardOption;
     }
 }
