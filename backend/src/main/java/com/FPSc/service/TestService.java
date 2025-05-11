@@ -3,7 +3,6 @@ package com.FPSc.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.FPSc.dto.Purofile.OptionDTO;
 import com.FPSc.entity.User.CardOption;
 import com.FPSc.entity.User.UserAuth;
 import com.FPSc.entity.User.UserOption;
@@ -22,8 +21,11 @@ public class TestService {
     @Autowired
     private UserAuthRepository userAuthRepository;
 
+    
     @Autowired
     private UserOptionRepository userOptionRepository;
+
+
 
     @Autowired
     private CardOptionRepository cardOptionRepository;
@@ -78,6 +80,7 @@ public class TestService {
             String username = user[1];
             String useravatar = user[2];
             String userGlobalName = user[3];
+            if(!userAuthRepository.existsById(userId))
             userService.saveUser(userId, username, useravatar, userGlobalName);
 
             Optional<UserAuth> userAuth = userAuthRepository.findById(user[0]);
@@ -97,5 +100,3 @@ public class TestService {
         }
     }
 }
-
-//userInfoが未設定です。後で設定するの忘れないでね！

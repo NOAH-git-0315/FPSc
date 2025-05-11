@@ -8,7 +8,7 @@ export default function Test2() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:8080/Home", {
+        const res = await fetch(`http://localhost:8080/Home?page=0&size=15`, {
           method: "GET",
           credentials: "include",
         });

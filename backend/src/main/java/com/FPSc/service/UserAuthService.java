@@ -11,6 +11,8 @@ import com.FPSc.repository.UserAuthRepository;
 import com.FPSc.repository.UserInfoRepository;
 import com.FPSc.repository.UserOptionRepository;
 
+import jakarta.transaction.Transactional;
+
 import java.util.List;
 
 @Service
@@ -30,7 +32,7 @@ public class UserAuthService {
         this.cardOptionRepository = cardOptionRepository;
     }
 
-
+    @Transactional
     public void saveUser(String userId, String username, String useravatar, String userGlobalName) {
         UserAuth existingUser = userRepository.findById(userId).orElse(null);
 

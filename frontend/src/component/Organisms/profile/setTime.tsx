@@ -4,7 +4,7 @@ import { TimePicker } from '@mui/x-date-pickers';
 import { Dayjs } from 'dayjs';
 import { Dispatch, SetStateAction } from 'react';
 
-type SetUser = Dispatch<React.SetStateAction<UserCard>>;
+type SetUser = Dispatch<React.SetStateAction<User>>;
 
 interface SetTimeProps {
   setUser: SetUser;
@@ -58,11 +58,13 @@ export default function SetTime({ setUser }: SetTimeProps) {
       <Box sx={{ display: 'flex' }}>
         <TimePicker
           label="開始時刻"
+          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('weekdayStart', value)}
         />
         <TimePicker
           label="終了時刻"
+          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('weekdayEnd', value)}
         />
@@ -73,11 +75,13 @@ export default function SetTime({ setUser }: SetTimeProps) {
         </Typography>
         <TimePicker
           label="開始時刻"
+          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('holidayStart', value)}
         />
         <TimePicker
           label="終了時刻"
+          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('holidayEnd', value)}
         />

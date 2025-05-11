@@ -1,5 +1,5 @@
 import { Box, Typography, Button } from '@mui/material';
-import theme from '../../../theme';
+import theme from '../../../../theme';
 
 export default function Header() {
   return (

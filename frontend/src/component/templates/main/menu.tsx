@@ -1,3 +1,4 @@
+"use client"
 import {
   List,
   ListItem,
@@ -7,6 +8,9 @@ import {
   Theme,
   TextField,
 } from '@mui/material';
+import { useContext } from 'react';
+import { AuthContext } from '../Auth';
+import { useRouter } from 'next/navigation';
 
 const sxList: SxProps<Theme> = {
   position: 'absolute',
@@ -50,26 +54,39 @@ const sxListItemButton: SxProps<Theme> = {
   },
 };
 
-const menu = [
-  { title: 'friend', url: '/' },
-  { title: 'server', url: '/server' },
-  { title: 'profile', url: '/profile' },
-  { title: 'filters', url: '/filters' },
-];
+    const menu = ['friend','server','profile','filters'];
+    type MenuType = typeof menu[number];
 
 export default function Menu() {
+    const router = useRouter();
+    const context = useContext(AuthContext);
+
+    const handleClick=(item:MenuType)=>{
+      if(item=='profile'){
+          if(!context.userCard.userAuth.id){
+            window.location.href = 'http://localhost:8080/oauth2/authorization/discord';
+          }
+          else{
+            router.push(`/${item}`);    
+      }}else if(item==='friend'){
+        router.push(`/`);
+      }else{
+        router.push(`/${item}`);
+    }}
+
   return (
     <List sx={sxList}>
       {menu.map((item, index) => (
         <ListItem disablePadding key={index} sx={{ textDecoration: 'none' }}>
-          <a href={item.url} style={{ textDecoration: 'none' }}>
-            <ListItemButton sx={sxListItemButton}>
+            <ListItemButton 
+            sx={sxListItemButton}
+            onClick={()=>handleClick(item)}
+            >
               <ListItemText
-                primary={item.title}
+                primary={item}
                 sx={{ textShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
               />
             </ListItemButton>
-          </a>
         </ListItem>
       ))}
       <ListItem>

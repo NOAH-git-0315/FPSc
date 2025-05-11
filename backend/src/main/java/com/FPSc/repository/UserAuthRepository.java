@@ -21,6 +21,7 @@ public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
     JOIN ui.games g
     WHERE uo.showProfile = true
       AND g IN :games
+      ORDER BY ua.id
     """)
     Page<UserAuth> findByGenderAndGames(@Param("games") List<Game> games,Pageable pageable);
   
@@ -29,6 +30,7 @@ public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
     JOIN ua.userOption uo
     JOIN ua.userInfo ui
     LEFT JOIN ui.games g
+    ORDER BY ua.id
   """)
   Page<UserAuth> findAllUserInfo(Pageable pageable);
 }

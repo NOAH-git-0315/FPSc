@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './style.scss';
-import Header from '@/component/main/header';
-import Footer from '@/component/main/footer';
-import Menu from '@/component/main/menu';
+import Header from '@/component/templates/main/header';
+import Footer from '@/component/templates/main/footer';
+import Menu from '@/component/templates/main/menu';
 import AuthProvider from '@/component/templates/Auth';
 export const metadata: Metadata = {
   title: 'FPSc',

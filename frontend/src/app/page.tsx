@@ -3,6 +3,7 @@ import DiscordProfileCard from '@/component/templates/profcard';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { UserInfo } from './type';
+import PageNoball from '@/component/templates/main/pageNoBall';
 
 interface User {
   id: string;
@@ -13,16 +14,21 @@ interface User {
 }
 
 export default function UserList() {
-  const [users, setUsers] = useState<User[]>([]); // User型で指定
+  const [users, setUsers] = useState<User[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:8080/Home', {
-          method: 'GET',
-          credentials: 'include',
-        });
+        const res = await fetch(
+          `http://localhost:8080/Home?page=${page - 1}&size=15`,
+          {
+            method: 'GET',
+            credentials: 'include',
+          },
+        );
 
         if (!res.ok) {
           const errorData = await res.text();
@@ -38,10 +44,11 @@ export default function UserList() {
     };
 
     fetchData();
-  }, []);
+  }, [page]);
 
   return (
     <Box sx={{ marginTop: 15 }}>
+      <PageNoball page={page} setPage={setPage} />
       <Box
         sx={{
           display: 'grid',
@@ -49,13 +56,13 @@ export default function UserList() {
           justifyItems: 'center',
           gap: 5,
           padding: 2,
-          maxWidth: 1200, // 最大幅を指定
-          margin: '0 auto', // 左右中央寄せ
+          maxWidth: 1200,
+          margin: '0 auto',
         }}
       >
         {users.map((user) => (
           <DiscordProfileCard
-            key={user.id}
+            key={`${page}-${user.id}`}
             userAuth={{
               id: user.id,
               avatar: user.avatar,
@@ -83,6 +90,7 @@ export default function UserList() {
         ))}
         {error && <div className="text-red-500">{error}</div>}
       </Box>
+      <PageNoball page={page} setPage={setPage} />
     </Box>
   );
 }

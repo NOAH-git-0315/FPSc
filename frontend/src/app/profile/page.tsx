@@ -6,12 +6,12 @@ import { useContext } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Theme } from '@emotion/react';
-import SetGame from '@/component/profile/setGame';
-import SetTime from '@/component/profile/setTime';
-import SetIntroduction from '@/component/profile/setintroduction';
-import SetOptions from '@/component/profile/setOptions';
-import SetPlayStyle from '@/component/profile/setPlayStyle';
-import Submit from '@/component/profile/submit';
+import SetGame from '@/component/Organisms/profile/setGame';
+import SetTime from '@/component/Organisms/profile/setTime';
+import SetIntroduction from '@/component/Organisms/profile/setintroduction';
+import SetOptions from '@/component/Organisms/profile/setOptions';
+import SetPlayStyle from '@/component/Organisms/profile/setPlayStyle';
+import Submit from '@/component/Organisms/profile/submit';
 import { AuthContext } from '@/component/templates/Auth';
 
 const sx: SxProps<Theme> = {
