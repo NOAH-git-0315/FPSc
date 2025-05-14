@@ -1,8 +1,6 @@
 'use client';
 
 import { Box, SxProps } from '@mui/material';
-import DiscordProfileCard from '@/component/templates/profcard';
-import { useContext } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Theme } from '@emotion/react';
@@ -12,8 +10,8 @@ import SetIntroduction from '@/component/Organisms/profile/setintroduction';
 import SetOptions from '@/component/Organisms/profile/setOptions';
 import SetPlayStyle from '@/component/Organisms/profile/setPlayStyle';
 import Submit from '@/component/Organisms/profile/submit';
-import { AuthContext } from '@/component/templates/Auth';
-
+import { useEffect, useState } from 'react';
+import MyDiscordProfileCard from '@/component/Organisms/MYDiscordProfileCard';
 const sx: SxProps<Theme> = {
   display: 'flex',
   justifyContent: 'center',
@@ -21,41 +19,30 @@ const sx: SxProps<Theme> = {
   gap: 8,
   height: '100vh',
 };
+interface TimeLs {
+  weekday: string[];
+  holiday: string[];
+}
 
 export default function Profiles() {
-  const context = useContext(AuthContext);
+  const [timels, setTimels] = useState<TimeLs>({
+    weekday: ['00:00', '00:00'],
+    holiday: ['00:00', '00:00'],
+  });
 
-  if (!context) {
-    return <div>Loading...</div>;
-  }
-
-  const { userCard: state, setUserCard: setState } = context;
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-  }
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box sx={sx}>
-        <Box component="form" onSubmit={handleSubmit}>
-          <SetGame
-            setUser={setState}
-            defGames={[{ title: 'Overwatch2', rank: 'ゴールド' }]}
-          />
-          <SetTime setUser={setState} />
-          <SetPlayStyle
-            setUser={setState}
-            defPlayStyle={state.userInfo.playstyle}
-          />
-          <SetIntroduction
-            setUser={setState}
-            defIntroduction={'これはテスト用accountです'}
-          />
+        <Box>
+          <SetGame />
+          <SetTime setTimels={setTimels} />
+          <SetPlayStyle />
+          <SetIntroduction />
           <Submit />
         </Box>
         <Box>
-          <DiscordProfileCard {...state} />
-          <SetOptions setUser={setState} />
+          <MyDiscordProfileCard timels={timels} />
+          <SetOptions />
         </Box>
       </Box>
     </LocalizationProvider>

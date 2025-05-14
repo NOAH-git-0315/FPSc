@@ -1,18 +1,15 @@
 'use clinet';
-import { User } from '@/app/type';
+import { AuthContext } from '@/component/templates/Auth';
 import { Box, Typography, TextField } from '@mui/material';
-import { MutableRefObject, FocusEvent, useRef } from 'react';
+import { FocusEvent, useContext } from 'react';
 
-type Props = {
-  defIntroduction: string;
-  setUser: React.Dispatch<React.SetStateAction<User>>;
-};
-
-export default function SetIntroduction({ setUser, defIntroduction }: Props) {
+export default function SetIntroduction() {
+  const { userCard, setUserCard } = useContext(AuthContext);
   function handleBlur(e: FocusEvent<HTMLInputElement>) {
-    setUser((state: User) => ({
-      ...state,
-      userInfo: { ...state.userInfo, introduction: e.target.value },
+    const text = e.target.value;
+    setUserCard((prev) => ({
+      ...prev,
+      userInfo: { ...prev.userInfo, introduction: text },
     }));
   }
 
@@ -22,7 +19,7 @@ export default function SetIntroduction({ setUser, defIntroduction }: Props) {
         自己紹介
       </Typography>
       <TextField
-        defaultValue={defIntroduction}
+        defaultValue={userCard.userInfo.introduction}
         onBlur={handleBlur}
         multiline
         minRows={6}

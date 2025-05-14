@@ -18,7 +18,6 @@ export default function UserList() {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {

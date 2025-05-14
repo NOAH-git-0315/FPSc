@@ -1,7 +1,5 @@
 import { User } from '@/app/type';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
-import { userInfo } from 'os';
-import { relative } from 'path';
 
 const sx = {
   width: 330,
@@ -14,15 +12,29 @@ const sx = {
 
 const Margin = 1;
 
+const getPlaytime = (playtime: string[]) => {
+  if (playtime && playtime.length >= 2) {
+    return `${playtime[0]} ~ ${playtime[1]}`;
+  } else {
+    return '未設定';
+  }
+};
+
 export default function DiscordProfileCard(props: User) {
   const {
     userAuth: { id, avatar, name, globalName },
-    userInfo: { games, playtime1, playtime2, playstyle, introduction },
+    userInfo: {
+      games = [],
+      playtime1 = [],
+      playtime2 = [],
+      playstyle = [],
+      introduction = '',
+    },
   } = props;
+
   const icon = `https://cdn.discordapp.com/avatars/${id}/${avatar}`;
 
-  console.log(icon);
-  const Names: React.FC<{ children?: React.ReactNode }> = (props) => {
+  const Names: React.FC = () => {
     return (
       <Box
         sx={{
@@ -46,7 +58,8 @@ export default function DiscordProfileCard(props: User) {
     );
   };
 
-  const Games: React.FC<{ children?: React.ReactNode }> = (props) => {
+  const Games: React.FC = () => {
+    if (games.length === 0) return null;
     return (
       <Box sx={{ marginTop: Margin }}>
         <Typography fontSize={14} color="gray">
@@ -61,58 +74,42 @@ export default function DiscordProfileCard(props: User) {
     );
   };
 
-  const PlayStyle: React.FC<{ children?: React.ReactNode }> = () => {
+  const PlayStyle: React.FC = () => {
+    if (playstyle.length === 0) return null;
     return (
       <Box sx={{ flex: 1, marginTop: Margin }}>
         <Typography fontSize={14} color="gray">
           playstyle
         </Typography>
-        <Typography
-          sx={{
-            border: '1px solid gray',
-            borderRadius: 1,
-            p: 0.5,
-          }}
-        >
-          {playstyle?.join(', ')}
+        <Typography sx={{ border: '1px solid gray', borderRadius: 1, p: 0.5 }}>
+          {playstyle.join(', ')}
         </Typography>
       </Box>
     );
   };
 
-  const PlayTime: React.FC<{ children?: React.ReactNode }> = (props) => {
-    const typeSx = {
-      border: '1px solid gray',
-      borderRadius: 1,
-      p: 0.5,
-    };
+  const PlayTime: React.FC = () => {
+    const typeSx = { border: '1px solid gray', borderRadius: 1, p: 0.5 };
     return (
       <Box sx={{ display: 'flex', gap: 1, marginTop: Margin }}>
         <Box sx={{ flex: 1 }}>
           <Typography fontSize={14} color="gray">
             平日プレイ時間帯
           </Typography>
-          <Box>
-            <Typography sx={typeSx}>
-              {playtime1 || '未設定'} ~ {playtime1 || '未設定'}
-            </Typography>
-          </Box>
+          <Typography sx={typeSx}>{getPlaytime(playtime1)}</Typography>
         </Box>
         <Box sx={{ flex: 1 }}>
           <Typography fontSize={14} color="gray">
             休日プレイ時間帯
           </Typography>
-          <Box>
-            <Typography sx={typeSx}>
-              {playtime2 || '未設定'} ~ {playtime2 || '未設定'}
-            </Typography>
-          </Box>
+          <Typography sx={typeSx}>{getPlaytime(playtime2)}</Typography>
         </Box>
       </Box>
     );
   };
 
-  const Introduction: React.FC<{ children?: React.ReactNode }> = (props) => {
+  const Introduction: React.FC = () => {
+    if (!introduction) return null;
     return (
       <Box sx={{ marginTop: Margin }}>
         <Typography fontSize={14} color="gray">

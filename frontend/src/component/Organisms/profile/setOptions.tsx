@@ -1,43 +1,85 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { FormGroup, FormControlLabel, Checkbox, Box } from '@mui/material';
-
-const optionLs = [
-  { label: '性別を公開する', def: false },
-  { label: '年齢を公開する', def: false },
-  { label: '同性にのみプロフィールを公開する', def: false },
-  { label: 'プロフィールを非公開にする', def: false },
-];
-
-type OptionLs = typeof optionLs;
-type idx = keyof OptionLs;
+import { AuthContext } from '@/component/templates/Auth';
 
 export default function SetOptions() {
-  const [checkedState, setCheckedState] = useState(
-    optionLs.map((option) => option.def),
-  );
-
-  const handleChange =
-    (index: idx) => (event: React.MouseEvent<HTMLButtonElement>) => {
-      const newState = [...checkedState];
-      newState[index] = event.target.checked;
-      setCheckedState(newState);
-    };
+  const { userCard, setUserCard } = useContext(AuthContext);
+  const option = userCard.option;
+  const handleChange = (value: boolean, index: number) => {
+    setUserCard((prev) => {
+      const updatedOption = { ...prev.option };
+      switch (index) {
+        case 0: {
+          updatedOption.showGender = value;
+          break;
+        }
+        case 1: {
+          updatedOption.showAge = value;
+          break;
+        }
+        case 2: {
+          updatedOption.showGenderToSameSex = value;
+          break;
+        }
+        case 3: {
+          updatedOption.showProfile = value;
+          break;
+        }
+      }
+      return {
+        ...prev,
+        option: updatedOption,
+      };
+    });
+  };
 
   return (
     <Box sx={{ display: 'flex', paddingLeft: 1, marginTop: 2 }}>
       <FormGroup sx={{ marginTop: 4 }}>
-        {optionLs.map((option, index) => (
-          <FormControlLabel
-            key={index}
-            control={
-              <Checkbox
-                checked={checkedState[index]}
-                onChange={handleChange(index)}
-              />
-            }
-            label={option.label}
-          />
-        ))}
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={option.showGender}
+              onChange={(_, value) => {
+                handleChange(value, 0);
+              }}
+            />
+          }
+          label={'性別を公開する'}
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={option.showAge}
+              onChange={(_, value) => {
+                handleChange(value, 1);
+              }}
+            />
+          }
+          label={'年齢を公開する'}
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={option.showGenderToSameSex}
+              onChange={(_, value) => {
+                handleChange(value, 2);
+              }}
+            />
+          }
+          label={'同性にのみプロフィールを公開する'}
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={option.showProfile}
+              onChange={(_, value) => {
+                handleChange(value, 3);
+              }}
+            />
+          }
+          label={'プロフィールを非公開にする'}
+        />
       </FormGroup>
     </Box>
   );

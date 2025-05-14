@@ -1,52 +1,62 @@
-import { User } from '@/app/type';
+import { TimelsType } from '@/app/type';
+import { AuthContext } from '@/component/templates/Auth';
 import { Box, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
 import { Dayjs } from 'dayjs';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect } from 'react';
 
-type SetUser = Dispatch<React.SetStateAction<User>>;
-
-interface SetTimeProps {
-  setUser: SetUser;
+interface TimeLs {
+  weekday: string[];
+  holiday: string[];
 }
 
-export default function SetTime({ setUser }: SetTimeProps) {
+interface SetTimeProps {
+  setTimels: Dispatch<SetStateAction<TimeLs>>;
+}
+
+export default function SetTime({ setTimels }: SetTimeProps) {
+  const { userCard, setUserCard } = useContext(AuthContext);
+  useEffect(() => {
+    const playtime1 = [
+      userCard.userInfo.playtime1[0]?.toString(),
+      userCard.userInfo.playtime1[
+        userCard.userInfo.playtime1.length - 1
+      ]?.toString(),
+    ];
+    const playtime2 = [
+      userCard.userInfo.playtime2[0]?.toString(),
+      userCard.userInfo.playtime2[
+        userCard.userInfo.playtime2.length - 1
+      ]?.toString(),
+    ];
+
+    setTimels({
+      weekday: [...playtime1],
+      holiday: [...playtime2],
+    });
+  }, []);
+
   function handleTimeChange(id: string, value: Dayjs | null) {
-    const formatted = value ? value.format('HH:mm') : '';
-
-    if (!setUser) return;
-
-    setUser((state) => {
-      if (!state) return state;
-
-      const updatePlaytime = (
-        playtimeKey: 'playtime1' | 'playtime2',
-        timeKey: 'start' | 'end',
-      ) => {
-        return {
-          ...state,
-          userInfo: {
-            ...state.userInfo,
-            [playtimeKey]: {
-              ...state.userInfo[playtimeKey],
-              [timeKey]: formatted,
-            },
-          },
-        };
-      };
-
+    const time = value ? value?.format('HH:mm') : '';
+    setTimels((prev) => {
+      const newTimels = { ...prev };
       switch (id) {
         case 'weekdayStart':
-          return updatePlaytime('playtime1', 'start');
+          newTimels.weekday[0] = time;
+          break;
         case 'weekdayEnd':
-          return updatePlaytime('playtime1', 'end');
+          newTimels.weekday[1] = time;
+          break;
         case 'holidayStart':
-          return updatePlaytime('playtime2', 'start');
+          newTimels.holiday[0] = time;
+          break;
         case 'holidayEnd':
-          return updatePlaytime('playtime2', 'end');
+          newTimels.holiday[1] = time;
+          break;
         default:
-          return state;
+          break;
       }
+      return newTimels;
     });
   }
 
@@ -58,13 +68,11 @@ export default function SetTime({ setUser }: SetTimeProps) {
       <Box sx={{ display: 'flex' }}>
         <TimePicker
           label="開始時刻"
-          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('weekdayStart', value)}
         />
         <TimePicker
           label="終了時刻"
-          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('weekdayEnd', value)}
         />
@@ -75,13 +83,11 @@ export default function SetTime({ setUser }: SetTimeProps) {
         </Typography>
         <TimePicker
           label="開始時刻"
-          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('holidayStart', value)}
         />
         <TimePicker
           label="終了時刻"
-          value={null}
           minutesStep={30}
           onChange={(value) => handleTimeChange('holidayEnd', value)}
         />

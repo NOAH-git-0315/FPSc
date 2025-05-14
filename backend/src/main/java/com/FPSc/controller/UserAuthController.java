@@ -44,7 +44,7 @@ public class UserAuthController {
     
         return ResponseEntity
                 .status(302)
-                .header("Location", "http://localhost:3000/test")
+                .header("Location", "http://localhost:3000/profile")
                 .header("Set-Cookie", cookie.toString())
                 .build();
     }

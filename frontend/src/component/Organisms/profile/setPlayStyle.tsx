@@ -1,5 +1,6 @@
 'use client';
 import { Box, Typography } from '@mui/material';
+import { PlayStyle, playStyleList } from '@/lib/Array/PlayStyle';
 
 import * as React from 'react';
 import useAutocomplete, {
@@ -10,6 +11,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import { autocompleteClasses } from '@mui/material/Autocomplete';
 import { User } from '@/app/type';
+import { AuthContext } from '@/component/templates/Auth';
+import { useContext } from 'react';
 
 const Root = styled('div')(({ theme }) => ({
   color: 'rgba(0,0,0,0.85)',
@@ -169,13 +172,13 @@ const Listbox = styled('ul')(({ theme }) => ({
 }));
 
 type CustomizedHookProps = {
-  onChange: (value: playStyleType[]) => void;
-  defaultValue?: playStyleType[];
+  MyplayStyleList: PlayStyle[];
+  handleChange: (value: PlayStyle[]) => void;
 };
 
 export function CustomizedHook({
-  onChange,
-  defaultValue,
+  MyplayStyleList,
+  handleChange,
 }: CustomizedHookProps) {
   const {
     getRootProps,
@@ -190,12 +193,11 @@ export function CustomizedHook({
     setAnchorEl,
   } = useAutocomplete({
     id: 'customized-hook-demo',
-    defaultValue: defaultValue,
     multiple: true,
     options: playStyleList,
-    getOptionLabel: (option) => option.title,
+    value: MyplayStyleList,
     onChange: (_, newValue) => {
-      onChange(newValue);
+      handleChange(newValue);
     },
   });
 
@@ -204,9 +206,9 @@ export function CustomizedHook({
       <div {...getRootProps()}>
         <Label {...getInputLabelProps()}></Label>
         <InputWrapper ref={setAnchorEl} className={focused ? 'focused' : ''}>
-          {value.map((option: option, index: number) => {
+          {value.map((option: PlayStyle, index: number) => {
             const { key, ...tagProps } = getTagProps({ index });
-            return <StyledTag key={key} {...tagProps} label={option.title} />;
+            return <StyledTag key={key} {...tagProps} label={option} />;
           })}
           <input {...getInputProps()} />
         </InputWrapper>
@@ -217,7 +219,7 @@ export function CustomizedHook({
             const { key, ...optionProps } = getOptionProps({ option, index });
             return (
               <li key={key} {...optionProps}>
-                <span>{option.title}</span>
+                <span>{option}</span>
                 <CheckIcon fontSize="small" />
               </li>
             );
@@ -228,37 +230,17 @@ export function CustomizedHook({
   );
 }
 
-interface playStyleType {
-  title: string;
-  index: number;
-}
+export default function SetPlayStyle() {
+  const { userCard, setUserCard } = useContext(AuthContext);
+  const MyplayStyleList = userCard.userInfo.playstyle as PlayStyle[];
 
-const playStyleList = [
-  { title: 'ランク' },
-  { title: 'カジュアル・アンランク' },
-  { title: '初心者' },
-  { title: 'ゆったり' },
-  { title: 'ガチプレイ' },
-  { title: '聞き専' },
-  { title: 'コーチング可' },
-  { title: 'コーチング募集' },
-];
-
-type Props = {
-  defPlayStyle: playStyleType[];
-  setUser: React.Dispatch<React.SetStateAction<User>>;
-};
-
-export default function setPlayStyle({ setUser, defPlayStyle }: Props) {
-  const handlePlayStyleChange = (value: playStyleType[]) => {
-    setUser((state) => {
-      if (!state) return state;
-
+  const handleChange = (value: PlayStyle[]) => {
+    setUserCard((prev) => {
       return {
-        ...state,
+        ...prev,
         userInfo: {
-          ...state.userInfo,
-          playstyle: value.map((v) => v.title),
+          ...prev.userInfo,
+          playstyle: value,
         },
       };
     });
@@ -270,8 +252,8 @@ export default function setPlayStyle({ setUser, defPlayStyle }: Props) {
         プレイスタイル
       </Typography>
       <CustomizedHook
-        onChange={handlePlayStyleChange}
-        defaultValue={defPlayStyle}
+        MyplayStyleList={MyplayStyleList}
+        handleChange={handleChange}
       />
     </Root>
   );

@@ -15,9 +15,9 @@ export interface UserAuth {
 }
 export interface UserInfo {
   games: Game[];
-  playtime1: String[];
-  playtime2: String[];
-  playstyle: String[];
+  playtime1: string[];
+  playtime2: string[];
+  playstyle: string[];
   introduction: string;
 }
 
@@ -39,6 +39,12 @@ export interface User {
   cardOption: CardOption;
 }
 
+export interface TimelsType {
+  weekdayStart: null | string;
+  weekdayEnd: null | string;
+  holidayStart: null | string;
+  holidayEnd: null | string;
+}
 //あとでもっと厳密にする
 //fs通貨を採用して、プロフィールを買えるようにしたい
 
