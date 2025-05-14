@@ -4,10 +4,15 @@ import { Box } from '@mui/material';
 
 interface PropsType {
   page: number;
+  totalPages: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function CenteredPagination({ page, setPage }: PropsType) {
+export default function CenteredPagination({
+  page,
+  totalPages,
+  setPage,
+}: PropsType) {
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
@@ -34,7 +39,7 @@ export default function CenteredPagination({ page, setPage }: PropsType) {
         }}
       >
         <Pagination
-          count={10}
+          count={totalPages}
           size="large"
           onChange={handleChange}
           page={page}

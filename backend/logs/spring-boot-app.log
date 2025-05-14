@@ -3,3 +3,366 @@
 2025-05-14T08:57:10.941+09:00  INFO 488 --- [restartedMain] com.FPSc.FPScApplication                 : No active profile set, falling back to 1 default profile: "default"
 2025-05-14T08:57:10.980+09:00  INFO 488 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
 2025-05-14T08:57:10.980+09:00  INFO 488 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-14T08:57:11.509+09:00  INFO 488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-14T08:57:11.562+09:00  INFO 488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 5 JPA repository interfaces.
+2025-05-14T08:57:12.018+09:00  INFO 488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-14T08:57:12.031+09:00  INFO 488 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-14T08:57:12.032+09:00  INFO 488 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-14T08:57:12.078+09:00  INFO 488 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-14T08:57:12.078+09:00  INFO 488 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1098 ms
+2025-05-14T08:57:12.223+09:00  INFO 488 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-14T08:57:12.263+09:00  INFO 488 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-14T08:57:12.290+09:00  INFO 488 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-14T08:57:12.515+09:00  INFO 488 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-14T08:57:12.539+09:00  INFO 488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-14T08:57:16.804+09:00  INFO 488 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:C:/Users/Shuya/Desktop/FPSc-main/db/mydb user=SA
+2025-05-14T08:57:16.805+09:00  INFO 488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-14T08:57:16.848+09:00  INFO 488 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-14T08:57:17.920+09:00  INFO 488 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-14T08:57:17.977+09:00  INFO 488 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-14T08:57:18.281+09:00  INFO 488 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-14T08:57:19.478+09:00  WARN 488 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-14T08:57:19.493+09:00 DEBUG 488 --- [restartedMain] swordEncoderAuthenticationManagerBuilder : No authenticationProviders and no parentAuthenticationManager defined. Returning null.
+2025-05-14T08:57:19.758+09:00 DEBUG 488 --- [restartedMain] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Deferred [Mvc [pattern='/login'], Ant [pattern='/login']]
+2025-05-14T08:57:19.772+09:00 DEBUG 488 --- [restartedMain] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Deferred [Mvc [pattern='/Home'], Ant [pattern='/Home']]
+2025-05-14T08:57:19.772+09:00 DEBUG 488 --- [restartedMain] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Deferred [Mvc [pattern='/error'], Ant [pattern='/error']]
+2025-05-14T08:57:19.772+09:00 DEBUG 488 --- [restartedMain] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Deferred [Mvc [pattern='/h2-console/**'], Ant [pattern='/h2-console/**']]
+2025-05-14T08:57:19.772+09:00 DEBUG 488 --- [restartedMain] edFilterInvocationSecurityMetadataSource : Adding web access control expression [permitAll] for Deferred [Mvc [pattern='/**', OPTIONS], Ant [pattern='/**', OPTIONS]]
+2025-05-14T08:57:19.785+09:00 DEBUG 488 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, OAuth2AuthorizationRequestRedirectFilter, OAuth2LoginAuthenticationFilter, DefaultResourcesFilter, DefaultLoginPageGeneratingFilter, DefaultLogoutPageGeneratingFilter, ConcurrentSessionFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, FilterSecurityInterceptor
+2025-05-14T08:57:19.916+09:00  INFO 488 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:C:/Users/Shuya/Desktop/FPSc-main/db/mydb'
+2025-05-14T08:57:19.968+09:00  INFO 488 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-05-14T08:57:19.999+09:00  INFO 488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-14T08:57:20.007+09:00  INFO 488 --- [restartedMain] com.FPSc.FPScApplication                 : Started FPScApplication in 9.443 seconds (process running for 9.778)
+2025-05-14T08:57:34.252+09:00  INFO 488 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-14T08:57:34.253+09:00  INFO 488 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-14T08:57:34.255+09:00  INFO 488 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-14T08:57:34.273+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T08:57:34.273+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T08:57:34.283+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T08:57:34.286+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T08:57:34.288+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T08:57:34.289+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T08:57:34.298+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T08:57:34.299+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T08:57:34.410+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T08:57:34.410+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T08:57:34.411+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T08:57:34.411+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T08:57:34.467+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T08:57:34.468+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T08:57:34.468+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T08:57:34.469+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T08:57:35.667+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /oauth2/authorization/discord
+2025-05-14T08:57:35.680+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.web.DefaultRedirectStrategy        : Redirecting to https://discord.com/api/oauth2/authorize?response_type=code&client_id=1366417359237025823&scope=identify&state=-faj4YrnFpf8s4CpqUCXi4AEpwxJ9iprdhK7nVsvttE%3D&redirect_uri=http://localhost:8080/login/oauth2/code/discord
+2025-05-14T08:57:40.006+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /login/oauth2/code/discord?code=0o0gIzzmzS2iBYrpnJ1NMKX0euEkas&state=-faj4YrnFpf8s4CpqUCXi4AEpwxJ9iprdhK7nVsvttE%3D
+2025-05-14T08:57:41.058+09:00 DEBUG 488 --- [http-nio-8080-exec-8] .s.ChangeSessionIdAuthenticationStrategy : Changed session id from 5CC49D51F147398E2A96717281EAFF9A
+2025-05-14T08:57:41.059+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.core.session.SessionRegistryImpl   : Registering session 4375337046381D4065FE3E38448655D7, for principal Name: [noah_ow], Granted Authorities: [[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]], User Attributes: [{id=799680482488483882, username=noah_ow, avatar=aff247b2366741060d3bc6b364f56b2b, discriminator=0, public_flags=0, flags=0, banner=null, accent_color=null, global_name=ノア, avatar_decoration_data=null, collectibles=null, banner_color=null, clan=null, primary_guild=null, mfa_enabled=false, locale=ja, premium_type=0, email=noahwanderer0315@gmail.com, verified=true}]
+2025-05-14T08:57:41.060+09:00 DEBUG 488 --- [http-nio-8080-exec-8] w.c.HttpSessionSecurityContextRepository : Stored SecurityContextImpl [Authentication=OAuth2AuthenticationToken [Principal=Name: [noah_ow], Granted Authorities: [[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]], User Attributes: [{id=799680482488483882, username=noah_ow, avatar=aff247b2366741060d3bc6b364f56b2b, discriminator=0, public_flags=0, flags=0, banner=null, accent_color=null, global_name=ノア, avatar_decoration_data=null, collectibles=null, banner_color=null, clan=null, primary_guild=null, mfa_enabled=false, locale=ja, premium_type=0, email=noahwanderer0315@gmail.com, verified=true}], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=5CC49D51F147398E2A96717281EAFF9A], Granted Authorities=[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@58660c91]
+2025-05-14T08:57:41.060+09:00 DEBUG 488 --- [http-nio-8080-exec-8] .s.o.c.w.OAuth2LoginAuthenticationFilter : Set SecurityContextHolder to OAuth2AuthenticationToken [Principal=Name: [noah_ow], Granted Authorities: [[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]], User Attributes: [{id=799680482488483882, username=noah_ow, avatar=aff247b2366741060d3bc6b364f56b2b, discriminator=0, public_flags=0, flags=0, banner=null, accent_color=null, global_name=ノア, avatar_decoration_data=null, collectibles=null, banner_color=null, clan=null, primary_guild=null, mfa_enabled=false, locale=ja, premium_type=0, email=noahwanderer0315@gmail.com, verified=true}], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=5CC49D51F147398E2A96717281EAFF9A], Granted Authorities=[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]]
+2025-05-14T08:57:41.061+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /users/auth
+2025-05-14T08:57:41.065+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /users/auth
+2025-05-14T08:57:41.066+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /users/auth]
+2025-05-14T08:57:41.066+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /users/auth
+2025-05-14T08:57:41.068+09:00 DEBUG 488 --- [http-nio-8080-exec-3] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=OAuth2AuthenticationToken [Principal=Name: [noah_ow], Granted Authorities: [[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]], User Attributes: [{id=799680482488483882, username=noah_ow, avatar=aff247b2366741060d3bc6b364f56b2b, discriminator=0, public_flags=0, flags=0, banner=null, accent_color=null, global_name=ノア, avatar_decoration_data=null, collectibles=null, banner_color=null, clan=null, primary_guild=null, mfa_enabled=false, locale=ja, premium_type=0, email=noahwanderer0315@gmail.com, verified=true}], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=5CC49D51F147398E2A96717281EAFF9A], Granted Authorities=[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]]]
+2025-05-14T09:20:20.271+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T09:20:20.273+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T09:20:20.273+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T09:20:20.278+09:00 DEBUG 488 --- [http-nio-8080-exec-9] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=OAuth2AuthenticationToken [Principal=Name: [noah_ow], Granted Authorities: [[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]], User Attributes: [{id=799680482488483882, username=noah_ow, avatar=aff247b2366741060d3bc6b364f56b2b, discriminator=0, public_flags=0, flags=0, banner=null, accent_color=null, global_name=ノア, avatar_decoration_data=null, collectibles=null, banner_color=null, clan=null, primary_guild=null, mfa_enabled=false, locale=ja, premium_type=0, email=noahwanderer0315@gmail.com, verified=true}], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=5CC49D51F147398E2A96717281EAFF9A], Granted Authorities=[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]]]
+2025-05-14T09:27:05.337+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T09:27:05.338+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T09:27:05.338+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T09:27:05.341+09:00 DEBUG 488 --- [http-nio-8080-exec-2] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=OAuth2AuthenticationToken [Principal=Name: [noah_ow], Granted Authorities: [[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]], User Attributes: [{id=799680482488483882, username=noah_ow, avatar=aff247b2366741060d3bc6b364f56b2b, discriminator=0, public_flags=0, flags=0, banner=null, accent_color=null, global_name=ノア, avatar_decoration_data=null, collectibles=null, banner_color=null, clan=null, primary_guild=null, mfa_enabled=false, locale=ja, premium_type=0, email=noahwanderer0315@gmail.com, verified=true}], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=5CC49D51F147398E2A96717281EAFF9A], Granted Authorities=[OAUTH2_USER, SCOPE_connections, SCOPE_email, SCOPE_identify]]]
+2025-05-14T10:05:50.029+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T10:05:50.030+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T10:05:50.030+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T10:05:50.031+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T10:05:50.031+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T10:05:50.038+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T10:05:50.038+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T10:05:50.038+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T10:05:50.038+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T10:05:50.039+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T10:30:01.697+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T10:30:01.697+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T10:30:01.698+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T10:30:01.698+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T10:30:01.698+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T10:30:01.704+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T10:30:01.704+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T10:30:01.704+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T10:30:01.705+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T10:30:01.705+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T11:46:18.470+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T11:46:18.471+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T11:46:18.471+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T11:46:18.471+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T11:46:18.472+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T11:46:19.451+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T11:46:19.452+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T11:46:19.452+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T11:46:19.452+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T11:46:19.453+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:13:43.630+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:13:43.631+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:13:43.631+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:13:43.631+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:13:43.631+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:13:44.514+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:13:44.514+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:13:44.514+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:13:44.515+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:13:44.515+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:17:32.876+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:17:32.877+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:17:32.877+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:17:32.878+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:17:32.878+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:17:33.652+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:17:33.653+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:17:33.653+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:17:33.653+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:17:33.654+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:17:33.663+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:17:33.664+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:17:33.664+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:17:33.665+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:17:33.665+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:24:20.741+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:24:20.741+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:24:20.741+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:24:20.742+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:24:20.742+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:24:21.517+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:24:21.517+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:24:21.517+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:24:21.518+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:24:21.518+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:24:46.344+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:24:46.345+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:24:46.345+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:24:46.345+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:24:46.345+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:24:50.904+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:24:50.905+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:24:50.905+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:24:50.906+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:24:50.906+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:29:19.219+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:29:19.220+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:29:19.220+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:29:19.220+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:29:19.220+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:29:19.227+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:29:19.227+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:29:19.227+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:29:19.228+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:29:19.228+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:34:13.972+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:34:13.973+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:34:13.973+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:34:13.973+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:34:13.974+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:34:13.978+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:34:13.979+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:34:13.979+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:34:13.979+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:34:13.979+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:49:01.471+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing OPTIONS /profile/update
+2025-05-14T14:49:01.472+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:49:01.473+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [OPTIONS /profile/update] with attributes [permitAll]
+2025-05-14T14:49:01.473+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured OPTIONS /profile/update
+2025-05-14T14:49:01.479+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /profile/update
+2025-05-14T14:49:01.479+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:49:01.479+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:49:01.480+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [POST /profile/update]
+2025-05-14T14:49:01.480+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /profile/update
+2025-05-14T14:49:01.705+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /profile/update
+2025-05-14T14:49:01.705+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:49:01.705+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:49:01.705+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [POST /profile/update]
+2025-05-14T14:49:01.705+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /profile/update
+2025-05-14T14:49:02.177+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /profile/update
+2025-05-14T14:49:02.178+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:49:02.178+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:49:02.178+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [POST /profile/update]
+2025-05-14T14:49:02.178+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /profile/update
+2025-05-14T14:54:41.248+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T14:54:41.249+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:54:41.249+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:54:41.251+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T14:54:41.251+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T14:54:41.268+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T14:54:41.269+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:54:41.269+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:54:41.270+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T14:54:41.270+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T14:54:46.598+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=1&size=15
+2025-05-14T14:54:46.599+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:54:46.599+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:54:46.599+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=1&size=15] with attributes [permitAll]
+2025-05-14T14:54:46.599+09:00 DEBUG 488 --- [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=1&size=15
+2025-05-14T14:54:47.767+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=9&size=15
+2025-05-14T14:54:47.768+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:54:47.768+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:54:47.768+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=9&size=15] with attributes [permitAll]
+2025-05-14T14:54:47.769+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=9&size=15
+2025-05-14T14:54:49.408+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=5&size=15
+2025-05-14T14:54:49.408+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:54:49.408+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:54:49.409+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=5&size=15] with attributes [permitAll]
+2025-05-14T14:54:49.409+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=5&size=15
+2025-05-14T14:54:50.423+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T14:54:50.424+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:54:50.424+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:54:50.424+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T14:54:50.424+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T14:57:45.223+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T14:57:45.222+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:57:45.223+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:57:45.223+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:57:45.223+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:57:45.223+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:57:45.223+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:57:45.224+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:57:45.224+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T14:57:45.224+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T14:57:45.231+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T14:57:45.231+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:57:45.233+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:57:45.233+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T14:57:45.233+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T14:57:45.237+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T14:57:45.238+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T14:57:45.238+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T14:57:45.238+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T14:57:45.239+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:01:21.902+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T15:01:21.902+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:01:21.903+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:01:21.903+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:01:21.904+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:01:21.904+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:01:21.904+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T15:01:21.904+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T15:01:21.904+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:01:21.905+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:01:21.913+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T15:01:21.913+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:01:21.913+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:01:21.914+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T15:01:21.914+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T15:01:21.928+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:01:21.929+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:01:21.929+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:01:21.930+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:01:21.930+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:05:48.104+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T15:05:48.105+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:07:04.851+09:00  INFO 488 --- [http-nio-8080-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in the request target [/Home?page=${page%20-%201}&size=15 ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:484) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:270) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.39.jar:10.1.39]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-05-14T15:07:04.916+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-05-14T15:07:04.916+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:07:04.916+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:07:04.916+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /favicon.ico]
+2025-05-14T15:07:04.916+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /favicon.ico
+2025-05-14T15:07:04.926+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-05-14T15:07:04.926+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:07:04.926+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /error] with attributes [permitAll]
+2025-05-14T15:07:04.926+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /error
+2025-05-14T15:07:14.764+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /.well-known/appspecific/com.chrome.devtools.json
+2025-05-14T15:07:14.764+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:07:14.765+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:07:14.765+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /.well-known/appspecific/com.chrome.devtools.json]
+2025-05-14T15:07:14.765+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /.well-known/appspecific/com.chrome.devtools.json
+2025-05-14T15:07:14.767+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /error
+2025-05-14T15:07:14.768+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:07:14.768+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /error] with attributes [permitAll]
+2025-05-14T15:07:14.768+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /error
+2025-05-14T15:08:10.236+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:08:10.237+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:08:10.237+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:08:10.238+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:08:10.238+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:08:10.239+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T15:08:10.239+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:08:10.239+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:08:10.240+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T15:08:10.240+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T15:09:35.392+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:09:35.393+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:09:35.394+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:09:35.394+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:09:35.395+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:12:30.103+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:12:30.103+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /check
+2025-05-14T15:12:30.104+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:30.104+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:30.104+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:30.104+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:30.104+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized public object filter invocation [GET /check]
+2025-05-14T15:12:30.105+09:00 DEBUG 488 --- [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /check
+2025-05-14T15:12:30.105+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:12:30.105+09:00 DEBUG 488 --- [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:12:31.555+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=1&size=15
+2025-05-14T15:12:31.555+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:31.555+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:31.556+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=1&size=15] with attributes [permitAll]
+2025-05-14T15:12:31.556+09:00 DEBUG 488 --- [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=1&size=15
+2025-05-14T15:12:32.308+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=2&size=15
+2025-05-14T15:12:32.309+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:32.309+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:32.309+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=2&size=15] with attributes [permitAll]
+2025-05-14T15:12:32.309+09:00 DEBUG 488 --- [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=2&size=15
+2025-05-14T15:12:33.073+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:12:33.073+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:33.073+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:33.074+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:12:33.074+09:00 DEBUG 488 --- [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15
+2025-05-14T15:12:35.871+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=1&size=15
+2025-05-14T15:12:35.872+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:35.872+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:35.872+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=1&size=15] with attributes [permitAll]
+2025-05-14T15:12:35.873+09:00 DEBUG 488 --- [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=1&size=15
+2025-05-14T15:12:36.437+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=2&size=15
+2025-05-14T15:12:36.437+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:36.438+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:36.438+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=2&size=15] with attributes [permitAll]
+2025-05-14T15:12:36.438+09:00 DEBUG 488 --- [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=2&size=15
+2025-05-14T15:12:38.577+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=1&size=15
+2025-05-14T15:12:38.577+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:38.578+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:38.578+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=1&size=15] with attributes [permitAll]
+2025-05-14T15:12:38.578+09:00 DEBUG 488 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=1&size=15
+2025-05-14T15:12:39.651+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /Home?page=0&size=15
+2025-05-14T15:12:39.651+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-14T15:12:39.651+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 4375337046381D4065FE3E38448655D7
+2025-05-14T15:12:39.652+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.s.w.a.i.FilterSecurityInterceptor    : Authorized filter invocation [GET /Home?page=0&size=15] with attributes [permitAll]
+2025-05-14T15:12:39.652+09:00 DEBUG 488 --- [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /Home?page=0&size=15

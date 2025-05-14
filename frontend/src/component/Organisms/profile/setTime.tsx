@@ -1,4 +1,3 @@
-import { TimelsType } from '@/app/type';
 import { AuthContext } from '@/component/templates/Auth';
 import { Box, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
@@ -15,7 +14,7 @@ interface SetTimeProps {
 }
 
 export default function SetTime({ setTimels }: SetTimeProps) {
-  const { userCard, setUserCard } = useContext(AuthContext);
+  const { userCard } = useContext(AuthContext);
   useEffect(() => {
     const playtime1 = [
       userCard.userInfo.playtime1[0]?.toString(),
@@ -62,7 +61,7 @@ export default function SetTime({ setTimels }: SetTimeProps) {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', marginTop: 4 }}>
-      <Typography fontSize={14} color="gray">
+      <Typography fontSize={14} marginBottom={1} color="gray">
         平日
       </Typography>
       <Box sx={{ display: 'flex' }}>
@@ -77,8 +76,8 @@ export default function SetTime({ setTimels }: SetTimeProps) {
           onChange={(value) => handleTimeChange('weekdayEnd', value)}
         />
       </Box>
-      <Box sx={{ flex: 1, marginTop: 1 }}>
-        <Typography fontSize={14} color="gray">
+      <Box sx={{ flex: 1, marginTop: 2 }}>
+        <Typography fontSize={14} marginBottom={1} color="gray">
           休日
         </Typography>
         <TimePicker

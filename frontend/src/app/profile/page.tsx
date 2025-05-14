@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, SxProps } from '@mui/material';
+import { Box, SxProps, Typography } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Theme } from '@emotion/react';
@@ -12,13 +12,20 @@ import SetPlayStyle from '@/component/Organisms/profile/setPlayStyle';
 import Submit from '@/component/Organisms/profile/submit';
 import { useEffect, useState } from 'react';
 import MyDiscordProfileCard from '@/component/Organisms/MYDiscordProfileCard';
+import SetGender from '@/component/Organisms/profile/setGender';
+import SetAge from '@/component/Organisms/profile/setAge';
+import Annotation from '@/component/Organisms/profile/annotation';
+import AccountDelete from '@/component/Organisms/profile/accountDelete';
 const sx: SxProps<Theme> = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: 8,
+  gap: 4,
   height: '100vh',
 };
+
+const TypographySx: SxProps<Theme> = {};
+
 interface TimeLs {
   weekday: string[];
   holiday: string[];
@@ -32,17 +39,24 @@ export default function Profiles() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Typography sx={TypographySx}>プロフィール編集</Typography>
       <Box sx={sx}>
         <Box>
           <SetGame />
           <SetTime setTimels={setTimels} />
-          <SetPlayStyle />
-          <SetIntroduction />
+          <AccountDelete />
           <Submit />
         </Box>
         <Box>
-          <MyDiscordProfileCard timels={timels} />
+          <SetGender />
+          <SetAge />
+          <SetPlayStyle />
+          <SetIntroduction />
           <SetOptions />
+        </Box>
+        <Box>
+          <MyDiscordProfileCard timels={timels} />
+          <Annotation />
         </Box>
       </Box>
     </LocalizationProvider>

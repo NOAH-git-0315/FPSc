@@ -15,6 +15,7 @@ interface User {
 
 export default function UserList() {
   const [users, setUsers] = useState<User[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
 
@@ -37,6 +38,7 @@ export default function UserList() {
 
         const json = await res.json();
         setUsers(json.content);
+        setTotalPages(json.totalPages);
       } catch (error) {
         setError('Error fetching data: ' + error);
       }
@@ -47,7 +49,7 @@ export default function UserList() {
 
   return (
     <Box sx={{ marginTop: 15 }}>
-      <PageNoball page={page} setPage={setPage} />
+      <PageNoball page={page} setPage={setPage} totalPages={totalPages} />
       <Box
         sx={{
           display: 'grid',
@@ -89,7 +91,7 @@ export default function UserList() {
         ))}
         {error && <div className="text-red-500">{error}</div>}
       </Box>
-      <PageNoball page={page} setPage={setPage} />
+      <PageNoball page={page} setPage={setPage} totalPages={totalPages} />
     </Box>
   );
 }

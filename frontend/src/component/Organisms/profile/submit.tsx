@@ -62,7 +62,7 @@ export default function Submit() {
   return (
     <>
       <Button onClick={handleSubmit} variant="contained" sx={{ marginTop: 2 }}>
-        送信
+        プロフィールを更新
       </Button>
 
       {errorMessage && (

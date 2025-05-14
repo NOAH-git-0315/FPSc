@@ -78,7 +78,7 @@ export default function SetOptions() {
               }}
             />
           }
-          label={'プロフィールを非公開にする'}
+          label={'プロフィールを公開する'}
         />
       </FormGroup>
     </Box>
