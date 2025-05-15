@@ -14,7 +14,7 @@ const Margin = 1;
 
 const getPlaytime = (playtime: string[]) => {
   if (playtime && playtime.length >= 2) {
-    return `${playtime[0]} ~ ${playtime[1]}`;
+    return `${playtime[0]} ~ ${playtime[playtime.length - 1]}`;
   } else {
     return '未設定';
   }

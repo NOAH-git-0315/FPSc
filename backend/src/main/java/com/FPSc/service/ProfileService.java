@@ -23,20 +23,22 @@ public class ProfileService {
     private final UserOptionRepository userOptionRepository;
     private final CardOptionRepository cardOptionRepository;
 
-    public ProfileService(UserAuthRepository userAuthRepository, UserInfoRepository userInfoRepository, UserOptionRepository userOptionRepository, CardOptionRepository cardOptionRepository) {
+    public ProfileService(UserAuthRepository userAuthRepository, UserInfoRepository userInfoRepository,
+            UserOptionRepository userOptionRepository, CardOptionRepository cardOptionRepository) {
         this.userAuthRepository = userAuthRepository;
         this.userInfoRepository = userInfoRepository;
         this.userOptionRepository = userOptionRepository;
         this.cardOptionRepository = cardOptionRepository;
     }
 
-    public void createProfile(UserAuth userAuth,ProfilePostRequest request){
+    public void createProfile(UserAuth userAuth, ProfilePostRequest request) {
         UserInfoDTO userInfoDTO = request.getUserInfo();
-        OptionDTO OptionDTO = request.getUserOption();
+        OptionDTO optionDTO = request.getUserOption();
         CardOptionDTO cardOptionDTO = request.getCardOption();
 
-        UserInfo userInfo = userInfoRepository.findById(userAuth.getId()).orElseThrow(() -> new IllegalArgumentException("CardOption not found for userAuth id: " + userAuth.getId()));
-        userInfo.setUserAuth(userAuth); 
+        UserInfo userInfo = userInfoRepository.findById(userAuth.getId()).orElseThrow(
+                () -> new IllegalArgumentException("UserInfo not found for userAuth id: " + userAuth.getId()));
+        userInfo.setUserAuth(userAuth);
         userInfo.setIntroduction(userInfoDTO.getIntroduction());
         userInfo.setPlaytime1(userInfoDTO.getPlaytime1());
         userInfo.setPlaytime2(userInfoDTO.getPlaytime2());
@@ -44,21 +46,26 @@ public class ProfileService {
 
         userInfo.getGames().clear();
         userInfoDTO.getGames().forEach(gameDTO -> {
-        Game game = new Game();
-        game.setTitle(gameDTO.getTitle());
-        game.setRank(gameDTO.getRank());
-        game.setUserInfo(userInfo);
-        userInfo.getGames().add(game);
-    });
-        UserOption userOption = userOptionRepository.findById(userAuth.getId()).orElseThrow(() -> new IllegalArgumentException("CardOption not found for userAuth id: " + userAuth.getId()));
+            Game game = new Game();
+            game.setTitle(gameDTO.getTitle());
+            game.setRank(gameDTO.getRank());
+            game.setUserInfo(userInfo);
+            userInfo.getGames().add(game);
+        });
+
+        userInfoRepository.save(userInfo);
+
+        UserOption userOption = userOptionRepository.findById(userAuth.getId()).orElseThrow(
+                () -> new IllegalArgumentException("UserOption not found for userAuth id: " + userAuth.getId()));
         userOption.setUserAuth(userAuth);
-        userOption.setShowGender(OptionDTO.getShowGender());
-        userOption.setShowAge(OptionDTO.getShowAge());  
-        userOption.setShowGenderToSameSex(OptionDTO.getShowGenderToSameSex());  
-        userOption.setShowProfile(OptionDTO.getShowProfile()); 
+        userOption.setShowGender(optionDTO.getShowGender());
+        userOption.setShowAge(optionDTO.getShowAge());
+        userOption.setShowGenderToSameSex(optionDTO.getShowGenderToSameSex());
+        userOption.setShowProfile(optionDTO.getShowProfile());
         userOptionRepository.save(userOption);
 
-        CardOption cardOption = cardOptionRepository.findById(userAuth.getId()).orElseThrow(() -> new IllegalArgumentException("CardOption not found for userAuth id: " + userAuth.getId()));
+        CardOption cardOption = cardOptionRepository.findById(userAuth.getId()).orElseThrow(
+                () -> new IllegalArgumentException("CardOption not found for userAuth id: " + userAuth.getId()));
         cardOption.setColor(cardOptionDTO.getColor());
         cardOption.setMotion(cardOptionDTO.getMotion());
         cardOptionRepository.save(cardOption);

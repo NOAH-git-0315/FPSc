@@ -35,43 +35,40 @@ public class UserQueryController {
 
     @GetMapping("/Home")
     public ResponseEntity<?> getUserAuthsByGames(
-        @CookieValue("jwt") String jwt,
-        @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "15") int size
-        ) {
+            @CookieValue("jwt") String jwt,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "15") int size) {
         Pageable pageable = PageRequest.of(page, size);
         try {
             UserAuth user = authUtilService.authenticate(jwt);
-            
+
             Optional<List<Game>> optionalGames = userInfoRepository.findById(user.getId())
-                .map(userInfo -> userInfo.getGames());
+                    .map(userInfo -> userInfo.getGames());
 
             if (optionalGames.isPresent()) {
                 List<Game> games = optionalGames.get();
                 Page<UserAuth> userAuthPage = userAuthRepository.findByGenderAndGames(games, pageable);
                 UqResponse<UserAuth> pageResponse = new UqResponse<>(
-                    userAuthPage.getContent(),
-                    userAuthPage.getTotalPages(),
-                    userAuthPage.getNumber()
-                );
+                        userAuthPage.getContent(),
+                        userAuthPage.getTotalPages(),
+                        userAuthPage.getNumber());
                 return new ResponseEntity<>(pageResponse, HttpStatus.OK);
             } else {
                 Page<UserAuth> userAuthPage = userAuthRepository.findAllUserInfo(pageable);
                 UqResponse<UserAuth> pageResponse = new UqResponse<>(
-                    userAuthPage.getContent(),
-                    userAuthPage.getTotalPages(),
-                    userAuthPage.getNumber()
-                );
+                        userAuthPage.getContent(),
+                        userAuthPage.getTotalPages(),
+                        userAuthPage.getNumber());
                 return new ResponseEntity<>(pageResponse, HttpStatus.OK);
             }
         } catch (Exception e) {
             Page<UserAuth> userAuthPage = userAuthRepository.findAllUserInfo(pageable);
+
             UqResponse<UserAuth> pageResponse = new UqResponse<>(
-                userAuthPage.getContent(),
-                userAuthPage.getTotalPages(),
-                userAuthPage.getNumber()
-            );
-                return new ResponseEntity<>(pageResponse, HttpStatus.OK);
+                    userAuthPage.getContent(),
+                    userAuthPage.getTotalPages(),
+                    userAuthPage.getNumber());
+            return new ResponseEntity<>(pageResponse, HttpStatus.OK);
         }
     }
 }

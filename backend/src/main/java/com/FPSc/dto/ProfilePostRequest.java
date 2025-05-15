@@ -32,4 +32,13 @@ public class ProfilePostRequest {
     public void setCardOption(CardOptionDTO cardOption) {
         this.cardOption = cardOption;
     }
+
+        @Override
+    public String toString() {
+        return "ProfilePostRequest{" +
+                "userInfo=" + userInfo +
+                ", userOption=" + userOption +
+                ", cardOption=" + cardOption +
+                '}';
+    }
 }

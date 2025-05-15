@@ -1,61 +1,43 @@
 import { AuthContext } from '@/component/templates/Auth';
 import { Box, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
-import { Dayjs } from 'dayjs';
-import { Dispatch, SetStateAction, useContext, useEffect } from 'react';
+import dayjs, { Dayjs } from 'dayjs';
+import { useContext } from 'react';
 
-interface TimeLs {
-  weekday: string[];
-  holiday: string[];
-}
-
-interface SetTimeProps {
-  setTimels: Dispatch<SetStateAction<TimeLs>>;
-}
-
-export default function SetTime({ setTimels }: SetTimeProps) {
-  const { userCard } = useContext(AuthContext);
-  useEffect(() => {
-    const playtime1 = [
-      userCard.userInfo.playtime1[0]?.toString(),
-      userCard.userInfo.playtime1[
-        userCard.userInfo.playtime1.length - 1
-      ]?.toString(),
-    ];
-    const playtime2 = [
-      userCard.userInfo.playtime2[0]?.toString(),
-      userCard.userInfo.playtime2[
-        userCard.userInfo.playtime2.length - 1
-      ]?.toString(),
-    ];
-
-    setTimels({
-      weekday: [...playtime1],
-      holiday: [...playtime2],
-    });
-  }, []);
+export default function SetTime() {
+  const { userCard, setUserCard } = useContext(AuthContext);
 
   function handleTimeChange(id: string, value: Dayjs | null) {
     const time = value ? value?.format('HH:mm') : '';
-    setTimels((prev) => {
-      const newTimels = { ...prev };
+    setUserCard((prev) => {
+      const newPlaytime1 = [...prev.userInfo.playtime1];
+      const newPlaytime2 = [...prev.userInfo.playtime2];
+
       switch (id) {
         case 'weekdayStart':
-          newTimels.weekday[0] = time;
+          newPlaytime1[0] = time;
           break;
         case 'weekdayEnd':
-          newTimels.weekday[1] = time;
+          newPlaytime1[1] = time;
           break;
         case 'holidayStart':
-          newTimels.holiday[0] = time;
+          newPlaytime2[0] = time;
           break;
         case 'holidayEnd':
-          newTimels.holiday[1] = time;
+          newPlaytime2[1] = time;
           break;
         default:
           break;
       }
-      return newTimels;
+
+      return {
+        ...prev,
+        userInfo: {
+          ...prev.userInfo,
+          playtime1: newPlaytime1,
+          playtime2: newPlaytime2,
+        },
+      };
     });
   }
 
@@ -68,11 +50,26 @@ export default function SetTime({ setTimels }: SetTimeProps) {
         <TimePicker
           label="開始時刻"
           minutesStep={30}
+          value={
+            userCard.userInfo.playtime1[0]
+              ? dayjs(userCard.userInfo.playtime1[0], 'HH:mm')
+              : null
+          }
           onChange={(value) => handleTimeChange('weekdayStart', value)}
         />
         <TimePicker
           label="終了時刻"
           minutesStep={30}
+          value={
+            userCard.userInfo.playtime1[userCard.userInfo.playtime1.length - 1]
+              ? dayjs(
+                  userCard.userInfo.playtime1[
+                    userCard.userInfo.playtime1.length - 1
+                  ],
+                  'HH:mm',
+                )
+              : null
+          }
           onChange={(value) => handleTimeChange('weekdayEnd', value)}
         />
       </Box>
@@ -83,11 +80,26 @@ export default function SetTime({ setTimels }: SetTimeProps) {
         <TimePicker
           label="開始時刻"
           minutesStep={30}
+          value={
+            userCard.userInfo.playtime2[0]
+              ? dayjs(userCard.userInfo.playtime2[0], 'HH:mm')
+              : null
+          }
           onChange={(value) => handleTimeChange('holidayStart', value)}
         />
         <TimePicker
           label="終了時刻"
           minutesStep={30}
+          value={
+            userCard.userInfo.playtime2[userCard.userInfo.playtime2.length - 1]
+              ? dayjs(
+                  userCard.userInfo.playtime2[
+                    userCard.userInfo.playtime2.length - 1
+                  ],
+                  'HH:mm',
+                )
+              : null
+          }
           onChange={(value) => handleTimeChange('holidayEnd', value)}
         />
       </Box>

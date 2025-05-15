@@ -27,6 +27,8 @@ public class ProfileController {
         @RequestBody ProfilePostRequest request
     ) {
         try {
+           System.out.println("受信した userInfo: " + request.toString());
+
             UserAuth userAuth = authUtilService.authenticate(jwt);
             profileService.createProfile(userAuth,request);
             return ResponseEntity.ok("プロフィールが更新されました");
@@ -35,6 +37,8 @@ public class ProfileController {
                     .body(new ErrorResponse(e.getMessage()));
         }
     }
+
+    
 
     public static class ErrorResponse {
         private String message;

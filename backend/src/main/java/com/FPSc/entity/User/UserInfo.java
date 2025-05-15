@@ -47,7 +47,7 @@ public class UserInfo {
 
     private String introduction;
 
-    public void setUserAuth(UserAuth userAuth){
+    public void setUserAuth(UserAuth userAuth) {
         this.userAuth = userAuth;
     }
 
@@ -63,15 +63,27 @@ public class UserInfo {
         this.introduction = introduction;
     }
 
-    public void setPlaytime1(List<String> playtime1){
+    public void setPlaytime1(List<String> playtime1) {
         this.playtime1 = playtime1;
     }
 
-    public void setPlaytime2(List<String> playtime2){
+    public void setPlaytime2(List<String> playtime2) {
         this.playtime2 = playtime2;
     }
 
-    public void setPlaystyle(List<String> playStyle){
-        this.playStyle = playStyle; 
+    public void setPlaystyle(List<String> playStyle) {
+        this.playStyle = playStyle;
+    }
+
+    public List<String> getPlaytime1() {
+        return playtime1;
+    }
+
+    public List<String> getPlaytime2() {
+        return playtime2;
+    }
+
+    public List<String> getPlaystyle() {
+        return playStyle;
     }
 }

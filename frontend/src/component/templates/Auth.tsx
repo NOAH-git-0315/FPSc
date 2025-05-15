@@ -16,8 +16,8 @@ const initialUserCard: User = {
   },
   userInfo: {
     games: [],
-    playtime1: [],
-    playtime2: [],
+    playtime1: ['', ''],
+    playtime2: ['', ''],
     playstyle: [],
     introduction: '未設定',
   },
@@ -61,8 +61,8 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
           },
           userInfo: {
             games: [],
-            playtime1: [],
-            playtime2: [],
+            playtime1: ['', ''],
+            playtime2: ['', ''],
             playstyle: [],
             introduction:
               '自分が管理者です！皆さん一緒に仲良くプレイしましょう！',

@@ -11,6 +11,7 @@ public class UserInfoDTO {
     private List<String> playstyle;
     private String introduction;
 
+// --- Getter ---
     public List<GameDTO> getGames() {
         return games;
     }
@@ -51,4 +52,15 @@ public class UserInfoDTO {
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
+
+    @Override
+public String toString() {
+    return "UserInfoDTO{" +
+            "games=" + games +
+            ", playtime1=" + playtime1 +
+            ", playtime2=" + playtime2 +
+            ", playstyle=" + playstyle +
+            ", introduction='" + introduction + '\'' +
+            '}';
+}
 }

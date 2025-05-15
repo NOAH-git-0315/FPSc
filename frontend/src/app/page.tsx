@@ -2,7 +2,7 @@
 import DiscordProfileCard from '@/component/templates/profcard';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { UserInfo } from './type';
+import { UserInfo, Option } from './type';
 import PageNoball from '@/component/templates/main/pageNoBall';
 
 interface User {
@@ -11,6 +11,7 @@ interface User {
   name: string;
   globalName: string;
   userInfo: UserInfo;
+  userOption: Option;
 }
 
 export default function UserList() {
@@ -37,6 +38,7 @@ export default function UserList() {
         }
 
         const json = await res.json();
+        console.log(json);
         setUsers(json.content);
         setTotalPages(json.totalPages);
       } catch (error) {
@@ -70,19 +72,8 @@ export default function UserList() {
               name: user.name,
               globalName: user.globalName,
             }}
-            userInfo={{
-              games: user.userInfo.games,
-              playtime1: ['10:00', '11:30'],
-              playtime2: ['10:00', '11:30'],
-              playstyle: ['ちゃんとうまくいってほしい', 'お願いだ！'],
-              introduction: '私は天才だ',
-            }}
-            option={{
-              showGender: true,
-              showAge: true,
-              showGenderToSameSex: true,
-              showProfile: true,
-            }}
+            userInfo={user.userInfo}
+            option={user.userOption}
             cardOption={{
               color: 'black',
               motion: null,
