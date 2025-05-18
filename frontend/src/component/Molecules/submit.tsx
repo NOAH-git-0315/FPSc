@@ -2,8 +2,6 @@ import { Button, Snackbar } from '@mui/material';
 import { useContext, useState } from 'react';
 import { AuthContext } from '@/component/templates/Auth';
 import dayjs from 'dayjs';
-import { userInfo } from 'os';
-import SetIntroduction from './setintroduction';
 
 export default function Submit() {
   const context = useContext(AuthContext);
@@ -78,7 +76,7 @@ export default function Submit() {
 
   return (
     <>
-      <Button onClick={handleSubmit} variant="contained" sx={{ marginTop: 2 }}>
+      <Button onClick={handleSubmit} variant="contained">
         プロフィールを更新
       </Button>
 

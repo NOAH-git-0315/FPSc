@@ -1,5 +1,11 @@
 import { useContext } from 'react';
-import { FormGroup, FormControlLabel, Checkbox, Box } from '@mui/material';
+import {
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  Box,
+  Typography,
+} from '@mui/material';
 import { AuthContext } from '@/component/templates/Auth';
 
 export default function SetOptions() {
@@ -34,8 +40,11 @@ export default function SetOptions() {
   };
 
   return (
-    <Box sx={{ display: 'flex', paddingLeft: 1, marginTop: 2 }}>
-      <FormGroup sx={{ marginTop: 4 }}>
+    <Box sx={{ display: 'flex', paddingLeft: 1, marginTop: 4 }}>
+      <FormGroup>
+        <Typography fontSize={14} color="gray">
+          ▽公開オプション
+        </Typography>
         <FormControlLabel
           control={
             <Checkbox

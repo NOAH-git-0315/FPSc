@@ -15,3 +15,7 @@ const theme = createTheme({
 });
 
 export default theme;
+
+// pageTopMargin: 32,
+// sectionMargin: 24,
+// itemMargin: 16,

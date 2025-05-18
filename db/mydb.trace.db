@@ -1,0 +1,4 @@
+2025-05-18 09:37:29.986156+09:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: 列 "INTRODUCTION CHARACTER VARYING(255)" の値が長過ぎます: "U&'\\672a\\8a2d\\5b9adawdasdasda\\672a\\8a2d\\5b9adawdasdasda\\672a\\8a2d\\5b9adawdasdasd... (490)"
+Value too long for column "INTRODUCTION CHARACTER VARYING(255)": "U&'\\672a\\8a2d\\5b9adawdasdasda\\672a\\8a2d\\5b9adawdasdasda\\672a\\8a2d\\5b9adawdasdasd... (490)"; SQL statement:
+update user_info set introduction=? where id=? [22001-232]

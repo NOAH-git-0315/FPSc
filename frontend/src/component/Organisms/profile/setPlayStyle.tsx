@@ -29,7 +29,6 @@ const Label = styled('label')`
 `;
 
 const InputWrapper = styled('div')(({ theme }) => ({
-  marginTop: -5,
   width: '490px',
   border: '1px solid #d9d9d9',
   backgroundColor: '#fff',
@@ -247,7 +246,7 @@ export default function SetPlayStyle() {
   };
 
   return (
-    <Root sx={{ marginTop: 4 }}>
+    <Root>
       <Typography fontSize={14} color="gray">
         プレイスタイル
       </Typography>

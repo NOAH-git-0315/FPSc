@@ -26,7 +26,7 @@ export default function SetAge() {
   };
 
   return (
-    <FormControl sx={{ m: 1, width: 100 }}>
+    <FormControl sx={{ width: 100 }}>
       <InputLabel id="age-label">年齢</InputLabel>
       <Select
         labelId="age-label"

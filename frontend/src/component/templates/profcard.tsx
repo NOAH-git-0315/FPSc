@@ -8,6 +8,7 @@ const sx = {
   borderRadius: 2,
   p: 2,
   boxShadow: 3,
+  alignSelf: 'flex-start',
 };
 
 const Margin = 1;
@@ -92,18 +93,22 @@ export default function DiscordProfileCard(props: User) {
     const typeSx = { border: '1px solid gray', borderRadius: 1, p: 0.5 };
     return (
       <Box sx={{ display: 'flex', gap: 1, marginTop: Margin }}>
-        <Box sx={{ flex: 1 }}>
-          <Typography fontSize={14} color="gray">
-            平日プレイ時間帯
-          </Typography>
-          <Typography sx={typeSx}>{getPlaytime(playtime1)}</Typography>
-        </Box>
-        <Box sx={{ flex: 1 }}>
-          <Typography fontSize={14} color="gray">
-            休日プレイ時間帯
-          </Typography>
-          <Typography sx={typeSx}>{getPlaytime(playtime2)}</Typography>
-        </Box>
+        {playtime1.length > 0 && (
+          <Box sx={{ flex: 1 }}>
+            <Typography fontSize={14} color="gray">
+              平日プレイ時間帯
+            </Typography>
+            <Typography sx={typeSx}>{getPlaytime(playtime1)}</Typography>
+          </Box>
+        )}
+        {playtime2.length > 0 && (
+          <Box sx={{ flex: 1 }}>
+            <Typography fontSize={14} color="gray">
+              休日プレイ時間帯
+            </Typography>
+            <Typography sx={typeSx}>{getPlaytime(playtime2)}</Typography>
+          </Box>
+        )}
       </Box>
     );
   };
@@ -131,12 +136,13 @@ export default function DiscordProfileCard(props: User) {
     );
   };
 
-  const CopyIdButton: React.FC = () => {
+  const CopyIdButton: React.FC<{ ID: string }> = ({ ID }) => {
     return (
       <Button
         variant="contained"
         color="primary"
         fullWidth
+        onClick={() => navigator.clipboard.writeText(ID)}
         sx={{ marginTop: Margin * 2, bottom: 2 }}
       >
         IDをコピー
@@ -151,7 +157,7 @@ export default function DiscordProfileCard(props: User) {
       <PlayTime />
       <PlayStyle />
       <Introduction />
-      <CopyIdButton />
+      <CopyIdButton ID={name ?? ''} />
       <Stack spacing={2}></Stack>
     </Box>
   );

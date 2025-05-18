@@ -65,7 +65,7 @@ const GameBox = ({
 
   return (
     <Box>
-      <Typography fontSize={14} color="gray" sx={{ marginTop: 2 }}>
+      <Typography fontSize={14} color="gray">
         ゲームとランクを追加
       </Typography>
       <Box>

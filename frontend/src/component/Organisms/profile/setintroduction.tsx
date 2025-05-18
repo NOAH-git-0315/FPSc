@@ -14,7 +14,7 @@ export default function SetIntroduction() {
   }
 
   return (
-    <Box sx={{ marginTop: 4 }}>
+    <Box sx={{ marginTop: 2 }}>
       <Typography fontSize={14} color="gray">
         自己紹介
       </Typography>

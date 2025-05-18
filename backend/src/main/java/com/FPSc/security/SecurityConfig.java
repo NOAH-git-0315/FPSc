@@ -18,29 +18,21 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())  // CSRFを無効化
-            .sessionManagement(session -> 
-                session
-                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                    .maximumSessions(1)
-            )
-            .authorizeRequests(auth -> 
-                auth
-                    .requestMatchers("/login").permitAll()
-                    .requestMatchers("/Home").permitAll()
-                    .requestMatchers("/error").permitAll()
-                    .requestMatchers("/h2-console/**").permitAll()
-                    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-            )
-            .oauth2Login(oauth -> 
-                oauth
-                    .defaultSuccessUrl("/users/auth", true)
-                    .failureUrl("/login?error")
-            )
-            .headers(headers -> 
-                headers
-                    .frameOptions().disable()
-            );
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+                        .maximumSessions(1))
+                .authorizeRequests(auth -> auth
+                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/Home").permitAll()
+                        .requestMatchers("/error").permitAll()
+                        .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll())
+                .oauth2Login(oauth -> oauth
+                        .defaultSuccessUrl("/users/auth", true)
+                        .failureUrl("/login?error"))
+                .headers(headers -> headers
+                        .frameOptions().disable());
         return http.build();
     }
 

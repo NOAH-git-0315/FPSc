@@ -7,7 +7,7 @@ export default function Annotation() {
   const option = userCard.option;
 
   return (
-    <Box>
+    <Box sx={{ marginTop: 2 }}>
       {userCard.option.showGender && (
         <Typography>※性別が公開されます</Typography>
       )}
