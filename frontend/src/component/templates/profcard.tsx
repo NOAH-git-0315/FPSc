@@ -1,4 +1,5 @@
 import { User } from '@/app/type';
+import { TIME_LIST } from '@/lib/Array/Time';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
 
 const sx = {
@@ -14,11 +15,7 @@ const sx = {
 const Margin = 1;
 
 const getPlaytime = (playtime: string[]) => {
-  if (playtime && playtime.length >= 2) {
-    return `${playtime[0]} ~ ${playtime[playtime.length - 1]}`;
-  } else {
-    return '未設定';
-  }
+  return `${playtime[0]} ~ ${playtime[playtime.length - 1]}`;
 };
 
 export default function DiscordProfileCard(props: User) {
@@ -93,7 +90,7 @@ export default function DiscordProfileCard(props: User) {
     const typeSx = { border: '1px solid gray', borderRadius: 1, p: 0.5 };
     return (
       <Box sx={{ display: 'flex', gap: 1, marginTop: Margin }}>
-        {playtime1.length > 0 && (
+        {TIME_LIST.includes(playtime1[0] as (typeof TIME_LIST)[number]) && (
           <Box sx={{ flex: 1 }}>
             <Typography fontSize={14} color="gray">
               平日プレイ時間帯
@@ -101,7 +98,7 @@ export default function DiscordProfileCard(props: User) {
             <Typography sx={typeSx}>{getPlaytime(playtime1)}</Typography>
           </Box>
         )}
-        {playtime2.length > 0 && (
+        {TIME_LIST.includes(playtime2[0] as (typeof TIME_LIST)[number]) && (
           <Box sx={{ flex: 1 }}>
             <Typography fontSize={14} color="gray">
               休日プレイ時間帯

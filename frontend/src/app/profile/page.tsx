@@ -1,6 +1,12 @@
 'use client';
 
-import { Box, SxProps, Typography } from '@mui/material';
+import {
+  Box,
+  CircularProgress,
+  LinearProgress,
+  SxProps,
+  Typography,
+} from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Theme } from '@emotion/react';
@@ -14,6 +20,8 @@ import SetAge from '@/component/Organisms/profile/setAge';
 import Annotation from '@/component/Organisms/profile/annotation';
 import MYDiscordProfileCard from '@/component/Organisms/MYDiscordProfileCard';
 import SubmitAndDelete from '@/component/Organisms/profile/smt&dlt';
+import { AuthContext } from '@/component/templates/Auth';
+import { useContext } from 'react';
 
 const sx: SxProps<Theme> = {
   display: 'flex',
@@ -30,6 +38,21 @@ const TypographySx: SxProps<Theme> = {
 };
 
 export default function Profiles() {
+  const { userCard } = useContext(AuthContext);
+  if (!userCard.userAuth.id) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '70vh',
+        }}
+      >
+        <CircularProgress size="100px" />
+      </Box>
+    );
+  }
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box>

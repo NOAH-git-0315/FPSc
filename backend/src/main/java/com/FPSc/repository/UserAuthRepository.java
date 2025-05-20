@@ -15,22 +15,24 @@ import com.FPSc.entity.User.UserAuth;
 public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
 
   @Query("""
-    SELECT DISTINCT ua FROM UserAuth ua
-    JOIN ua.userOption uo
-    JOIN ua.userInfo ui
-    JOIN ui.games g
-    WHERE uo.showProfile = true
-      AND g IN :games
-      ORDER BY ua.id
-    """)
-    Page<UserAuth> findByGenderAndGames(@Param("games") List<Game> games,Pageable pageable);
-  
+      SELECT DISTINCT ua FROM UserAuth ua
+      JOIN ua.userOption uo
+      JOIN ua.userInfo ui
+      JOIN ui.games g
+      WHERE uo.showProfile = true
+        AND g IN :games
+        ORDER BY ua.id
+      """)
+  Page<UserAuth> findByGenderAndGames(@Param("games") List<Game> games, Pageable pageable);
+
   @Query("""
-    SELECT DISTINCT ua FROM UserAuth ua
-    JOIN ua.userOption uo
-    JOIN ua.userInfo ui
-    LEFT JOIN ui.games g
-    ORDER BY ua.id
-  """)
+        SELECT DISTINCT ua FROM UserAuth ua
+        JOIN ua.userOption uo
+        JOIN ua.userInfo ui
+        LEFT JOIN ui.games g
+        ORDER BY ua.id
+      """)
   Page<UserAuth> findAllUserInfo(Pageable pageable);
 }
+
+// ゲーム配列、時間配列、プレイスタイル配列を取得する。
