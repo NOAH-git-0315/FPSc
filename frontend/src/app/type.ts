@@ -45,6 +45,12 @@ export interface TimelsType {
   holidayStart: null | string;
   holidayEnd: null | string;
 }
+
+export interface PostDataType {
+  userInfo: UserInfo;
+  option: Option;
+  cardOption: CardOption;
+}
 //あとでもっと厳密にする
 //fs通貨を採用して、プロフィールを買えるようにしたい
 

@@ -1,3 +1,4 @@
+// prettier-ignore
 export const gameRanks: { [key: string]: string[] } = {
   'Apex Legends': ['ブロンズ', 'シルバー', 'ゴールド', 'プラチナ', 'ダイヤモンド', 'マスター', 'プレデター'],
   'Battlefield 2042': ['初心者', '中級者', '上級者'],
