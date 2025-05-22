@@ -53,6 +53,8 @@ export default function Profiles() {
       </Box>
     );
   }
+
+  console.log(userCard);
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box>

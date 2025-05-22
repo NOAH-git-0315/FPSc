@@ -1,0 +1,9 @@
+# フロントエンド用
+node_modules
+.gitignore
+.prettierrc.json
+.next
+.git
+.env
+.env.*
+*.log

@@ -3,6 +3,7 @@ package com.FPSc.controller;
 import com.FPSc.service.JwtService;
 import com.FPSc.service.UserAuthService;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,11 +13,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserAuthController {
 
     private final UserAuthService userService;
     private final JwtService jwtService;
+
+    @Value("${FRONTEND_URL}")
+    private String frontendUrl;
 
     public UserAuthController(UserAuthService userService, JwtService jwtService) {
         this.userService = userService;
@@ -41,10 +45,10 @@ public class UserAuthController {
                 .maxAge(7 * 24 * 60 * 60)
                 .sameSite("Lax")
                 .build();
-    
+
         return ResponseEntity
                 .status(302)
-                .header("Location", "http://localhost:3000/profile")
+                .header("Location", frontendUrl + "/profile")
                 .header("Set-Cookie", cookie.toString())
                 .build();
     }

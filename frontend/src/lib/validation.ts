@@ -6,6 +6,7 @@ import { CardOption_list } from './Array/CardOption';
 import { PostDataType } from '@/app/type';
 import dayjs from 'dayjs';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const useSchema = z.object({
   userInfo: z.object({
     games: z.array(
@@ -96,7 +97,7 @@ export async function validationAndPost(PostData: PostDataType) {
       throw new Error('開始時刻と終了時刻を同じにすることはできません');
     }
 
-    const response = await fetch('http://localhost:8080/profile/update', {
+    const response = await fetch(`${apiUrl}/api/profile/update`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -34,5 +34,3 @@ public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
       """)
   Page<UserAuth> findAllUserInfo(Pageable pageable);
 }
-
-// ゲーム配列、時間配列、プレイスタイル配列を取得する。

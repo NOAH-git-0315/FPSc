@@ -3,7 +3,7 @@ package com.FPSc.entity.User;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "game")
+@Table(name = "user_game")
 public class Game {
 
     @Id
@@ -11,26 +11,28 @@ public class Game {
     private Long id;
 
     private String title;
-    private String rank;
+    private String userRank;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserInfo userInfo;
 
-    public void setUserInfo(UserInfo userInfo){
+    public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
+
     public String getRank() {
-        return this.rank;
+        return this.userRank;
     }
 
-    public void setRank(String rank){
-        this.rank = rank;
+    public void setRank(String rank) {
+        this.userRank = rank;
     }
+
     public String getTitle() {
         return this.title;
     }

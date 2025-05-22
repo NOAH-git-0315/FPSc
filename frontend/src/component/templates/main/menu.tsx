@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import {
   List,
   ListItem,
@@ -54,39 +54,41 @@ const sxListItemButton: SxProps<Theme> = {
   },
 };
 
-    const menu = ['friend','server','profile','filters'];
-    type MenuType = typeof menu[number];
+const menu = ['friend', 'server', 'profile', 'filters'];
+type MenuType = (typeof menu)[number];
 
 export default function Menu() {
-    const router = useRouter();
-    const context = useContext(AuthContext);
+  const router = useRouter();
+  const context = useContext(AuthContext);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-    const handleClick=(item:MenuType)=>{
-      if(item=='profile'){
-          if(!context.userCard.userAuth.id){
-            window.location.href = 'http://localhost:8080/oauth2/authorization/discord';
-          }
-          else{
-            router.push(`/${item}`);    
-      }}else if(item==='friend'){
-        router.push(`/`);
-      }else{
+  const handleClick = (item: MenuType) => {
+    if (item == 'profile') {
+      if (!context.userCard.userAuth.id) {
+        window.location.href = `${apiUrl}/oauth2/authorization/discord`;
+      } else {
         router.push(`/${item}`);
-    }}
+      }
+    } else if (item === 'friend') {
+      router.push(`/`);
+    } else {
+      router.push(`/${item}`);
+    }
+  };
 
   return (
     <List sx={sxList}>
       {menu.map((item, index) => (
         <ListItem disablePadding key={index} sx={{ textDecoration: 'none' }}>
-            <ListItemButton 
+          <ListItemButton
             sx={sxListItemButton}
-            onClick={()=>handleClick(item)}
-            >
-              <ListItemText
-                primary={item}
-                sx={{ textShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
-              />
-            </ListItemButton>
+            onClick={() => handleClick(item)}
+          >
+            <ListItemText
+              primary={item}
+              sx={{ textShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
+            />
+          </ListItemButton>
         </ListItem>
       ))}
       <ListItem>

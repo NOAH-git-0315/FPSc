@@ -19,17 +19,15 @@ export default function UserList() {
   const [totalPages, setTotalPages] = useState(1);
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:8080/Home?page=${page - 1}&size=15`,
-          {
-            method: 'GET',
-            credentials: 'include',
-          },
-        );
+        const res = await fetch(`${apiUrl}/api/Home?page=${page - 1}&size=15`, {
+          method: 'GET',
+          credentials: 'include',
+        });
 
         if (!res.ok) {
           const errorData = await res.text();

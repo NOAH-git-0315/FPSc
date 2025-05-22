@@ -40,11 +40,12 @@ const AuthContext = createContext<AuthContextType>({
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [userCard, setUserCard] = useState<User>(initialUserCard);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch('http://localhost:8080/check', {
+        const res = await fetch(`${apiUrl}/api/check`, {
           method: 'GET',
           credentials: 'include',
         });
