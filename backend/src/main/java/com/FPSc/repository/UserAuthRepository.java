@@ -20,6 +20,7 @@ public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
       JOIN ua.userInfo ui
       JOIN ui.games g
       WHERE uo.showProfile = true
+        AND ui.introduction IS NOT NULL
         AND g IN :games
         ORDER BY ua.id
       """)
@@ -30,6 +31,8 @@ public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
         JOIN ua.userOption uo
         JOIN ua.userInfo ui
         LEFT JOIN ui.games g
+        WHERE uo.showProfile = true
+        AND ui.introduction IS NOT NULL
         ORDER BY ua.id
       """)
   Page<UserAuth> findAllUserInfo(Pageable pageable);

@@ -9,8 +9,9 @@ import {
   TextField,
 } from '@mui/material';
 import { useContext } from 'react';
-import { AuthContext } from '../Auth';
+import { AuthContext } from '../../Other/Auth';
 import { useRouter } from 'next/navigation';
+import LastLogin from '@/lib/LastLogin';
 
 const sxList: SxProps<Theme> = {
   position: 'absolute',
@@ -54,7 +55,7 @@ const sxListItemButton: SxProps<Theme> = {
   },
 };
 
-const menu = ['friend', 'server', 'profile', 'filters'];
+const menu = ['friend', 'server', 'profile', 'SayHello'];
 type MenuType = (typeof menu)[number];
 
 export default function Menu() {
@@ -62,7 +63,7 @@ export default function Menu() {
   const context = useContext(AuthContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleClick = (item: MenuType) => {
+  const handleClick = async (item: MenuType) => {
     if (item == 'profile') {
       if (!context.userCard.userAuth.id) {
         window.location.href = `${apiUrl}/oauth2/authorization/discord`;
@@ -71,6 +72,8 @@ export default function Menu() {
       }
     } else if (item === 'friend') {
       router.push(`/`);
+    } else if (item === 'SayHello') {
+      await LastLogin();
     } else {
       router.push(`/${item}`);
     }

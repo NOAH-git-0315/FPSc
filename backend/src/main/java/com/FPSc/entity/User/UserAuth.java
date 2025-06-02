@@ -1,5 +1,6 @@
 package com.FPSc.entity.User;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -8,21 +9,19 @@ import jakarta.persistence.Table;
 @Table(name = "user_auth")
 @Entity
 public class UserAuth {
-    
+
     @Id
     private String id;
     private String name;
     private String avatar;
     private String globalName;
 
-    @OneToOne(mappedBy = "userAuth")
+    @OneToOne(mappedBy = "userAuth", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private UserInfo userInfo;
-    @OneToOne(mappedBy = "userAuth")
+    @OneToOne(mappedBy = "userAuth", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private UserOption userOption;
-    @OneToOne(mappedBy = "userAuth")
+    @OneToOne(mappedBy = "userAuth", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private CardOption cardOption;
-
-    
 
     public String getId() {
         return id;

@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import './style.scss';
-import Header from '@/component/templates/main/header';
-import Footer from '@/component/templates/main/footer';
-import Menu from '@/component/templates/main/menu';
-import AuthProvider from '@/component/templates/Auth';
+import Header from '@/component/Section/main/header';
+import Footer from '@/component/Section/main/footer';
+import Menu from '@/component/Section/main/menu';
+import AuthProvider from '@/component/Other/Auth';
 import { SxProps, Theme } from '@mui/material/styles';
 import { Box } from '@mui/material';
+import { CacheProvider } from '@emotion/react';
+import EmotionProvider from '@/component/Other/emotion-provider';
 export const metadata: Metadata = {
   title: 'FPSc',
   description: 'FPSc-top',
@@ -24,12 +26,14 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <AuthProvider>
-          <Header />
-          <Menu />
-          <Box sx={sx}>{children}</Box>
-          <Footer />
-        </AuthProvider>
+        <EmotionProvider>
+          <AuthProvider>
+            <Header />
+            <Menu />
+            <Box sx={sx}>{children}</Box>
+            <Footer />
+          </AuthProvider>
+        </EmotionProvider>
       </body>
     </html>
   );

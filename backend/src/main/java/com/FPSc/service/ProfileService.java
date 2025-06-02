@@ -1,5 +1,7 @@
 package com.FPSc.service;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
 import com.FPSc.dto.ProfilePostRequest;
@@ -43,6 +45,7 @@ public class ProfileService {
         userInfo.setPlaytime1(userInfoDTO.getPlaytime1());
         userInfo.setPlaytime2(userInfoDTO.getPlaytime2());
         userInfo.setPlaystyle(userInfoDTO.getPlaystyle());
+        userInfo.setLastLoginAt(LocalDateTime.now());
 
         userInfo.getGames().clear();
         userInfoDTO.getGames().forEach(gameDTO -> {

@@ -1,9 +1,9 @@
 'use client';
-import DiscordProfileCard from '@/component/templates/profcard';
+import DiscordProfileCard from '@/component/Other/profcard';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { UserInfo, Option } from './type';
-import PageNoball from '@/component/templates/main/pageNoBall';
+import PageNoball from '@/component/Section/main/pageNoBall';
 
 interface User {
   id: string;

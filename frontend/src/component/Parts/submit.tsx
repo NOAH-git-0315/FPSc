@@ -1,6 +1,6 @@
 import { Button, Snackbar } from '@mui/material';
 import { useContext, useState } from 'react';
-import { AuthContext } from '@/component/templates/Auth';
+import { AuthContext } from '@/component/Other/Auth';
 import { validationAndPost } from '@/lib/validation';
 
 export default function Submit() {

@@ -6,7 +6,7 @@ import {
   Box,
   Typography,
 } from '@mui/material';
-import { AuthContext } from '@/component/templates/Auth';
+import { AuthContext } from '@/component/Other/Auth';
 
 export default function SetOptions() {
   const { userCard, setUserCard } = useContext(AuthContext);
@@ -43,9 +43,9 @@ export default function SetOptions() {
     <Box sx={{ display: 'flex', paddingLeft: 1, marginTop: 4 }}>
       <FormGroup>
         <Typography fontSize={14} color="gray">
-          ▽公開オプション
+          公開オプション
         </Typography>
-        <FormControlLabel
+        {/* <FormControlLabel
           control={
             <Checkbox
               checked={option.showGender}
@@ -77,7 +77,7 @@ export default function SetOptions() {
             />
           }
           label={'同性にのみプロフィールを公開する'}
-        />
+        /> */}
         <FormControlLabel
           control={
             <Checkbox

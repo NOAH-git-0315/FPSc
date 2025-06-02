@@ -7,7 +7,7 @@ type AuthContextType = {
   setUserCard: React.Dispatch<React.SetStateAction<User>>;
 };
 
-const initialUserCard: User = {
+export const initialUserCard: User = {
   userAuth: {
     id: null,
     name: 'no_id',
@@ -16,16 +16,16 @@ const initialUserCard: User = {
   },
   userInfo: {
     games: [],
-    playtime1: ['', ''],
-    playtime2: ['', ''],
+    playtime1: [],
+    playtime2: [],
     playstyle: [],
-    introduction: '未設定',
+    introduction: 'こんにちは、はじめまして',
   },
   option: {
-    showGender: true,
-    showAge: true,
-    showGenderToSameSex: true,
-    showProfile: true,
+    showGender: false,
+    showAge: false,
+    showGenderToSameSex: false,
+    showProfile: false,
   },
   cardOption: {
     color: 'black',
@@ -61,26 +61,26 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
             globalName: data.globalName,
           },
           userInfo: {
-            games: [],
-            playtime1: ['', ''],
-            playtime2: ['', ''],
-            playstyle: [],
-            introduction:
-              '自分が管理者です！皆さん一緒に仲良くプレイしましょう！',
+            games: data.userInfo.games,
+            playtime1: data.userInfo.playtime1,
+            playtime2: data.userInfo.playtime2,
+            playstyle: data.userInfo.playstyle,
+            introduction: data.userInfo.introduction,
           },
           option: {
-            showGender: true,
-            showAge: true,
-            showGenderToSameSex: true,
-            showProfile: true,
+            showGender: data.userOption.showGender,
+            showAge: data.userOption.showAge,
+            showGenderToSameSex: data.userOption.showGenderToSameSex,
+            showProfile: data.userOption.showProfile,
           },
           cardOption: {
-            color: 'black',
-            motion: null,
+            color: data.cardOption.color || 'black',
+            motion: data.cardOption.motion || null,
           },
         };
 
         setUserCard(card);
+        console.log('認証成功:', data);
       } catch (e) {
         console.error('認証エラー:', e);
       }

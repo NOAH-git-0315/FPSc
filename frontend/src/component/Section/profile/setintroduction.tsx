@@ -1,5 +1,5 @@
 'use clinet';
-import { AuthContext } from '@/component/templates/Auth';
+import { AuthContext } from '@/component/Other/Auth';
 import { Box, Typography, TextField } from '@mui/material';
 import { FocusEvent, useContext } from 'react';
 

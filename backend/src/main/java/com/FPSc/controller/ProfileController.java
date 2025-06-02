@@ -20,7 +20,7 @@ public class ProfileController {
         this.profileService = profileService;
     }
 
-    @PostMapping("/api/update")
+    @PostMapping("/update")
     public ResponseEntity<?> updateProfile(
             @CookieValue("jwt") String jwt,
             @RequestBody ProfilePostRequest request) {

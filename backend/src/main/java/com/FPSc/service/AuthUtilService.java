@@ -18,13 +18,15 @@ public class AuthUtilService {
     private UserAuthRepository userAuthRepository;
 
     public UserAuth authenticate(String jwt) throws Exception {
-        if (jwt == null) throw new Exception("トークンがありません");
+        if (jwt == null)
+            throw new Exception("トークンがありません");
 
         Claims claim = jwtService.validateToken(jwt);
         String userId = claim.getSubject();
 
         UserAuth user = userAuthRepository.findById(userId).orElse(null);
-        if (user == null) throw new Exception("ユーザーが見つかりません");
+        if (user == null)
+            throw new Exception("ユーザーが見つかりません");
 
         return user;
     }

@@ -4,7 +4,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { User, Game } from '@/app/type';
-import { AuthContext } from '@/component/templates/Auth';
+import { AuthContext } from '@/component/Other/Auth';
 import { Games } from '@/lib/Array/Games';
 import { gameRanks } from '@/lib/Array/Rank';
 

@@ -10,17 +10,17 @@ import {
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Theme } from '@emotion/react';
-import SetGame from '@/component/Organisms/profile/setGame';
-import SetTime from '@/component/Organisms/profile/setTime';
-import SetIntroduction from '@/component/Organisms/profile/setintroduction';
-import SetOptions from '@/component/Organisms/profile/setOptions';
-import SetPlayStyle from '@/component/Organisms/profile/setPlayStyle';
-import SetGender from '@/component/Organisms/profile/setGender';
-import SetAge from '@/component/Organisms/profile/setAge';
-import Annotation from '@/component/Organisms/profile/annotation';
-import MYDiscordProfileCard from '@/component/Organisms/MYDiscordProfileCard';
-import SubmitAndDelete from '@/component/Organisms/profile/smt&dlt';
-import { AuthContext } from '@/component/templates/Auth';
+import SetGame from '@/component/Section/profile/setGame';
+import SetTime from '@/component/Section/profile/setTime';
+import SetIntroduction from '@/component/Section/profile/setintroduction';
+import SetOptions from '@/component/Section/profile/setOptions';
+import SetPlayStyle from '@/component/Section/profile/setPlayStyle';
+import SetGender from '@/component/Section/profile/setGender';
+import SetAge from '@/component/Section/profile/setAge';
+import Annotation from '@/component/Section/profile/annotation';
+import MYDiscordProfileCard from '@/component/Section/MYDiscordProfileCard';
+import SubmitAndDelete from '@/component/Section/profile/smt&dlt';
+import { AuthContext } from '@/component/Other/Auth';
 import { useContext } from 'react';
 
 const sx: SxProps<Theme> = {
@@ -68,8 +68,8 @@ export default function Profiles() {
             <SetPlayStyle />
             <SetIntroduction />
             <Box sx={{ marginTop: 4 }}>
-              <SetGender />
-              <SetAge />
+              {/* <SetGender /> */}
+              {/* <SetAge /> */}
             </Box>
             <SetOptions />
           </Box>

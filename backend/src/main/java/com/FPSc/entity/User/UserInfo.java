@@ -1,5 +1,6 @@
 package com.FPSc.entity.User;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +48,8 @@ public class UserInfo {
 
     private String introduction;
 
+    private LocalDateTime lastLoginAt;
+
     public void setUserAuth(UserAuth userAuth) {
         this.userAuth = userAuth;
     }
@@ -57,6 +60,14 @@ public class UserInfo {
 
     public String getIntroduction() {
         return introduction;
+    }
+
+    public LocalDateTime getLastLoginAt() {
+        return lastLoginAt;
+    }
+
+    public void setLastLoginAt(LocalDateTime lastLoginAt) {
+        this.lastLoginAt = lastLoginAt;
     }
 
     public void setIntroduction(String introduction) {

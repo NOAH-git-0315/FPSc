@@ -38,10 +38,11 @@ public class JwtService {
     }
 
     public Claims validateToken(String token) {
-    return Jwts.parserBuilder()
-            .setSigningKey(key)
-            .build()
-            .parseClaimsJws(token)
-            .getBody();
+        return Jwts.parserBuilder()
+                .setSigningKey(key)
+                .setAllowedClockSkewSeconds(30)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 }
