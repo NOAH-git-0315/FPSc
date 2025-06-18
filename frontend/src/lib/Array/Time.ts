@@ -10,3 +10,5 @@ export const TIME_LIST = [
   '21:00', '21:30', '22:00', '22:30', '23:00', '23:30',
   '24:00',
 ] as const;
+
+export type TimeType = (typeof TIME_LIST)[number];

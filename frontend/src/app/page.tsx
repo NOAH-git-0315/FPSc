@@ -1,9 +1,10 @@
 'use client';
-import DiscordProfileCard from '@/component/Other/profcard';
+import DiscordProfileCard from '@/component/profcard';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { UserInfo, Option } from './type';
 import PageNoball from '@/component/Section/main/pageNoBall';
+import SearchHUD from '@/component/SearchHUD';
 
 interface User {
   id: string;
@@ -81,6 +82,7 @@ export default function UserList() {
         {error && <div className="text-red-500">{error}</div>}
       </Box>
       <PageNoball page={page} setPage={setPage} totalPages={totalPages} />
+      <SearchHUD />
     </Box>
   );
 }

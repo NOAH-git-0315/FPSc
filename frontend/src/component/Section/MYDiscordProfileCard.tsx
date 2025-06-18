@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import DiscordProfileCard from '../Other/profcard';
-import { AuthContext } from '../Other/Auth';
+import DiscordProfileCard from '../profcard';
+import { AuthContext } from '../Context/Auth';
 
 export default function MYDiscordProfileCard() {
   const { userCard } = useContext(AuthContext);

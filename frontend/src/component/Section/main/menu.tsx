@@ -1,102 +1,71 @@
 'use client';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListItemButton,
-  SxProps,
-  Theme,
-  TextField,
-} from '@mui/material';
-import { useContext } from 'react';
-import { AuthContext } from '../../Other/Auth';
-import { useRouter } from 'next/navigation';
+
+import { AuthContext } from '@/component/Context/Auth';
 import LastLogin from '@/lib/LastLogin';
+import { Button, Grid, SxProps, Theme, Tooltip } from '@mui/material';
+import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
 
-const sxList: SxProps<Theme> = {
+const menuList = [
+  { tag: 'フレンド', title: 'フレンドを探します', url: '/' },
+  { tag: 'サーバー', title: 'サーバーを探します', url: '/server' },
+  { tag: 'プロフィール', title: 'プロフィールを編集します', url: 'profile' },
+  {
+    tag: '表示順アップ',
+    title: '自分のプロフィール表示順を上げます',
+    url: 'bump',
+  },
+] as const;
+
+type MenuItem = (typeof menuList)[number];
+type Url = MenuItem['url'];
+
+const containerSX: SxProps<Theme> = {
   position: 'absolute',
-  display: 'flex',
-  color: 'black',
-  right: '130px',
-  top: '20px',
+  right: '7vw',
+  top: '5vh',
 };
-
-const sxSearch: SxProps<Theme> = {
-  width: '13em',
-  '& .MuiInputBase-root': {
-    height: 28,
-    borderRadius: '1rem',
-    fontSize: '0.8rem',
-    backgroundColor: 'white',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-    transition: 'all 0.3s ease',
-    '&:hover': {
-      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-    },
-  },
-  '& .MuiOutlinedInput-notchedOutline': {
-    borderColor: '#ccc',
-    borderRadius: '1rem',
-  },
-  '& .MuiInputLabel-root': {
-    fontSize: '0.75rem',
-  },
-};
-
-const sxListItemButton: SxProps<Theme> = {
+const itemSX: SxProps<Theme> = {
   textShadow: '0 4px 12px rgba(0,0,0,0.2)',
   color: 'black',
-  textDecoration: 'none',
+  paddingX: 2,
+  paddingY: 1,
+  transition: 'background-color 0.3s ease',
   '&:hover': {
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-  },
-  '&.MuiButtonBase-root': {
-    padding: '10px 20px',
+    backgroundColor: '#f0f0f0',
   },
 };
-
-const menu = ['friend', 'server', 'profile', 'SayHello'];
-type MenuType = (typeof menu)[number];
 
 export default function Menu() {
   const router = useRouter();
   const context = useContext(AuthContext);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleClick = async (item: MenuType) => {
+  const handleClick = async (item: Url) => {
     if (item == 'profile') {
       if (!context.userCard.userAuth.id) {
         window.location.href = `${apiUrl}/oauth2/authorization/discord`;
       } else {
-        router.push(`/${item}`);
+        router.push(`/profile`);
       }
-    } else if (item === 'friend') {
-      router.push(`/`);
-    } else if (item === 'SayHello') {
+    } else if (item === 'bump') {
       await LastLogin();
     } else {
-      router.push(`/${item}`);
+      router.push(item);
     }
   };
 
   return (
-    <List sx={sxList}>
-      {menu.map((item, index) => (
-        <ListItem disablePadding key={index} sx={{ textDecoration: 'none' }}>
-          <ListItemButton
-            sx={sxListItemButton}
-            onClick={() => handleClick(item)}
-          >
-            <ListItemText
-              primary={item}
-              sx={{ textShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
-            />
-          </ListItemButton>
-        </ListItem>
+    <Grid container sx={containerSX}>
+      {menuList.map((menu, index) => (
+        <Grid key={index}>
+          <Tooltip title={menu.title} arrow>
+            <Button sx={itemSX} onClick={() => handleClick(menu.url)}>
+              {menu.tag}
+            </Button>
+          </Tooltip>
+        </Grid>
       ))}
-      <ListItem>
-        <TextField label="検索" size="small" sx={sxSearch} />
-      </ListItem>
-    </List>
+    </Grid>
   );
 }

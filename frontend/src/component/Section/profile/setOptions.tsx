@@ -6,7 +6,7 @@ import {
   Box,
   Typography,
 } from '@mui/material';
-import { AuthContext } from '@/component/Other/Auth';
+import { AuthContext } from '@/component/Context/Auth';
 
 export default function SetOptions() {
   const { userCard, setUserCard } = useContext(AuthContext);

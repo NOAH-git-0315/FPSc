@@ -3,11 +3,10 @@ import './style.scss';
 import Header from '@/component/Section/main/header';
 import Footer from '@/component/Section/main/footer';
 import Menu from '@/component/Section/main/menu';
-import AuthProvider from '@/component/Other/Auth';
+import AuthProvider from '@/component/Context/Auth';
 import { SxProps, Theme } from '@mui/material/styles';
 import { Box } from '@mui/material';
-import { CacheProvider } from '@emotion/react';
-import EmotionProvider from '@/component/Other/emotion-provider';
+import EmotionProvider from '@/component/Context/emotion-provider';
 export const metadata: Metadata = {
   title: 'FPSc',
   description: 'FPSc-top',

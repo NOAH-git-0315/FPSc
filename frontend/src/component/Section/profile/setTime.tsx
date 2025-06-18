@@ -1,4 +1,4 @@
-import { AuthContext } from '@/component/Other/Auth';
+import { AuthContext } from '@/component/Context/Auth';
 import { Box, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
 import dayjs, { Dayjs } from 'dayjs';

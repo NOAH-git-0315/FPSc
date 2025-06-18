@@ -1,8 +1,10 @@
+import { GameType } from './Games';
+
 // prettier-ignore
 const NoRank=['初心者', '中級者', '上級者'];
 
 // prettier-ignore
-export const gameRanks: { [key: string]: string[] } = {
+export const gameRanks: { [key in GameType]: string[] } = {
   'Apex Legends': ['ランクなし', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ', 'ダイヤモンド', 'マスター', 'プレデター'],
   'Battlefield 2042': NoRank,
   'Call of Duty: Modern Warfare II': ['ランクなし', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ', 'ダイヤモンド', 'マスター', 'グランドマスター'],
@@ -16,4 +18,6 @@ export const gameRanks: { [key: string]: string[] } = {
   'PUBG: Battlegrounds': ['ランクなし', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ', 'ダイヤモンド', 'エース', 'コンカラー'],
   'Rainbow Six Siege': ['ランクなし', 'コッパー', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ', 'ダイヤモンド', 'チャンピオン'],
   'VALORANT': ['ランクなし', 'アイアン', 'ブロンズ', 'シルバー', 'ゴールド', 'プラチナ', 'ダイヤモンド', 'イモータル', 'レイディアント'],
-};
+}as const
+
+export type RankType = (typeof gameRanks)[keyof typeof gameRanks][number];

@@ -14,8 +14,4 @@ export const Games = [
   'VALORANT',
 ] as const;
 
-type GameType = (typeof Games)[number];
-
-export function getGameIndexes(selectedGames: GameType[]) {
-  return selectedGames.map((game: GameType) => Games.indexOf(game));
-}
+export type GameType = (typeof Games)[number];

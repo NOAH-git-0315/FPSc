@@ -1,4 +1,4 @@
-import { AuthContext } from '@/component/Other/Auth';
+import { AuthContext } from '@/component/Context/Auth';
 import { Box, Typography } from '@mui/material';
 import { useContext } from 'react';
 

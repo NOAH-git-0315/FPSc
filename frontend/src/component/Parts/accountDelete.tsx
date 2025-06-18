@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRouter } from 'next/navigation';
-import { AuthContext, initialUserCard } from '../Other/Auth';
+import { AuthContext, initialUserCard } from '../Context/Auth';
 import { Fragment, useContext, useState } from 'react';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -24,14 +24,25 @@ export default function AccountDelete() {
     setOpen(false);
   };
 
-  const handleDelete = () => {
-    fetch(`${apiUrl}/api/delete`, {
-      method: 'DELETE',
-      credentials: 'include',
-    });
-    setOpen(false);
-    router.push('/');
-    setUserCard(initialUserCard);
+  const handleDelete = async () => {
+    try {
+      const res = await fetch(`${apiUrl}/api/delete`, {
+        method: 'DELETE',
+        credentials: 'include',
+      });
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(errorText || '削除に失敗しました');
+      }
+
+      setOpen(false);
+      router.push('/');
+      setUserCard(initialUserCard);
+    } catch (e) {
+      console.error('エラー:', e);
+      alert(`削除失敗: ${(e as Error).message}`);
+    }
   };
 
   return (
