@@ -10,10 +10,12 @@ import SetIntroduction from '@/component/Section/profile/setintroduction';
 import SetOptions from '@/component/Section/profile/setOptions';
 import SetPlayStyle from '@/component/Section/profile/setPlayStyle';
 import Annotation from '@/component/Section/profile/annotation';
-import MYDiscordProfileCard from '@/component/Section/MYDiscordProfileCard';
 import SubmitAndDelete from '@/component/Section/profile/smt&dlt';
 import { AuthContext } from '@/component/Context/Auth';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+import DiscordProfileCard from '@/component/profcard';
+
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const sx: SxProps<Theme> = {
   display: 'flex',
@@ -30,18 +32,17 @@ const TypographySx: SxProps<Theme> = {
 };
 
 export default function Profiles() {
-  const { userCard } = useContext(AuthContext);
-  if (!userCard.userAuth.id) {
+  const { loading, userCard } = useContext(AuthContext);
+  useEffect(() => {
+    if (!loading && !userCard.id) {
+      window.location.href = `${apiUrl}/oauth2/authorization/discord`;
+    }
+  }, [loading, userCard]);
+
+  if (loading) {
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '70vh',
-        }}
-      >
-        <CircularProgress size="100px" />
+      <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+        <CircularProgress />
       </Box>
     );
   }
@@ -65,7 +66,7 @@ export default function Profiles() {
             <SetOptions />
           </Box>
           <Box sx={{}}>
-            <MYDiscordProfileCard />
+            <DiscordProfileCard {...userCard} />
             <Annotation />
           </Box>
         </Box>

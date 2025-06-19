@@ -3,14 +3,30 @@
 import { User } from '@/app/type';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
-const FriendsContext = createContext(null);
-const [users, setUsers] = useState<User[]>([]);
-const [totalPages, setTotalPages] = useState(1);
-const [error, setError] = useState<string | null>(null);
-const [page, setPage] = useState(1);
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+interface Props {
+  children: ReactNode;
+}
 
-export default function FriendsProvider() {
+interface FriendsContextType {
+  users: User[];
+  setUsers: React.Dispatch<React.SetStateAction<User[]>>;
+  totalPages: number;
+  setTotalPages: React.Dispatch<React.SetStateAction<number>>;
+  error: string | null;
+  setError: React.Dispatch<React.SetStateAction<string | null>>;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const FriendsContext = createContext<FriendsContextType | null>(null);
+
+export default function FriendsProvider({ children }: Props) {
+  const [users, setUsers] = useState<User[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState(1);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -26,7 +42,6 @@ export default function FriendsProvider() {
         }
 
         const json = await res.json();
-        console.log(json);
         setUsers(json.content);
         setTotalPages(json.totalPages);
       } catch (error) {
@@ -39,16 +54,16 @@ export default function FriendsProvider() {
 
   return (
     <FriendsContext.Provider
-      value={
-        (users,
+      value={{
+        users,
         setUsers,
         totalPages,
         setTotalPages,
         error,
         setError,
         page,
-        setPage)
-      }
+        setPage,
+      }}
     >
       {children}
     </FriendsContext.Provider>

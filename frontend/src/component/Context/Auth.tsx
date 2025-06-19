@@ -5,23 +5,23 @@ import { User } from '@/app/type';
 type AuthContextType = {
   userCard: User;
   setUserCard: React.Dispatch<React.SetStateAction<User>>;
+  loading: boolean;
 };
 
 export const initialUserCard: User = {
-  userAuth: {
-    id: null,
-    name: 'no_id',
-    avatar: null,
-    globalName: 'no_name',
-  },
+  id: null,
+  name: 'no_id',
+  avatar: null,
+  globalName: 'no_name',
   userInfo: {
     games: [],
     playtime1: [],
     playtime2: [],
     playstyle: [],
     introduction: 'こんにちは、はじめまして',
+    lastLoginAt: null,
   },
-  option: {
+  userOption: {
     showGender: false,
     showAge: false,
     showGenderToSameSex: false,
@@ -36,10 +36,12 @@ export const initialUserCard: User = {
 const AuthContext = createContext<AuthContextType>({
   userCard: initialUserCard,
   setUserCard: () => {},
+  loading: true,
 });
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [userCard, setUserCard] = useState<User>(initialUserCard);
+  const [loading, setLoading] = useState(true);
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
@@ -54,20 +56,19 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         const data = await res.json();
 
         const card: User = {
-          userAuth: {
-            id: data.id,
-            name: data.name,
-            avatar: data.avatar,
-            globalName: data.globalName,
-          },
+          id: data.id,
+          name: data.name,
+          avatar: data.avatar,
+          globalName: data.globalName,
           userInfo: {
             games: data.userInfo.games,
             playtime1: data.userInfo.playtime1,
             playtime2: data.userInfo.playtime2,
             playstyle: data.userInfo.playstyle,
             introduction: data.userInfo.introduction,
+            lastLoginAt: data.userInfo.lastLoginAt,
           },
-          option: {
+          userOption: {
             showGender: data.userOption.showGender,
             showAge: data.userOption.showAge,
             showGenderToSameSex: data.userOption.showGenderToSameSex,
@@ -83,6 +84,8 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         console.log('認証成功:', data);
       } catch (e) {
         console.error('認証エラー:', e);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -90,7 +93,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ userCard, setUserCard }}>
+    <AuthContext.Provider value={{ userCard, setUserCard, loading }}>
       {children}
     </AuthContext.Provider>
   );

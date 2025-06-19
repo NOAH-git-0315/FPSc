@@ -12,15 +12,12 @@ import { SetAndSearchProps, SetSearchProps } from '@/component/SearchHUD';
 
 export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
   const [show, setShow] = React.useState(true);
-  const [selectedGame, setSelectedGame] = React.useState<GameType | ''>('');
 
   const handleGameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (Search.rank.includes(event.target.value)) {
-      setSearch((prev) => ({
-        ...prev,
-        game: [event.target.value as GameType],
-      }));
-    }
+    setSearch((prev) => ({
+      ...prev,
+      game: [event.target.value as GameType],
+    }));
   };
 
   const handleRankChange = (
@@ -39,10 +36,7 @@ export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
     });
   };
 
-  const RankList =
-    selectedGame && gameRanks[Search.game[0] as GameType]
-      ? gameRanks[Search.game[0] as GameType]
-      : [];
+  const RankList = gameRanks[Search.game[0] as GameType] ?? [];
 
   return (
     <Box>
@@ -72,9 +66,10 @@ export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
         </Box>
       </FormControl>
       <FormGroup sx={{ marginTop: 4 }}>
-        {RankList.length === 0 && (
-          <FormLabel id="rank">ゲームを先に選択して下さい</FormLabel>
-        )}
+        {!RankList ||
+          (RankList.length === 0 && (
+            <FormLabel id="rank">ゲームを先に選択して下さい</FormLabel>
+          ))}
         {RankList.map((rank) => (
           <FormControlLabel
             control={<Checkbox />}

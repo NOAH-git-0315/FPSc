@@ -7,6 +7,7 @@ import AuthProvider from '@/component/Context/Auth';
 import { SxProps, Theme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import EmotionProvider from '@/component/Context/emotion-provider';
+import FriendsProvider from '@/component/Context/FriendsProvider';
 export const metadata: Metadata = {
   title: 'FPSc',
   description: 'FPSc-top',
@@ -26,12 +27,14 @@ export default function RootLayout({
     <html lang="ja">
       <body>
         <EmotionProvider>
-          <AuthProvider>
-            <Header />
-            <Menu />
-            <Box sx={sx}>{children}</Box>
-            <Footer />
-          </AuthProvider>
+          <FriendsProvider>
+            <AuthProvider>
+              <Header />
+              <Menu />
+              <Box sx={sx}>{children}</Box>
+              <Footer />
+            </AuthProvider>
+          </FriendsProvider>
         </EmotionProvider>
       </body>
     </html>

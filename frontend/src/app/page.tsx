@@ -1,53 +1,20 @@
 'use client';
 import DiscordProfileCard from '@/component/profcard';
 import { Box } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { UserInfo, Option } from './type';
 import PageNoball from '@/component/Section/main/pageNoBall';
 import SearchHUD from '@/component/SearchHUD';
-
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-  globalName: string;
-  userInfo: UserInfo;
-  userOption: Option;
-}
+import { useContext } from 'react';
+import FriendsProvider, {
+  FriendsContext,
+} from '@/component/Context/FriendsProvider';
 
 export default function UserList() {
-  const [users, setUsers] = useState<User[]>([]);
-  const [totalPages, setTotalPages] = useState(1);
-  const [error, setError] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const context = useContext(FriendsContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`${apiUrl}/api/Home?page=${page - 1}&size=15`, {
-          method: 'GET',
-          credentials: 'include',
-        });
+  if (!context) return <div>Loading...</div>;
 
-        if (!res.ok) {
-          const errorData = await res.text();
-          setError(errorData);
-          return;
-        }
-
-        const json = await res.json();
-        console.log(json);
-        setUsers(json.content);
-        setTotalPages(json.totalPages);
-      } catch (error) {
-        setError('Error fetching data: ' + error);
-      }
-    };
-
-    fetchData();
-  }, [page]);
-
+  //prettier-ignore
+  const {users,totalPages,error,page,setPage} = context;
   return (
     <Box sx={{ marginTop: 15 }}>
       <PageNoball page={page} setPage={setPage} totalPages={totalPages} />
@@ -63,21 +30,7 @@ export default function UserList() {
         }}
       >
         {users.map((user) => (
-          <DiscordProfileCard
-            key={`${page}-${user.id}`}
-            userAuth={{
-              id: user.id,
-              avatar: user.avatar,
-              name: user.name,
-              globalName: user.globalName,
-            }}
-            userInfo={user.userInfo}
-            option={user.userOption}
-            cardOption={{
-              color: 'black',
-              motion: null,
-            }}
-          />
+          <DiscordProfileCard {...user} />
         ))}
         {error && <div className="text-red-500">{error}</div>}
       </Box>

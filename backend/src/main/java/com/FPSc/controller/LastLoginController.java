@@ -22,7 +22,7 @@ public class LastLoginController {
     private AuthUtilService authUtilService;
 
     @GetMapping("api/last-login")
-    public void updateLastLogin(@CookieValue("jwt") String jwt) {
+    public String updateLastLogin(@CookieValue("jwt") String jwt) {
         try {
             UserAuth userAuth = authUtilService.authenticate(jwt);
             UserInfo userInfo = userInfoRepository.findById(userAuth.getId())
@@ -30,8 +30,10 @@ public class LastLoginController {
                             "UserInfo not found for userAuth id: " + userAuth.getId()));
             userInfo.setLastLoginAt(LocalDateTime.now());
             userInfoRepository.save(userInfo);
+            return "プロフィールの表示順位をアップしました";
         } catch (Exception e) {
             e.printStackTrace();
+            return "予期せぬエラーが発生しました";
         }
     }
 }

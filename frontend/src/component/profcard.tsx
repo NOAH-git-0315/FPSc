@@ -18,19 +18,8 @@ const getPlaytime = (playtime: string[]) => {
   return `${playtime[0]} ~ ${playtime[playtime.length - 1]}`;
 };
 
-export default function DiscordProfileCard(props: User) {
-  const {
-    userAuth: { id, avatar, name, globalName },
-    userInfo: {
-      games = [],
-      playtime1 = [],
-      playtime2 = [],
-      playstyle = [],
-      introduction = '',
-    },
-  } = props;
-
-  const icon = `https://cdn.discordapp.com/avatars/${id}/${avatar}`;
+export default function DiscordProfileCard(user: User) {
+  const icon = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
 
   const Names: React.FC = () => {
     return (
@@ -47,9 +36,9 @@ export default function DiscordProfileCard(props: User) {
           <Typography fontSize={14} color="gray">
             name
           </Typography>
-          <Typography variant="h6">{globalName}</Typography>
+          <Typography variant="h6">{user.globalName}</Typography>
           <Typography fontSize={14} color="gray">
-            {name}
+            {user.name}
           </Typography>
         </Box>
       </Box>
@@ -57,13 +46,13 @@ export default function DiscordProfileCard(props: User) {
   };
 
   const Games: React.FC = () => {
-    if (games.length === 0) return null;
+    if (user.userInfo.games.length === 0) return null;
     return (
       <Box sx={{ marginTop: Margin }}>
         <Typography fontSize={14} color="gray">
           game | rank
         </Typography>
-        {games.map((game, index) => (
+        {user.userInfo.games.map((game, index) => (
           <Typography key={index}>
             {game.title} | {game.rank}
           </Typography>
@@ -73,14 +62,14 @@ export default function DiscordProfileCard(props: User) {
   };
 
   const PlayStyle: React.FC = () => {
-    if (playstyle.length === 0) return null;
+    if (user.userInfo.playstyle.length === 0) return null;
     return (
       <Box sx={{ flex: 1, marginTop: Margin }}>
         <Typography fontSize={14} color="gray">
           playstyle
         </Typography>
         <Typography sx={{ border: '1px solid gray', borderRadius: 1, p: 0.5 }}>
-          {playstyle.join(', ')}
+          {user.userInfo.playstyle.join(', ')}
         </Typography>
       </Box>
     );
@@ -90,20 +79,28 @@ export default function DiscordProfileCard(props: User) {
     const typeSx = { border: '1px solid gray', borderRadius: 1, p: 0.5 };
     return (
       <Box sx={{ display: 'flex', gap: 1, marginTop: Margin }}>
-        {TIME_LIST.includes(playtime1[0] as (typeof TIME_LIST)[number]) && (
+        {TIME_LIST.includes(
+          user.userInfo.playtime1[0] as (typeof TIME_LIST)[number],
+        ) && (
           <Box sx={{ flex: 1 }}>
             <Typography fontSize={14} color="gray">
               平日プレイ時間帯
             </Typography>
-            <Typography sx={typeSx}>{getPlaytime(playtime1)}</Typography>
+            <Typography sx={typeSx}>
+              {getPlaytime(user.userInfo.playtime1)}
+            </Typography>
           </Box>
         )}
-        {TIME_LIST.includes(playtime2[0] as (typeof TIME_LIST)[number]) && (
+        {TIME_LIST.includes(
+          user.userInfo.playtime2[0] as (typeof TIME_LIST)[number],
+        ) && (
           <Box sx={{ flex: 1 }}>
             <Typography fontSize={14} color="gray">
               休日プレイ時間帯
             </Typography>
-            <Typography sx={typeSx}>{getPlaytime(playtime2)}</Typography>
+            <Typography sx={typeSx}>
+              {getPlaytime(user.userInfo.playtime2)}
+            </Typography>
           </Box>
         )}
       </Box>
@@ -111,7 +108,7 @@ export default function DiscordProfileCard(props: User) {
   };
 
   const Introduction: React.FC = () => {
-    if (!introduction) return null;
+    if (!user.userInfo.introduction) return null;
     return (
       <Box sx={{ marginTop: Margin }}>
         <Typography fontSize={14} color="gray">
@@ -127,7 +124,7 @@ export default function DiscordProfileCard(props: User) {
             overflowWrap: 'break-word',
           }}
         >
-          {introduction}
+          {user.userInfo.introduction}
         </Typography>
       </Box>
     );
