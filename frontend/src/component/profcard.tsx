@@ -1,3 +1,4 @@
+'use client';
 import { User } from '@/app/type';
 import { TIME_LIST } from '@/lib/Array/Time';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';

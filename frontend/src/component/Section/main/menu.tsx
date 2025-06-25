@@ -1,10 +1,8 @@
 'use client';
 
-import { AuthContext } from '@/component/Context/Auth';
 import LastLogin from '@/lib/LastLogin';
 import { Button, Grid, SxProps, Theme, Tooltip } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { useContext } from 'react';
 
 const menuList = [
   { tag: 'フレンド', title: 'フレンドを探します', url: '/' },
@@ -49,8 +47,8 @@ export default function Menu() {
 
   return (
     <Grid container sx={containerSX}>
-      {menuList.map((menu, index) => (
-        <Grid key={index}>
+      {menuList.map((menu) => (
+        <Grid key={menu.tag}>
           <Tooltip title={menu.title} arrow>
             <Button sx={itemSX} onClick={() => handleClick(menu.url)}>
               {menu.tag}

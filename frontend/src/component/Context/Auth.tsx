@@ -51,10 +51,19 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
           method: 'GET',
           credentials: 'include',
         });
-        if (!res.ok) throw new Error('Network response was not ok');
+        if (res.status === 204) {
+          setUserCard(initialUserCard);
+          return;
+        }
+        if (res.status === 401) {
+          setUserCard(initialUserCard);
+          return;
+        }
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
 
         const data = await res.json();
-
         const card: User = {
           id: data.id,
           name: data.name,

@@ -30,7 +30,7 @@ export default function UserList() {
         }}
       >
         {users.map((user) => (
-          <DiscordProfileCard {...user} />
+          <DiscordProfileCard key={user.name} {...user} />
         ))}
         {error && <div className="text-red-500">{error}</div>}
       </Box>

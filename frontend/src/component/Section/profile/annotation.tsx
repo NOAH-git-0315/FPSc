@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 export default function Annotation() {
   const { userCard } = useContext(AuthContext);
-  const option = userCard.option;
+  const option = userCard.userOption;
 
   return (
     <Box sx={{ marginTop: 2 }}>
@@ -15,7 +15,7 @@ export default function Annotation() {
       {userCard.option.showGenderToSameSex && (
         <Typography>※プロフィールは同性にのみ表示されます</Typography>
       )} */}
-      {userCard.option.showProfile && (
+      {userCard.userOption.showProfile && (
         <Typography>※プロフィールは公開されます</Typography>
       )}
     </Box>

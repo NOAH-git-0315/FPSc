@@ -8,7 +8,7 @@ export default function Submit() {
   const { userCard: state } = context;
   const PostData = {
     userInfo: state.userInfo,
-    option: state.option,
+    option: state.userOption,
     cardOption: state.cardOption,
   };
 

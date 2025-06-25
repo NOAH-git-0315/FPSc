@@ -1,21 +1,21 @@
+import { standard } from '@/app/standard';
 import { Box, Typography, SxProps, Theme } from '@mui/material';
-import theme from '../../../../theme';
-
-const sxStyles: SxProps<Theme> = {
-  position: 'fixed',
-  width: '280px',
-  height: '280px',
-  backgroundColor: theme.palette.primary.main,
-  clipPath: 'polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%)',
-  boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.2)',
-  borderTopLeftRadius: '2rem',
-  zIndex: 10,
-  bottom: '0px',
-  right: '0px',
-  display: 'flex',
-};
 
 export default function Footer() {
+  const sxStyles: SxProps<Theme> = {
+    position: 'fixed',
+    width: '280px',
+    height: '280px',
+    backgroundColor: standard.color.main,
+    clipPath: 'polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%)',
+    boxShadow: '0 -4px 12px rgba(0, 0, 0, 0.2)',
+    borderTopLeftRadius: '2rem',
+    zIndex: 10,
+    bottom: '0px',
+    right: '0px',
+    display: 'flex',
+  };
+
   return (
     <Box sx={sxStyles}>
       <Typography

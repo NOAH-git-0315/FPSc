@@ -10,10 +10,10 @@ import { AuthContext } from '@/component/Context/Auth';
 
 export default function SetOptions() {
   const { userCard, setUserCard } = useContext(AuthContext);
-  const option = userCard.option;
+  const option = userCard.userOption;
   const handleChange = (value: boolean, index: number) => {
     setUserCard((prev) => {
-      const updatedOption = { ...prev.option };
+      const updatedOption = { ...prev.userOption };
       switch (index) {
         case 0: {
           updatedOption.showGender = value;
@@ -34,7 +34,7 @@ export default function SetOptions() {
       }
       return {
         ...prev,
-        option: updatedOption,
+        userOption: updatedOption,
       };
     });
   };

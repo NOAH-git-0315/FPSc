@@ -1,5 +1,5 @@
-import { Box, Typography, Button } from '@mui/material';
-import theme from '../../../../theme';
+import { Box, Typography } from '@mui/material';
+import { standard } from '@/app/standard';
 
 export default function Header() {
   return (
@@ -18,7 +18,7 @@ export default function Header() {
         sx={{
           width: '100%',
           height: '100%',
-          backgroundColor: theme.palette.primary.main,
+          backgroundColor: standard.color.main,
           clipPath: 'polygon(0% 0%, 0% 100%, 100% 0%)',
           display: 'flex',
           flexDirection: 'column',
