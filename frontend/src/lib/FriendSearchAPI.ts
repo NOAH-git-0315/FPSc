@@ -1,4 +1,4 @@
-import { SearchType } from '@/component/SearchHUD';
+import { SearchType } from '@/component/Section/Search/SearchHUD';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -48,7 +48,5 @@ export default async function FriendSearchAPI(
     },
   );
   const data = await res.json();
-  console.log(Search);
-  console.log(data.content);
-  return await data.content;
+  return await data;
 }

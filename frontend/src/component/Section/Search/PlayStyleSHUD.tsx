@@ -1,13 +1,11 @@
-import { SetSearchProps } from '@/component/SearchHUD';
+import { SetSearchProps } from '@/component/Section/Search/SearchHUD';
 import { PlayStyle, playStyleList } from '@/lib/Array/PlayStyle';
 import {
   FormGroup,
-  FormLabel,
   FormControlLabel,
   Checkbox,
   Typography,
   Box,
-  Switch,
 } from '@mui/material';
 
 export default function PlayStyleSHUD({ setSearch }: SetSearchProps) {
@@ -31,7 +29,6 @@ export default function PlayStyleSHUD({ setSearch }: SetSearchProps) {
     <Box sx={{ marginTop: 4 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Typography>プレイスタイル</Typography>
-        <Switch />
       </Box>
       <FormGroup>
         {playStyleList.map((playStyle) => (
@@ -40,6 +37,7 @@ export default function PlayStyleSHUD({ setSearch }: SetSearchProps) {
             key={playStyle}
             label={playStyle}
             onChange={handleChange}
+            name={playStyle}
           />
         ))}
       </FormGroup>

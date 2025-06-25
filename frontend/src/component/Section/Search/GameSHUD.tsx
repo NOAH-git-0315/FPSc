@@ -6,14 +6,20 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { Games, GameType } from '@/lib/Array/Games';
-import { Box, Checkbox, FormGroup, Switch, Typography } from '@mui/material';
+import { Box, Checkbox, FormGroup, Typography } from '@mui/material';
 import { gameRanks } from '@/lib/Array/Rank';
-import { SetAndSearchProps, SetSearchProps } from '@/component/SearchHUD';
+import { SetAndSearchProps } from '@/component/Section/Search/SearchHUD';
 
 export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
-  const [show, setShow] = React.useState(true);
-
   const handleGameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === 'すべて') {
+      setSearch((prev) => ({
+        ...prev,
+        game: [],
+        rank: [],
+      }));
+      return;
+    }
     setSearch((prev) => ({
       ...prev,
       game: [event.target.value as GameType],
@@ -35,7 +41,7 @@ export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
       return { ...prev, rank: updatedRanks };
     });
   };
-
+  const GameList = ['すべて', ...Games];
   const RankList = gameRanks[Search.game[0] as GameType] ?? [];
 
   return (
@@ -43,15 +49,14 @@ export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
       <FormControl>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <FormLabel id="title">ゲーム</FormLabel>
-          <Switch />
         </Box>
         <RadioGroup
-          aria-labelledby="demo-radio-buttons-group-label"
-          defaultValue="female"
+          aria-labelledby="radio-buttons-group-label"
+          defaultValue="すべて"
           name="radio-buttons-group"
           onChange={handleGameChange}
         >
-          {Games.map((game, index) => (
+          {GameList.map((game, index) => (
             <FormControlLabel
               value={game}
               key={index}
@@ -60,16 +65,9 @@ export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
             />
           ))}
         </RadioGroup>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <Typography>ランク</Typography>
-          <Switch />
-        </Box>
       </FormControl>
       <FormGroup sx={{ marginTop: 4 }}>
-        {!RankList ||
-          (RankList.length === 0 && (
-            <FormLabel id="rank">ゲームを先に選択して下さい</FormLabel>
-          ))}
+        {RankList.length !== 0 && <Typography>ランク</Typography>}
         {RankList.map((rank) => (
           <FormControlLabel
             control={<Checkbox />}
