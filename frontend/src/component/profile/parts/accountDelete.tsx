@@ -35,12 +35,10 @@ export default function AccountDelete() {
         const errorText = await res.text();
         throw new Error(errorText || '削除に失敗しました');
       }
-
       setOpen(false);
-      router.push('/');
-      setUserCard(initialUserCard);
+      router.push('/deletetimeout');
+      // setUserCard(initialUserCard);
     } catch (e) {
-      console.error('エラー:', e);
       alert(`削除失敗: ${(e as Error).message}`);
     }
   };

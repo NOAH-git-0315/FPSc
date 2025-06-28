@@ -25,7 +25,8 @@ const useSchema = z.object({
     playstyle: z.array(z.enum(playStyleList)),
     introduction: z
       .string()
-      .max(100, '自己紹介は100文字以内で入力してください'),
+      .max(100, '自己紹介は100文字以内で入力してください')
+      .nullable(),
   }),
   option: z.object({
     showGender: z.boolean(),
@@ -89,10 +90,12 @@ export async function validationAndPost(PostData: User) {
     }
 
     if (
-      (UserInfo.playtime1[0] == UserInfo.playtime1[1] &&
-        UserInfo.playtime1[0] != '') ||
-      (UserInfo.playtime2[0] == UserInfo.playtime2[1] &&
-        UserInfo.playtime2[0] != '')
+      (UserInfo.playtime1[0] &&
+        UserInfo.playtime1[1] &&
+        UserInfo.playtime1[0] == UserInfo.playtime1[1]) ||
+      (UserInfo.playtime2[0] &&
+        UserInfo.playtime2[1] &&
+        UserInfo.playtime2[0] == UserInfo.playtime2[1])
     ) {
       throw new Error('開始時刻と終了時刻を同じにすることはできません');
     }

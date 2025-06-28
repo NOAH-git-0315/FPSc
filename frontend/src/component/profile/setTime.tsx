@@ -17,35 +17,16 @@ export default function SetTime() {
 
       switch (id) {
         case 'weekdayStart':
-          if (newPlaytime1.length === 0) {
-            newPlaytime1.push(time);
-          } else {
-            newPlaytime1[0] = time;
-          }
+          newPlaytime1[0] = time;
           break;
-
         case 'weekdayEnd':
-          if (newPlaytime1.length === 0) {
-            newPlaytime1.push('', time);
-          } else {
-            newPlaytime1[newPlaytime1.length - 1] = time;
-          }
+          newPlaytime1[1] = time;
           break;
-
         case 'holidayStart':
-          if (newPlaytime2.length === 0) {
-            newPlaytime2.push(time);
-          } else {
-            newPlaytime2[0] = time;
-          }
+          newPlaytime2[0] = time;
           break;
-
         case 'holidayEnd':
-          if (newPlaytime2.length === 0) {
-            newPlaytime2.push('', time);
-          } else {
-            newPlaytime2[newPlaytime2.length - 1] = time;
-          }
+          newPlaytime2[1] = time;
           break;
       }
 

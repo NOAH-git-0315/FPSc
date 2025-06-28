@@ -3,16 +3,12 @@
 import LastLogin from '@/lib/LastLogin';
 import { Button, Grid, SxProps, Theme, Tooltip } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const menuList = [
   { tag: 'フレンド', title: 'フレンドを探します', url: '/' },
   { tag: 'サーバー', title: 'サーバーを探します', url: '/server' },
   { tag: 'プロフィール', title: 'プロフィールを編集します', url: '/profile' },
-  {
-    tag: '表示順アップ',
-    title: '自分のプロフィール表示順を上げます',
-    url: 'bump',
-  },
 ] as const;
 
 type MenuItem = (typeof menuList)[number];
@@ -36,15 +32,18 @@ const itemSX: SxProps<Theme> = {
 
 export default function Menu() {
   const router = useRouter();
+  const [bumped, setBumped] = useState<boolean>(false);
 
   const handleClick = async (item: Url) => {
-    if (item === 'bump') {
-      await LastLogin();
-    } else {
+    {
       router.push(item);
     }
   };
 
+  const handlebump = () => {
+    LastLogin();
+    setBumped(true);
+  };
   return (
     <Grid container sx={containerSX}>
       {menuList.map((menu) => (
@@ -56,6 +55,13 @@ export default function Menu() {
           </Tooltip>
         </Grid>
       ))}
+      <Grid>
+        <Tooltip title={bumped ? '表示順を更新済' : '表示順を上げる'} arrow>
+          <Button sx={itemSX} onClick={handlebump}>
+            表示順アップ
+          </Button>
+        </Tooltip>
+      </Grid>
     </Grid>
   );
 }
