@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { Button, Typography } from '@mui/material';
-import { SetAndSearchProps } from '@/component/Section/Search/SearchHUD';
+import { SetAndSearchProps } from '@/component/Search/SearchHUD';
 
 function formatTimeLabel(value: number): string {
   const hours = Math.floor(value / 2);

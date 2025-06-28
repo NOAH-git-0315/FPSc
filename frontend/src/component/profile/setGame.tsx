@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
-import { User, Game } from '@/app/type';
+import { User, GameInfo } from '@/app/type';
 import { AuthContext } from '@/component/Context/Auth';
 import { Games } from '@/lib/Array/Games';
 import { gameRanks } from '@/lib/Array/Rank';
@@ -18,7 +18,7 @@ interface PropsType {
   setInputKey: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const handleRank = (gameTitle: string) => {
+const handleRank = (gameTitle: GameInfo) => {
   return gameRanks[gameTitle];
 };
 

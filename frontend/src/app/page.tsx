@@ -1,8 +1,8 @@
 'use client';
 import DiscordProfileCard from '@/component/profcard';
 import { Box } from '@mui/material';
-import PageNoball from '@/component/Section/main/pageNoBall';
-import SearchHUD from '@/component/Section/Search/SearchHUD';
+import PageNoball from '@/component/main/pageNoBall';
+import SearchHUD from '@/component/Search/SearchHUD';
 import { useContext } from 'react';
 import FriendsProvider, {
   FriendsContext,

@@ -8,7 +8,7 @@ import FormLabel from '@mui/material/FormLabel';
 import { Games, GameType } from '@/lib/Array/Games';
 import { Box, Checkbox, FormGroup, Typography } from '@mui/material';
 import { gameRanks } from '@/lib/Array/Rank';
-import { SetAndSearchProps } from '@/component/Section/Search/SearchHUD';
+import { SetAndSearchProps } from '@/component/Search/SearchHUD';
 
 export default function GameSHUD({ setSearch, Search }: SetAndSearchProps) {
   const handleGameChange = (event: React.ChangeEvent<HTMLInputElement>) => {

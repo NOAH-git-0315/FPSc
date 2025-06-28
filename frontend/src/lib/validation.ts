@@ -3,7 +3,7 @@ import { playStyleList } from './Array/PlayStyle';
 import { gameRanks } from './Array/Rank';
 import { Games } from './Array/Games';
 import { CardOption_list } from './Array/CardOption';
-import { PostDataType } from '@/app/type';
+import { User } from '@/app/type';
 import dayjs from 'dayjs';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -67,7 +67,7 @@ function generateIntervals(playtime: string[]) {
   }
 }
 
-export async function validationAndPost(PostData: PostDataType) {
+export async function validationAndPost(PostData: User) {
   try {
     const validated = useSchema.parse(PostData);
     const UserInfo = validated.userInfo;
@@ -121,6 +121,12 @@ export async function validationAndPost(PostData: PostDataType) {
       return {
         success: false,
         message: errorData.message || '送信に失敗しました',
+      };
+    }
+    if (response.ok && response.status === 204) {
+      return {
+        success: true,
+        message: 'プロフィールが更新されました',
       };
     }
 

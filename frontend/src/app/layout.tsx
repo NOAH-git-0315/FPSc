@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './style.scss';
-import Header from '@/component/Section/main/header';
-import Footer from '@/component/Section/main/footer';
-import Menu from '@/component/Section/main/menu';
+import Header from '@/component/main/header';
+import Footer from '@/component/main/footer';
+import Menu from '@/component/main/menu';
 import AuthProvider from '@/component/Context/Auth';
 import { SxProps, Theme } from '@mui/material/styles';
 import { Box } from '@mui/material';

@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRouter } from 'next/navigation';
-import { AuthContext, initialUserCard } from '../Context/Auth';
+import { AuthContext, initialUserCard } from '../../Context/Auth';
 import { Fragment, useContext, useState } from 'react';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;

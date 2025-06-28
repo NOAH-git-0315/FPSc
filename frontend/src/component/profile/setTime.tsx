@@ -1,3 +1,4 @@
+'use client';
 import { AuthContext } from '@/component/Context/Auth';
 import { Box, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
@@ -8,25 +9,43 @@ export default function SetTime() {
   const { userCard, setUserCard } = useContext(AuthContext);
 
   function handleTimeChange(id: string, value: Dayjs | null) {
-    const time = value ? value?.format('HH:mm') : '';
+    const time = value ? value.format('HH:mm') : '';
+
     setUserCard((prev) => {
       const newPlaytime1 = [...prev.userInfo.playtime1];
       const newPlaytime2 = [...prev.userInfo.playtime2];
 
       switch (id) {
         case 'weekdayStart':
-          newPlaytime1[0] = time;
+          if (newPlaytime1.length === 0) {
+            newPlaytime1.push(time);
+          } else {
+            newPlaytime1[0] = time;
+          }
           break;
+
         case 'weekdayEnd':
-          newPlaytime1[1] = time;
+          if (newPlaytime1.length === 0) {
+            newPlaytime1.push('', time);
+          } else {
+            newPlaytime1[newPlaytime1.length - 1] = time;
+          }
           break;
+
         case 'holidayStart':
-          newPlaytime2[0] = time;
+          if (newPlaytime2.length === 0) {
+            newPlaytime2.push(time);
+          } else {
+            newPlaytime2[0] = time;
+          }
           break;
+
         case 'holidayEnd':
-          newPlaytime2[1] = time;
-          break;
-        default:
+          if (newPlaytime2.length === 0) {
+            newPlaytime2.push('', time);
+          } else {
+            newPlaytime2[newPlaytime2.length - 1] = time;
+          }
           break;
       }
 
@@ -46,7 +65,7 @@ export default function SetTime() {
       <Typography fontSize={14} marginBottom={1} color="gray">
         平日
       </Typography>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', gap: 2 }}>
         <TimePicker
           label="開始時刻"
           minutesStep={30}
@@ -73,10 +92,11 @@ export default function SetTime() {
           onChange={(value) => handleTimeChange('weekdayEnd', value)}
         />
       </Box>
-      <Box sx={{ flex: 1, marginTop: 2 }}>
-        <Typography fontSize={14} marginBottom={1} color="gray">
-          休日
-        </Typography>
+
+      <Typography fontSize={14} marginTop={4} marginBottom={1} color="gray">
+        休日
+      </Typography>
+      <Box sx={{ display: 'flex', gap: 2 }}>
         <TimePicker
           label="開始時刻"
           minutesStep={30}

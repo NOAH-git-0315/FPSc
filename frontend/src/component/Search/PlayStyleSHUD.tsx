@@ -1,4 +1,4 @@
-import { SetSearchProps } from '@/component/Section/Search/SearchHUD';
+import { SetSearchProps } from '@/component/Search/SearchHUD';
 import { PlayStyle, playStyleList } from '@/lib/Array/PlayStyle';
 import {
   FormGroup,

@@ -15,8 +15,8 @@ export const initialUserCard: User = {
   globalName: 'no_name',
   userInfo: {
     games: [],
-    playtime1: [],
-    playtime2: [],
+    playtime1: ['', ''],
+    playtime2: ['', ''],
     playstyle: [],
     introduction: 'こんにちは、はじめまして',
     lastLoginAt: null,

@@ -12,7 +12,7 @@ export default function Submit() {
     cardOption: state.cardOption,
   };
 
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [Message, setMessage] = useState<string | null>(null);
 
   return (
     <>
@@ -20,7 +20,9 @@ export default function Submit() {
         onClick={async () => {
           const result = await validationAndPost(PostData);
           if (!result.success) {
-            setErrorMessage(result.message || '不明なエラー');
+            setMessage(result.message || '不明なエラー');
+          } else if (result.success) {
+            setMessage(result.message || 'プロフィールを更新しました');
           }
         }}
         variant="contained"
@@ -28,12 +30,12 @@ export default function Submit() {
         プロフィールを更新
       </Button>
 
-      {errorMessage && (
+      {Message && (
         <Snackbar
           open={true}
-          message={errorMessage}
+          message={Message}
           autoHideDuration={6000}
-          onClose={() => setErrorMessage(null)}
+          onClose={() => setMessage(null)}
         />
       )}
     </>

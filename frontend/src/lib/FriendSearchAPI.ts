@@ -1,4 +1,4 @@
-import { SearchType } from '@/component/Section/Search/SearchHUD';
+import { SearchType } from '@/component/Search/SearchHUD';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 

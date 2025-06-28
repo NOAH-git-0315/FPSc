@@ -2,7 +2,7 @@
 
 import { User } from '@/app/type';
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { SearchType } from '../Section/Search/SearchHUD';
+import { SearchType } from '../Search/SearchHUD';
 import FriendSearchAPI from '@/lib/FriendSearchAPI';
 import { set } from 'zod';
 
