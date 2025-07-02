@@ -3,23 +3,32 @@ import { User } from '@/app/type';
 import { TIME_LIST } from '@/lib/Array/Time';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
 
-const sx = {
-  width: 330,
-  bgcolor: '#2f3136',
-  color: 'white',
-  borderRadius: 2,
-  p: 2,
-  boxShadow: 3,
-  alignSelf: 'flex-start',
-};
-
 const Margin = 1;
 
 const getPlaytime = (playtime: string[]) => {
   return `${playtime[0]} ~ ${playtime[playtime.length - 1]}`;
 };
 
-export default function DiscordProfileCard(user: User) {
+export default function DiscordProfileCard({
+  user,
+  height,
+}: {
+  user: User;
+  height?: number;
+}) {
+  const sx = {
+    width: 330,
+    bgcolor: '#2f3136',
+    color: 'white',
+    borderRadius: 2,
+    p: 2,
+    boxShadow: 3,
+    alignSelf: 'flex-start',
+    height: height ? `${height}px` : '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  };
+
   const icon = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
 
   const Names: React.FC = () => {
@@ -62,20 +71,6 @@ export default function DiscordProfileCard(user: User) {
     );
   };
 
-  const PlayStyle: React.FC = () => {
-    if (user.userInfo.playstyle.length === 0) return null;
-    return (
-      <Box sx={{ flex: 1, marginTop: Margin }}>
-        <Typography fontSize={14} color="gray">
-          playstyle
-        </Typography>
-        <Typography sx={{ border: '1px solid gray', borderRadius: 1, p: 0.5 }}>
-          {user.userInfo.playstyle.join(', ')}
-        </Typography>
-      </Box>
-    );
-  };
-
   const PlayTime: React.FC = () => {
     const typeSx = { border: '1px solid gray', borderRadius: 1, p: 0.5 };
     return (
@@ -108,10 +103,23 @@ export default function DiscordProfileCard(user: User) {
     );
   };
 
+  const PlayStyle: React.FC = () => {
+    if (user.userInfo.playstyle.length === 0) return null;
+    return (
+      <Box sx={{ marginTop: Margin }}>
+        <Typography fontSize={14} color="gray">
+          playstyle
+        </Typography>
+        <Typography sx={{ border: '1px solid gray', borderRadius: 1, p: 0.5 }}>
+          {user.userInfo.playstyle.join(', ')}
+        </Typography>
+      </Box>
+    );
+  };
   const Introduction: React.FC = () => {
     if (!user.userInfo.introduction) return null;
     return (
-      <Box sx={{ marginTop: Margin }}>
+      <Box sx={{ mt: Margin, mb: 'auto' }}>
         <Typography fontSize={14} color="gray">
           introduction
         </Typography>
@@ -138,7 +146,7 @@ export default function DiscordProfileCard(user: User) {
         color="primary"
         fullWidth
         onClick={() => navigator.clipboard.writeText(ID)}
-        sx={{ marginTop: Margin * 2, bottom: 2 }}
+        sx={{ mt: 'auto', mb: 1 }}
       >
         IDをコピー
       </Button>

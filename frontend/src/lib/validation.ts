@@ -44,6 +44,7 @@ function generateIntervals(playtime: string[]) {
   try {
     const startStr = playtime[0];
     const endStr = playtime[playtime.length - 1];
+
     let current = dayjs(`2020-01-01T${startStr}`);
     let end = dayjs(`2020-01-01T${endStr}`);
 
@@ -52,7 +53,7 @@ function generateIntervals(playtime: string[]) {
     }
 
     if (end.isBefore(current)) {
-      end = end.add(1, 'day');
+      throw new Error('終了時刻より遅い開始時刻に設定することはできません');
     }
 
     const result = [];
@@ -63,8 +64,8 @@ function generateIntervals(playtime: string[]) {
     }
 
     return result;
-  } catch {
-    throw new Error('無効なプレイ時間の選択です');
+  } catch (err) {
+    throw err;
   }
 }
 

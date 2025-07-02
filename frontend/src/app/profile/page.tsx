@@ -66,7 +66,7 @@ export default function Profiles() {
             <SetOptions />
           </Box>
           <Box sx={{}}>
-            <DiscordProfileCard {...userCard} />
+            <DiscordProfileCard user={userCard} />
             <Annotation />
           </Box>
         </Box>
