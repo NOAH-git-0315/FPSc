@@ -2,6 +2,10 @@
 import { User } from '@/app/type';
 import { TIME_LIST } from '@/lib/Array/Time';
 import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { style } from '@/app/standard';
+import { useState } from 'react';
 
 const Margin = 1;
 
@@ -11,25 +15,23 @@ const getPlaytime = (playtime: string[]) => {
 
 export default function DiscordProfileCard({
   user,
-  height,
+  lastLoginAt,
 }: {
   user: User;
   height?: number;
+  lastLoginAt?: string;
 }) {
-  const sx = {
-    width: 330,
-    bgcolor: '#2f3136',
-    color: 'white',
-    borderRadius: 2,
-    p: 2,
-    boxShadow: 3,
-    alignSelf: 'flex-start',
-    height: height ? `${height}px` : '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  };
-
   const icon = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
+  const [isHovered, setIsHovered] = useState(false);
+  const [isOpend, setIsOpend] = useState(false);
+
+  function Onclick() {
+    if (isOpend) {
+      setIsOpend(false);
+    } else {
+      setIsOpend(true);
+    }
+  }
 
   const Names: React.FC = () => {
     return (
@@ -43,9 +45,12 @@ export default function DiscordProfileCard({
       >
         <Avatar src={icon} sx={{ width: 80, height: 80 }} />
         <Box>
-          <Typography fontSize={14} color="gray">
-            name
-          </Typography>
+          <Box sx={{ display: 'flex' }}>
+            <Typography sx={style.subFont}>name</Typography>
+            <Typography sx={{ ...style.subFont, ml: 16 }}>
+              {lastLoginAt}
+            </Typography>
+          </Box>
           <Typography variant="h6">{user.globalName}</Typography>
           <Typography fontSize={14} color="gray">
             {user.name}
@@ -140,27 +145,103 @@ export default function DiscordProfileCard({
   };
 
   const CopyIdButton: React.FC<{ ID: string }> = ({ ID }) => {
+    const sx = {
+      position: 'absolute',
+      bottom: 0,
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    };
     return (
-      <Button
-        variant="contained"
-        color="primary"
-        fullWidth
-        onClick={() => navigator.clipboard.writeText(ID)}
-        sx={{ mt: 'auto', mb: 1 }}
-      >
-        IDをコピー
-      </Button>
+      <Box sx={sx}>
+        <Box
+          onClick={Onclick}
+          sx={{
+            width: '100%',
+            height: 60,
+            background:
+              'linear-gradient(to bottom, rgba(47,49,54,0.3) 0%, rgba(47,49,54,1) 100%)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'end',
+          }}
+        >
+          {isOpend ? (
+            <ArrowDropUpIcon
+              sx={{
+                opacity: 1,
+                transform: 'translateX(-50%)',
+                fontSize: '2rem',
+                color: isHovered ? 'green' : 'white',
+              }}
+            />
+          ) : (
+            <ArrowDropDownIcon
+              sx={{
+                opacity: 1,
+                transform: 'translateX(-50%)',
+                fontSize: '2rem',
+                color: isHovered ? 'green' : 'white',
+              }}
+            />
+          )}
+        </Box>
+        <Box sx={{ width: '100%', height: 10, backgroundColor: '#2f3136' }} />
+        <Box
+          sx={{
+            width: '100%',
+            backgroundColor: '#2f3136',
+          }}
+        >
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={() => navigator.clipboard.writeText(ID)}
+            sx={{ width: '90%', height: 40 }}
+          >
+            IDをコピー
+          </Button>
+          <Box sx={{ height: 10, backgroundColor: '#2f3136' }} />
+        </Box>
+      </Box>
     );
   };
 
+  //25
+  //25
+  //75
+  //25
+
+  const sx = {
+    position: 'relative',
+    overflow: 'hidden',
+    width: 330,
+    height: isOpend ? '110%' : 400,
+    bgcolor: '#2f3136',
+    color: 'white',
+    borderRadius: 2,
+    p: 2,
+    boxShadow: 3,
+    alignSelf: 'flex-start',
+    display: 'flex',
+    flexDirection: 'column',
+    transition: 'height 0.3s ease',
+  };
+
   return (
-    <Box sx={sx}>
+    <Box
+      sx={sx}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <Names />
       <Games />
       <PlayTime />
       <PlayStyle />
       <Introduction />
-      <CopyIdButton ID={name ?? ''} />
+      <CopyIdButton ID={user.id ?? ''} />
       <Stack spacing={2}></Stack>
     </Box>
   );

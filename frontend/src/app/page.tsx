@@ -10,7 +10,7 @@ import FriendsProvider, {
 
 export default function UserList() {
   const cardRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [heightsPerRow, setHeightsPerRow] = useState<number[]>([]);
+  const [UsersLastLogin, setLastLogin] = useState<(string | undefined)[]>([]);
   const cardsPerRow = 3;
   const context = useContext(FriendsContext);
 
@@ -30,8 +30,31 @@ export default function UserList() {
       const maxHeight = Math.max(...groupHeights);
       newHeightsPerRow.push(maxHeight);
     }
-    setHeightsPerRow(newHeightsPerRow);
+
+    const diffTimes = [];
+    const now = new Date();
+
+    for (let i = 0; i < users.length; i++) {
+      const target = users[i].userInfo.lastLoginAt;
+      if (target !== null) {
+        const targetMil = new Date(`${target}Z`);
+        const diffMs = now.getTime() - targetMil.getTime();
+        const diffMinutes = Math.floor(diffMs / (1000 * 60));
+        const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+        if (diffHours == 0) {
+          diffTimes.push(`${diffMinutes}分前`);
+        } else {
+          diffTimes.push(`${diffHours}時間前`);
+        }
+      } else {
+        diffTimes.push(undefined);
+      }
+    }
+    setLastLogin(diffTimes);
   }, [users]);
+
+  console.log(users);
+  console.log(UsersLastLogin);
 
   return (
     <Box sx={{ marginTop: 15 }}>
@@ -48,9 +71,6 @@ export default function UserList() {
         }}
       >
         {users.map((user, i) => {
-          const rowIndex = Math.floor(i / cardsPerRow);
-          const height = heightsPerRow[rowIndex] || 'auto';
-
           return (
             <Box
               key={user.id}
@@ -58,11 +78,10 @@ export default function UserList() {
                 cardRef.current[i] = el as HTMLDivElement | null;
               }}
               sx={{
-                height: height ? `${height}px` : 'auto',
                 width: '100%',
               }}
             >
-              <DiscordProfileCard user={user} height={height as number} />
+              <DiscordProfileCard user={user} lastLoginAt={UsersLastLogin[i]} />
             </Box>
           );
         })}
