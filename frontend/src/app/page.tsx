@@ -93,7 +93,7 @@ export default function UserList() {
         }}
       >
         {users.map((user, i) => {
-          // const rowIndex = Math.floor(i / cardsPerRow);
+          const rowIndex = Math.floor(i / cardsPerRow);
           return (
             <Box
               key={user.id}
@@ -102,7 +102,7 @@ export default function UserList() {
               }}
               sx={{
                 width: '103%',
-                // minHeight: heightsPerRow[rowIndex] ?? 'auto',
+                minHeight: heightsPerRow[rowIndex] ?? 'auto',
               }}
             >
               <DiscordProfileCard user={user} lastLoginAt={UsersLastLogin[i]} />

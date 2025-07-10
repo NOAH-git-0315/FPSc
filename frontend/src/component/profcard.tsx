@@ -5,7 +5,7 @@ import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { style } from '@/app/standard';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 
 const Margin = 1;
 
@@ -18,7 +18,9 @@ export const DiscordProfileCard = forwardRef<
   { user: User; lastLoginAt?: string }
 >(({ user, lastLoginAt }, ref) => {
   const icon = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
+  const contentRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [height, setHeight] = useState(420);
   const [isOpend, setIsOpend] = useState(false);
 
   function Onclick() {
@@ -28,6 +30,15 @@ export const DiscordProfileCard = forwardRef<
       setIsOpend(true);
     }
   }
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+    if (isOpend) {
+      setHeight(contentRef.current.scrollHeight);
+    } else {
+      setHeight(420);
+    }
+  }, [isOpend]);
 
   const Names: React.FC = () => {
     return (
@@ -136,6 +147,7 @@ export const DiscordProfileCard = forwardRef<
         >
           {user.userInfo.introduction}
         </Typography>
+        <Box sx={{ height: 110, backgroundColor: '#2f3136' }} />
       </Box>
     );
   };
@@ -205,16 +217,11 @@ export const DiscordProfileCard = forwardRef<
     );
   };
 
-  //25
-  //25
-  //75
-  //25
-
   const sx = {
     position: 'relative',
     overflow: 'hidden',
     width: 330,
-    height: isOpend ? '100%' : 400,
+    height,
     bgcolor: '#2f3136',
     color: 'white',
     borderRadius: 2,
@@ -228,18 +235,19 @@ export const DiscordProfileCard = forwardRef<
 
   return (
     <Box
-      ref={ref}
       sx={sx}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Names />
-      <Games />
-      <PlayTime />
-      <PlayStyle />
-      <Introduction />
-      <CopyIdButton ID={user.id ?? ''} />
-      <Stack spacing={2}></Stack>
+      <Box ref={contentRef}>
+        <Names />
+        <Games />
+        <PlayTime />
+        <PlayStyle />
+        <Introduction />
+        <CopyIdButton ID={user.id ?? ''} />
+        <Stack spacing={2}></Stack>
+      </Box>
     </Box>
   );
 });

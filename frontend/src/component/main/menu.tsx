@@ -1,13 +1,14 @@
 'use client';
 
 import LastLogin from '@/lib/LastLogin';
-import { Button, Grid, SxProps, Theme, Tooltip } from '@mui/material';
+import { Avatar, Button, Grid, SxProps, Theme, Tooltip } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../Context/Auth';
 
 const menuList = [
   { tag: 'フレンド', title: 'フレンドを探します', url: '/' },
-  { tag: 'サーバー', title: 'サーバーを探します', url: '/server' },
+  { tag: 'サーバー', title: 'サーバーを探します(未実装)', url: '/server' },
   { tag: 'プロフィール', title: 'プロフィールを編集します', url: '/profile' },
 ] as const;
 
@@ -31,8 +32,10 @@ const itemSX: SxProps<Theme> = {
 };
 
 export default function Menu() {
+  const { userCard } = useContext(AuthContext);
   const router = useRouter();
   const [bumped, setBumped] = useState<boolean>(false);
+  const icon = `https://cdn.discordapp.com/avatars/${userCard.id}/${userCard.avatar}`;
 
   const handleClick = async (item: Url) => {
     {
@@ -56,10 +59,26 @@ export default function Menu() {
         </Grid>
       ))}
       <Grid>
-        <Tooltip title={bumped ? '表示順を更新済' : '表示順を上げる'} arrow>
-          <Button sx={itemSX} onClick={handlebump}>
-            表示順アップ
-          </Button>
+        {userCard.id && (
+          <Tooltip title={bumped ? '表示順を更新済' : '表示順を上げる'} arrow>
+            <Button sx={itemSX} onClick={handlebump}>
+              表示順アップ
+            </Button>
+          </Tooltip>
+        )}
+      </Grid>
+      <Grid sx={{ transform: 'translate(10px, 4px)' }}>
+        <Tooltip
+          title={
+            userCard.id ? `hello! ${userCard.globalName} ` : 'ログインします'
+          }
+          arrow
+        >
+          <Avatar
+            src={icon}
+            sx={{ width: 30, height: 30 }}
+            onClick={() => router.push(menuList[2].url)}
+          />
         </Tooltip>
       </Grid>
     </Grid>
