@@ -38,29 +38,29 @@ public interface UserAuthRepository extends JpaRepository<UserAuth, String> {
   Page<UserAuth> findAllUserInfo(Pageable pageable);
 
   @Query("""
-      SELECT DISTINCT ua FROM UserAuth ua
-      JOIN ua.userOption uo
-      JOIN ua.userInfo ui
-      LEFT JOIN ui.games g
-      WHERE uo.showProfile = true
-        AND (:games IS NULL OR g.title IN :games)
-        AND (:ranks IS NULL OR g.userRank IN :ranks)
-        AND (:playstyle IS NULL OR EXISTS (
-          SELECT ps FROM UserInfo uips JOIN uips.playStyle ps
-          WHERE uips = ui AND ps IN :playstyle
-        ))
-        AND (
-          :playtime IS NULL
-          OR EXISTS (
-            SELECT pt1 FROM UserInfo uipt1 JOIN uipt1.playtime1 pt1
-            WHERE uipt1 = ui AND pt1 IN :playtime
-          )
-          OR EXISTS (
-            SELECT pt2 FROM UserInfo uipt2 JOIN uipt2.playtime2 pt2
-            WHERE uipt2 = ui AND pt2 IN :playtime
-          )
-        )
-      ORDER BY ua.id
+          SELECT ua FROM UserAuth ua
+          JOIN ua.userOption uo
+          JOIN ua.userInfo ui
+          LEFT JOIN ui.games g
+          WHERE uo.showProfile = true
+            AND (:games IS NULL OR g.title IN :games)
+            AND (:ranks IS NULL OR g.userRank IN :ranks)
+            AND (:playstyle IS NULL OR EXISTS (
+              SELECT ps FROM UserInfo uips JOIN uips.playStyle ps
+              WHERE uips = ui AND ps IN :playstyle
+            ))
+            AND (
+              :playtime IS NULL
+              OR EXISTS (
+                SELECT pt1 FROM UserInfo uipt1 JOIN uipt1.playtime1 pt1
+                WHERE uipt1 = ui AND pt1 IN :playtime
+              )
+              OR EXISTS (
+                SELECT pt2 FROM UserInfo uipt2 JOIN uipt2.playtime2 pt2
+                WHERE uipt2 = ui AND pt2 IN :playtime
+              )
+            )
+          GROUP BY ua.id
       """)
   Page<UserAuth> findBySearch(
       @Param("games") List<String> games,

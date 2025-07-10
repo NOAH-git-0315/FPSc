@@ -1,5 +1,5 @@
 'use client';
-import DiscordProfileCard from '@/component/profcard';
+import { DiscordProfileCard } from '@/component/profcard';
 import { Box } from '@mui/material';
 import PageNoball from '@/component/main/pageNoBall';
 import SearchHUD from '@/component/Search/SearchHUD';
@@ -11,6 +11,7 @@ import FriendsProvider, {
 export default function UserList() {
   const cardRef = useRef<(HTMLDivElement | null)[]>([]);
   const [UsersLastLogin, setLastLogin] = useState<(string | undefined)[]>([]);
+  const [heightsPerRow, setHeightsPerRow] = useState<number[]>([]);
   const cardsPerRow = 3;
   const context = useContext(FriendsContext);
 
@@ -24,12 +25,20 @@ export default function UserList() {
 
     const newHeightsPerRow: number[] = [];
 
-    for (let i = 0; i < users.length; i += cardsPerRow) {
-      const group = cardRef.current.slice(i, i + cardsPerRow);
-      const groupHeights = group.map((el) => (el ? el.clientHeight : 0));
-      const maxHeight = Math.max(...groupHeights);
-      newHeightsPerRow.push(maxHeight);
+    for (let i = 0; i < users.length; i++) {
+      const cardHeight = cardRef.current[i]?.clientHeight;
+      const rowIndex = Math.floor(i / cardsPerRow);
+      if (cardHeight == undefined) {
+        continue;
+      }
+      if (
+        newHeightsPerRow[rowIndex] == null ||
+        newHeightsPerRow[rowIndex] < cardHeight
+      ) {
+        newHeightsPerRow[rowIndex] = cardHeight;
+      }
     }
+    setHeightsPerRow(newHeightsPerRow);
 
     const diffTimes = [];
     const now = new Date();
@@ -40,21 +49,34 @@ export default function UserList() {
         const targetMil = new Date(`${target}Z`);
         const diffMs = now.getTime() - targetMil.getTime();
         const diffMinutes = Math.floor(diffMs / (1000 * 60));
-        const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-        if (diffHours == 0) {
-          diffTimes.push(`${diffMinutes}分前`);
-        } else {
+        const diffHours = Math.floor(diffMinutes / 60);
+        const diffDays = Math.floor(diffHours / 24);
+        const diffWeeks = Math.floor(diffDays / 7);
+        const diffMonths = Math.floor(diffDays / 30);
+        const diffYears = Math.floor(diffDays / 365);
+        if (diffYears !== 0) {
+          diffTimes.push(`${diffYears}年前`);
+        } else if (diffMonths !== 0) {
+          diffTimes.push(`${diffMonths}ヶ月前`);
+        } else if (diffWeeks !== 0) {
+          diffTimes.push(`${diffWeeks}週間前`);
+        } else if (diffDays !== 0) {
+          diffTimes.push(`${diffDays}日前`);
+        } else if (diffHours !== 0) {
           diffTimes.push(`${diffHours}時間前`);
+        } else if (diffMinutes !== 0) {
+          diffTimes.push(`${diffMinutes}分前`);
+        } else if (diffMs !== 0) {
+          diffTimes.push(`たった今`);
+        } else {
+          diffTimes.push(undefined);
         }
-      } else {
-        diffTimes.push(undefined);
       }
     }
     setLastLogin(diffTimes);
   }, [users]);
 
   console.log(users);
-  console.log(UsersLastLogin);
 
   return (
     <Box sx={{ marginTop: 15 }}>
@@ -71,6 +93,7 @@ export default function UserList() {
         }}
       >
         {users.map((user, i) => {
+          // const rowIndex = Math.floor(i / cardsPerRow);
           return (
             <Box
               key={user.id}
@@ -78,7 +101,8 @@ export default function UserList() {
                 cardRef.current[i] = el as HTMLDivElement | null;
               }}
               sx={{
-                width: '100%',
+                width: '103%',
+                // minHeight: heightsPerRow[rowIndex] ?? 'auto',
               }}
             >
               <DiscordProfileCard user={user} lastLoginAt={UsersLastLogin[i]} />

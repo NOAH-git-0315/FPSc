@@ -1,8 +1,8 @@
 export const Games = [
   'Apex Legends',
   'Battlefield 2042',
-  'Call of Duty: Modern Warfare II',
-  'Call of Duty: Warzone',
+  'Call of Duty: MWII',
+  'Call of Duty: Wz',
   'Counter-Strike 2',
   'Destiny 2',
   'Escape from Tarkov',

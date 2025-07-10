@@ -4,10 +4,11 @@ import com.FPSc.dto.FriendSearchRequest;
 import com.FPSc.entity.User.UserAuth;
 import com.FPSc.repository.UserAuthRepository;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.data.domain.Sort;
 import java.util.List;
 
 @RestController
@@ -28,11 +29,16 @@ public class FriendSearchController {
   public Page<UserAuth> searchFriends(
       @RequestBody FriendSearchRequest request,
       @PageableDefault(size = 10) Pageable pageable) {
+    Pageable sortedPageable = PageRequest.of(
+        pageable.getPageNumber(),
+        pageable.getPageSize(),
+        Sort.by(Sort.Direction.DESC, "userInfo.lastLoginAt"));
+
     return userAuthRepository.findBySearch(
         nullIfEmpty(request.getGames()),
         nullIfEmpty(request.getRanks()),
         nullIfEmpty(request.getPlaystyle()),
         nullIfEmpty(request.getPlaytime()),
-        pageable);
+        sortedPageable);
   }
 }

@@ -25,7 +25,7 @@ const useSchema = z.object({
     playstyle: z.array(z.enum(playStyleList)),
     introduction: z
       .string()
-      .max(100, '自己紹介は100文字以内で入力してください')
+      .max(500, '自己紹介は500文字以内で入力してください')
       .nullable(),
   }),
   option: z.object({

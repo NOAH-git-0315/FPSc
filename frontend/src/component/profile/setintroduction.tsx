@@ -26,8 +26,9 @@ export default function SetIntroduction() {
         sx={{
           width: '31rem',
           '& .MuiInputBase-root': {
-            height: '10rem',
+            height: '13rem',
             alignItems: 'start',
+            overflow: 'auto',
           },
         }}
       />

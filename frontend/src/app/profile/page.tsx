@@ -13,7 +13,7 @@ import Annotation from '@/component/profile/annotation';
 import SubmitAndDelete from '@/component/profile/smt&dlt';
 import { AuthContext } from '@/component/Context/Auth';
 import { useContext, useEffect } from 'react';
-import DiscordProfileCard from '@/component/profcard';
+import { DiscordProfileCard } from '@/component/profcard';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 

@@ -5,7 +5,7 @@ import { Box, Avatar, Typography, Button, Stack } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { style } from '@/app/standard';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 const Margin = 1;
 
@@ -13,14 +13,10 @@ const getPlaytime = (playtime: string[]) => {
   return `${playtime[0]} ~ ${playtime[playtime.length - 1]}`;
 };
 
-export default function DiscordProfileCard({
-  user,
-  lastLoginAt,
-}: {
-  user: User;
-  height?: number;
-  lastLoginAt?: string;
-}) {
+export const DiscordProfileCard = forwardRef<
+  HTMLDivElement,
+  { user: User; lastLoginAt?: string }
+>(({ user, lastLoginAt }, ref) => {
   const icon = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`;
   const [isHovered, setIsHovered] = useState(false);
   const [isOpend, setIsOpend] = useState(false);
@@ -173,7 +169,7 @@ export default function DiscordProfileCard({
                 opacity: 1,
                 transform: 'translateX(-50%)',
                 fontSize: '2rem',
-                color: isHovered ? 'green' : 'white',
+                color: isHovered ? '#1565C0' : 'white',
               }}
             />
           ) : (
@@ -182,7 +178,7 @@ export default function DiscordProfileCard({
                 opacity: 1,
                 transform: 'translateX(-50%)',
                 fontSize: '2rem',
-                color: isHovered ? 'green' : 'white',
+                color: isHovered ? '#1565C0' : 'white',
               }}
             />
           )}
@@ -218,7 +214,7 @@ export default function DiscordProfileCard({
     position: 'relative',
     overflow: 'hidden',
     width: 330,
-    height: isOpend ? '110%' : 400,
+    height: isOpend ? '100%' : 400,
     bgcolor: '#2f3136',
     color: 'white',
     borderRadius: 2,
@@ -232,6 +228,7 @@ export default function DiscordProfileCard({
 
   return (
     <Box
+      ref={ref}
       sx={sx}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -245,4 +242,4 @@ export default function DiscordProfileCard({
       <Stack spacing={2}></Stack>
     </Box>
   );
-}
+});
