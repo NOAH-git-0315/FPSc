@@ -52,14 +52,9 @@
 
 ## 🖥️ 画面操作について
 
-<p align="center">
-  <img src="md1.png" width="45%" />
-  <img src="md2.png" width="45%" />
-</p>
-<p align="center">
-  <img src="md3.png" width="45%" />
-  <img src="md4.png" width="45%" />
-</p>
+| ![](md1.png) | ![](md2.png) |
+| ------------ | ------------ |
+| ![](md3.png) | ![](md4.png) |
 
 - ①: ユーザーカード一覧が表示されます（/）
 - ②: 未実装。今後サーバー一覧を表示予定（/server）
