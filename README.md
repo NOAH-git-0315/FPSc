@@ -27,9 +27,9 @@
 
 ### 🔹 フロントエンド
 
-- 開発言語: `node:18.17.0-alpine`
+- 開発言語: `node:18.17.0 ,TypeScript`
 - フレームワーク: [Next.js](https://nextjs.org/)（App Router + CSR/SSR）
-- UI設計: MUI（Material-UI） / TypeScript
+- UI設計: MUI（Material-UI）
 - 認証: Discord OAuth2
 
 ### 🔸 バックエンド（参考）
