@@ -13,6 +13,15 @@
 
 > ⚠️ ご利用によって発生したトラブルなどについては、一切の責任を負いかねます。
 
+## 🌐 VPSで閲覧する方法
+
+このサイトはConohaのVPSで公開されています。
+以下のURLからアクセスできます
+
+```
+htpps://test.com
+```
+
 ## 🌟 このプロジェクトで実現したかったこと
 
 - フロントエンドとバックエンドを分離した **ヘッドレス構成**
@@ -23,13 +32,116 @@
 
 ---
 
+## 🐳 Docker Compose で起動する方法
+
+このプロジェクトには docker-compose.yml が用意されています。
+以下のコマンドを実行すると、アプリケーションが http://localhost:3000 で起動します。
+
+```bash
+docker compose up
+```
+
+起動後、ブラウザで以下にアクセスしてください：
+
+```
+http://localhost:3000
+```
+
+## 🛠 ローカル環境で開発・編集する方法
+
+Docker を使わずに、直接ローカル環境で開発する場合は以下の手順です。
+
+```bash
+git clone https://github.com/NOAH-git-0315/FPSc.git
+cd Fpsc-main
+```
+
+### 2.フロントエンド(next.js)のセットアップ
+
+- 依存関係をインストール
+
+```bash
+cd frontend
+npm install
+```
+
+- フロントエンドの起動
+
+```bash
+npm run dev
+```
+
+### 3.バックエンド(spring-boot)のセットアップ
+
+- 依存関係をインストール
+
+```bash
+cd backend
+mvn clean install
+```
+
+- バックエンドの起動
+
+```bash
+mvn spring-boot:run
+```
+
+- 起動後、ブラウザで以下にアクセスしてください
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📁 ディレクトリ構成
+
+※主要なものに限定しています
+
+FPSc-main/
+├ frontend/src/
+│ ┝ app/
+│ │ ├ deletetimeout/ profileでアカウント削除時の処理待機画面
+│ │ ├ profile/ プロフィールの編集ページ
+│ │ ├ layout.tsx レイアウト
+│ │ ├ page.tsx トップページのページファイル
+│ │ ├ standard.ts muiの共通collar、marginファイル
+│ │ ├ style.scss 殆ど使っていない
+│ │ └ type.ts 基本的な型定義
+│ │
+│ ┝ component/
+│ │ ├ context/ Contextのproviderコンポーネント
+│ │ ├ search/ 検索欄のUIコンポーネント
+│ │ ├ main/ メニュー、トップページのUIコンポーネント
+│ │ ├ profile/ プロフィール設定ページのUIコンポーネント
+│ │ └ profcard.tsx　Discordユーザーカードのコンポーネント
+│ │
+│ lib/
+│ ├ Arry/ ゲーム、ランク、プレイスタイルなどの配列
+│ ├ FriendSearchAPI.ts 検索時のフェッチ及び情報の前処理の関数
+│ ├ lastLogin.ts　最後のログイン時間をフェッチする関数
+│ └ validation.ts ユーザープロフィール編集のバリデーション
+│
+├ backend/src/main/java
+│ ├ controller/ コントローラー層
+│ ├ dto/ dto全般
+│ ├ entity/ entity層
+│ ├ repository/ repository層
+│ ├ security/　セキュリティーファイル
+│ ├ service/　サービス層
+│ └ FPScAPPlication.java　アプリケーションの設定全般のファイル
+├ data.sql テストデーターです。偽のユーザーデータ
+└ docker-compose.tyml コンポーズファイル
+
+---
+
 ## 🚀 技術スタック
 
 ### 🔹 フロントエンド
 
-- 開発言語: `node:18.17.0 ,TypeScript`
+- 開発言語: `node:18.17.0-alpine`
 - フレームワーク: [Next.js](https://nextjs.org/)（App Router + CSR/SSR）
-- UI設計: MUI（Material-UI）
+- UI設計: MUI（Material-UI） / TypeScript
 - 認証: Discord OAuth2
 
 ### 🔸 バックエンド（参考）
