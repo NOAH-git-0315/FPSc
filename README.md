@@ -98,6 +98,7 @@ http://localhost:3000
 
 ※主要なものに限定しています
 
+``` 
 FPSc-main/
 ├ frontend/src/
 │ ┝ app/
@@ -132,6 +133,7 @@ FPSc-main/
 │ └ FPScAPPlication.java　アプリケーションの設定全般のファイル
 ├ data.sql テストデーターです。偽のユーザーデータ
 └ docker-compose.tyml コンポーズファイル
+``` 
 
 ---
 
