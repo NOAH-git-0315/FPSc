@@ -22,6 +22,15 @@
 htpps://test.com
 ```
 
+## 🌐 VPSで閲覧する方法
+
+このサイトはConohaのVPSで公開されています。
+以下のURLからアクセスできます
+
+```
+htpps://test.com
+```
+
 ## 🌟 このプロジェクトで実現したかったこと
 
 - フロントエンドとバックエンドを分離した **ヘッドレス構成**
@@ -98,7 +107,7 @@ http://localhost:3000
 
 ※主要なものに限定しています
 
-``` 
+```
 FPSc-main/
 ├ frontend/src/
 │ ┝ app/
@@ -133,7 +142,7 @@ FPSc-main/
 │ └ FPScAPPlication.java　アプリケーションの設定全般のファイル
 ├ data.sql テストデーターです。偽のユーザーデータ
 └ docker-compose.tyml コンポーズファイル
-``` 
+```
 
 ---
 
@@ -142,8 +151,9 @@ FPSc-main/
 ### 🔹 フロントエンド
 
 - 開発言語: `node:18.17.0 / TypeScript`
+- 開発言語: `node:18.17.0 / TypeScript`
 - フレームワーク: [Next.js](https://nextjs.org/)（App Router + CSR/SSR）
-- UI設計: MUI（Material-UI)
+- UI設計: MUI（Material-UI）
 - 認証: Discord OAuth2
 
 ### 🔸 バックエンド（参考）

@@ -17,17 +17,18 @@ public class AuthUtilService {
     @Autowired
     private UserAuthRepository userAuthRepository;
 
-    public UserAuth authenticate(String jwt) throws Exception {
-        if (jwt == null)
-            throw new Exception("トークンがありません");
+    public UserAuth authenticate(String jwt) {
+        if (jwt == null) {
+            throw new IllegalArgumentException("トークンがありません");
+        }
+        try {
+            Claims claim = jwtService.validateToken(jwt);
+            String userId = claim.getSubject();
 
-        Claims claim = jwtService.validateToken(jwt);
-        String userId = claim.getSubject();
-
-        UserAuth user = userAuthRepository.findById(userId).orElse(null);
-        if (user == null)
-            throw new Exception("ユーザーが見つかりません");
-
-        return user;
+            return userAuthRepository.findById(userId)
+                    .orElseThrow(() -> new RuntimeException("ユーザーが見つかりません"));
+        } catch (Exception e) {
+            throw new RuntimeException("トークンの検証に失敗しました", e);
+        }
     }
 }

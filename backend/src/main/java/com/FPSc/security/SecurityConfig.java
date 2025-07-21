@@ -27,12 +27,13 @@ public class SecurityConfig implements WebMvcConfigurer {
                                                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                                                 .maximumSessions(1))
                                 .authorizeRequests(auth -> auth
-                                                .requestMatchers("/api/login").permitAll()
-                                                .requestMatchers("/api/Home").permitAll()
-                                                .requestMatchers("/api/error").permitAll()
+                                                .requestMatchers("/login").permitAll()
+                                                .requestMatchers("/Home").permitAll()
+                                                .requestMatchers("/error").permitAll()
+                                                .requestMatchers("/login/oauth2/**").permitAll()
                                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll())
                                 .oauth2Login(oauth -> oauth
-                                                .defaultSuccessUrl("/api/users/auth", true)
+                                                .defaultSuccessUrl("api/users/auth", true)
                                                 .failureUrl("/login?error"))
                                 .headers(headers -> headers
                                                 .frameOptions().disable());
@@ -42,7 +43,7 @@ public class SecurityConfig implements WebMvcConfigurer {
         @Override
         public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                                .allowedOrigins("http://localhost:3000")
+                                .allowedOrigins("http://163.44.122.142:81")
                                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                                 .allowCredentials(true);
         }

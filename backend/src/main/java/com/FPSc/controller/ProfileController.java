@@ -10,7 +10,7 @@ import com.FPSc.service.AuthUtilService;
 import com.FPSc.service.ProfileService;
 
 @RestController
-@RequestMapping("/api/profile")
+@RequestMapping("/profile")
 public class ProfileController {
     private final AuthUtilService authUtilService;
     private final ProfileService profileService;

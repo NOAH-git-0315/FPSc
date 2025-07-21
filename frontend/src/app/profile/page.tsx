@@ -35,7 +35,7 @@ export default function Profiles() {
   const { loading, userCard } = useContext(AuthContext);
   useEffect(() => {
     if (!loading && !userCard.id) {
-      window.location.href = `${apiUrl}/oauth2/authorization/discord`;
+      window.location.href = `${apiUrl}/api/oauth2/authorization/discord`;
     }
   }, [loading, userCard]);
 

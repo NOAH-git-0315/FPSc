@@ -3,7 +3,7 @@ import { playStyleList } from './Array/PlayStyle';
 import { gameRanks } from './Array/Rank';
 import { Games } from './Array/Games';
 import { CardOption_list } from './Array/CardOption';
-import { User } from '@/app/type';
+import { PostData, User } from '@/app/type';
 import dayjs from 'dayjs';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -69,7 +69,7 @@ function generateIntervals(playtime: string[]) {
   }
 }
 
-export async function validationAndPost(PostData: User) {
+export async function validationAndPost(PostData: PostData) {
   try {
     const validated = useSchema.parse(PostData);
     const UserInfo = validated.userInfo;

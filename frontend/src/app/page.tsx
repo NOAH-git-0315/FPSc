@@ -4,9 +4,7 @@ import { Box } from '@mui/material';
 import PageNoball from '@/component/main/pageNoBall';
 import SearchHUD from '@/component/Search/SearchHUD';
 import { useContext, useEffect, useRef, useState } from 'react';
-import FriendsProvider, {
-  FriendsContext,
-} from '@/component/Context/FriendsProvider';
+import { FriendsContext } from '@/component/Context/FriendsProvider';
 
 export default function UserList() {
   const cardRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -75,8 +73,6 @@ export default function UserList() {
     }
     setLastLogin(diffTimes);
   }, [users]);
-
-  console.log(users);
 
   return (
     <Box sx={{ marginTop: 15 }}>

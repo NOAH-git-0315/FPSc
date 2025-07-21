@@ -5,11 +5,11 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { User, GameInfo } from '@/app/type';
 import { AuthContext } from '@/component/Context/Auth';
-import { Games } from '@/lib/Array/Games';
+import { Games, GameType } from '@/lib/Array/Games';
 import { gameRanks } from '@/lib/Array/Rank';
 
 interface PropsType {
-  defGames: Game[];
+  defGames: GameInfo[];
   gameOptions: string[];
   newGameTitle: string | null;
   inputKey: number;
@@ -18,7 +18,7 @@ interface PropsType {
   setInputKey: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const handleRank = (gameTitle: GameInfo) => {
+const handleRank = (gameTitle: GameType) => {
   return gameRanks[gameTitle];
 };
 
@@ -81,7 +81,7 @@ const GameBox = ({
               )}
             />
             <Autocomplete
-              options={handleRank(game.title)}
+              options={handleRank(game.title as GameType)}
               onChange={(_, value) => {
                 setRank(index, value);
               }}

@@ -90,7 +90,6 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
         };
 
         setUserCard(card);
-        console.log('認証成功:', data);
       } catch (e) {
         console.error('認証エラー:', e);
       } finally {

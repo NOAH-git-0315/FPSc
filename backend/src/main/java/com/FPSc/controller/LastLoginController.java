@@ -21,7 +21,7 @@ public class LastLoginController {
     @Autowired
     private AuthUtilService authUtilService;
 
-    @GetMapping("api/last-login")
+    @GetMapping("/last-login")
     public String updateLastLogin(@CookieValue("jwt") String jwt) {
         try {
             UserAuth userAuth = authUtilService.authenticate(jwt);

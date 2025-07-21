@@ -4,7 +4,6 @@ import { User } from '@/app/type';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { SearchType } from '../Search/SearchHUD';
 import FriendSearchAPI from '@/lib/FriendSearchAPI';
-import { set } from 'zod';
 
 interface Props {
   children: ReactNode;
@@ -75,7 +74,6 @@ export default function FriendsProvider({ children }: Props) {
       setError(res.error || null);
       setPage(1);
     };
-    console.log(Search);
     fetchUsers();
   }, [Search]);
 
@@ -98,3 +96,5 @@ export default function FriendsProvider({ children }: Props) {
     </FriendsContext.Provider>
   );
 }
+
+//getServerSidePropsはページが更新されるたびに行われる。しかし、このサイトでは、検索がページアクセス後に変更され、fetchされるから使えない

@@ -2,11 +2,12 @@ import { Button, Snackbar } from '@mui/material';
 import { useContext, useState } from 'react';
 import { AuthContext } from '@/component/Context/Auth';
 import { validationAndPost } from '@/lib/validation';
+import { PostData } from '@/app/type';
 
 export default function Submit() {
   const context = useContext(AuthContext);
   const { userCard: state } = context;
-  const PostData = {
+  const PostData: PostData = {
     userInfo: state.userInfo,
     option: state.userOption,
     cardOption: state.cardOption,

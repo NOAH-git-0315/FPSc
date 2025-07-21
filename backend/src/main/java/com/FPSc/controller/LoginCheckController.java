@@ -16,7 +16,7 @@ public class LoginCheckController {
     @Autowired
     private AuthUtilService authUtilService;
 
-    @GetMapping("/api/check")
+    @GetMapping("/check")
     public ResponseEntity<Object> checkAuth(@CookieValue(value = "jwt", required = false) String jwt) {
         if (jwt == null || jwt.isEmpty()) {
             return ResponseEntity.status(204).body(null);
@@ -25,6 +25,7 @@ public class LoginCheckController {
             UserAuth user = authUtilService.authenticate(jwt);
             return ResponseEntity.ok(user);
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(401).body(e.getMessage());
         }
     }

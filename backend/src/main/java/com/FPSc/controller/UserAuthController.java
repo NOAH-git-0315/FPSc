@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserAuthController {
 
     private final UserAuthService userService;
@@ -39,6 +39,7 @@ public class UserAuthController {
         String token = jwtService.generateToken(userId);
 
         ResponseCookie cookie = ResponseCookie.from("jwt", token)
+                .domain("localhost")
                 .httpOnly(false)
                 .secure(false)
                 .path("/")
@@ -48,7 +49,7 @@ public class UserAuthController {
 
         return ResponseEntity
                 .status(302)
-                .header("Location", frontendUrl + "/profile")
+                .header("Location", frontendUrl + "/")
                 .header("Set-Cookie", cookie.toString())
                 .build();
     }

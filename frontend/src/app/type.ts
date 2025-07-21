@@ -33,3 +33,9 @@ export interface User {
   userOption: UserOption;
   cardOption: CardOption;
 }
+
+export interface PostData {
+  userInfo: UserInfo;
+  option: UserOption;
+  cardOption: CardOption;
+}
