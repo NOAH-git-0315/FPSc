@@ -47,12 +47,14 @@ services:
     build: ./nginx
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - backend
     networks:
       - FPScNet
     volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:rw
+      - /etc/letsencrypt:/etc/letsencrypt:rw
 
 volumes:
   db_data:

@@ -1,0 +1,1 @@
+sudo certbot certonly --standalone -d fpsc.work --agree-tos --email noahlawyer315@gmail.com --non-interactive

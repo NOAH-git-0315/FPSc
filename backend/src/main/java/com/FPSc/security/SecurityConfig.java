@@ -43,7 +43,7 @@ public class SecurityConfig implements WebMvcConfigurer {
         @Override
         public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                                .allowedOrigins("http://163.44.122.142:80")
+                                .allowedOrigins("https://fpsc.work")
                                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                                 .allowCredentials(true);
         }
