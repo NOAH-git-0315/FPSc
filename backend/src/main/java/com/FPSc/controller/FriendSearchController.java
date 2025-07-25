@@ -12,7 +12,7 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 
 @RestController
-@RequestMapping("/friend")
+@RequestMapping("/api/friend")
 public class FriendSearchController {
 
   private final UserAuthRepository userAuthRepository;

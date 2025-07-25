@@ -20,7 +20,7 @@ public class UserQueryController {
     @Autowired
     private UserAuthRepository userAuthRepository;
 
-    @GetMapping("/Home")
+    @GetMapping("/api/Home")
     public ResponseEntity<?> getUserAuthsByGames(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "15") int size) {

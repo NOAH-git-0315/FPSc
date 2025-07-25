@@ -22,7 +22,7 @@ public class DeleteController {
         this.userAuthRepository = userAuthRepository;
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/api/delete")
     public void updateLastLogin(@CookieValue("jwt") String jwt) {
         try {
             UserAuth userAuth = authUtilService.authenticate(jwt);

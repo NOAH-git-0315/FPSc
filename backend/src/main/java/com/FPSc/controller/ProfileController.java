@@ -10,7 +10,7 @@ import com.FPSc.service.AuthUtilService;
 import com.FPSc.service.ProfileService;
 
 @RestController
-@RequestMapping("/profile")
+@RequestMapping("/api/profile")
 public class ProfileController {
     private final AuthUtilService authUtilService;
     private final ProfileService profileService;
@@ -20,7 +20,7 @@ public class ProfileController {
         this.profileService = profileService;
     }
 
-    @PostMapping("/update")
+    @PostMapping("/api/update")
     public ResponseEntity<?> updateProfile(
             @CookieValue("jwt") String jwt,
             @RequestBody ProfilePostRequest request) {
