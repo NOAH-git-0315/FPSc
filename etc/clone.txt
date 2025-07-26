@@ -1,3 +1,0 @@
-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
-
-git clone https://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@github.com/NOAH-git-0315/FPSc.git
