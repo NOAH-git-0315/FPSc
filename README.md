@@ -18,18 +18,7 @@
 このサイトはConohaのVPSで公開されています。
 以下のURLからアクセスできます
 
-```
-htpps://test.com
-```
-
-## 🌐 VPSで閲覧する方法
-
-このサイトはConohaのVPSで公開されています。
-以下のURLからアクセスできます
-
-```
-htpps://test.com
-```
+[FPScサイト](https://fpsc.work/)
 
 ## 🌟 このプロジェクトで実現したかったこと
 
@@ -40,21 +29,6 @@ htpps://test.com
 - **Next.js** を活かした高速かつ柔軟なフロントエンド開発
 
 ---
-
-## 🐳 Docker Compose で起動する方法
-
-このプロジェクトには docker-compose.yml が用意されています。
-以下のコマンドを実行すると、アプリケーションが http://localhost:3000 で起動します。
-
-```bash
-docker compose up
-```
-
-起動後、ブラウザで以下にアクセスしてください：
-
-```
-http://localhost:3000
-```
 
 ## 🛠 ローカル環境で開発・編集する方法
 
