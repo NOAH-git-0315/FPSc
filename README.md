@@ -3,6 +3,7 @@
 ![Next.js](https://img.shields.io/badge/Framework-Next.js-000?logo=nextdotjs)
 ![Spring Boot](https://img.shields.io/badge/Backend-SpringBoot-6DB33F?logo=springboot)
 ![MySQL](https://img.shields.io/badge/Database-MySQL-blue?logo=mysql)
+![NGINX](https://img.shields.io/badge/Server-NGINX-009639?logo=nginx)
 ![Docker](https://img.shields.io/badge/DevEnv-Docker-2496ED?logo=docker)
 
 ## 🎮 概要
@@ -27,6 +28,7 @@
 - 複数の条件で細かく絞り込めるユーザー検索機能
 - Docker を活用した本格的な開発環境構築
 - **Next.js** を活かした高速かつ柔軟なフロントエンド開発
+- NGINXを用いたリバースプロキシとhttps通信
 
 ---
 
@@ -106,6 +108,11 @@ FPSc-main/
 │ ├ lastLogin.ts　最後のログイン時間をフェッチする関数
 │ └ validation.ts ユーザープロフィール編集のバリデーション
 │
+├ nginx/
+│ ├ certs/ https用の秘密鍵、公開鍵諸々(入っていません)
+│ ├ html / next.jsのビルドデータ
+│ └ default.conf https通信などの設定
+│
 ├ backend/src/main/java
 │ ├ controller/ コントローラー層
 │ ├ dto/ dto全般
@@ -138,8 +145,10 @@ FPSc-main/
 
 ### 🧱 インフラ・その他
 
+- Webサーバー: NGINX
 - データベース: MySQL
 - 環境構築: Docker / docker-compose
+- HTTPS証明書: Let’s Encrypt による SSL/TLS 自動発行・更新
 - バージョン管理: Git / GitHub
 
 ### 🛄 ER図

@@ -59,3 +59,8 @@ networks:
   FPScNet:
     driver: bridge
 # 先にbuild.batを実行すること
+
+#docker cp data.sql my_mysql:/tmp/data.sql
+#docker exec -it my_mysql mysql -u root -p app_db
+#USE app_db;
+#　SOURCE /tmp/data.sql

@@ -17,7 +17,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002001', 'blue', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ゴールド', '1001002001');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'プラチナ', '1001002001');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002001', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002001', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002001', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002001', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002001', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002001', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002001', 'カジュアル・アンランク');
 
 -- ユーザー2
@@ -28,7 +32,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002002', 'red', 's
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Battlefield 2042', '初心者', '1001002002');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'シルバー', '1001002002');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002002', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002002', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002002', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002002', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002002', '初心者');
 
 -- ユーザー3
@@ -39,7 +45,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002003', 'green', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'シルバー', '1001002003');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ゴールド', '1001002003');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002003', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002003', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002003', '23:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002003', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002003', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002003', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002003', '聞き専');
 
 -- ユーザー4
@@ -50,7 +60,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002004', 'yellow',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'ゴールド', '1001002004');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'ゴールド', '1001002004');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002004', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002004', '23:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002004', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002004', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002004', 'ゆったり');
 
 -- ユーザー5
@@ -61,7 +73,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002005', 'purple',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'ゴールドノヴァ', '1001002005');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'シルバー', '1001002005');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002005', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002005', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002005', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002005', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002005', '00:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002005', '01:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002005', 'ガチプレイ');
 
 -- ユーザー6
@@ -72,7 +88,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002006', 'orange',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '中級者', '1001002006');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'プラチナ', '1001002006');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002006', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002006', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002006', '00:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002006', '01:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002006', 'ランク');
 
 -- ユーザー7
@@ -83,7 +101,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002007', 'pink', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Escape from Tarkov', '上級者', '1001002007');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'ダイヤモンド', '1001002007');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002007', '00:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002007', '00:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002007', '01:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002007', '01:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002007', '01:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002007', '02:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002007', 'コーチング可');
 
 -- ユーザー8
@@ -94,7 +116,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002008', 'gray', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'オニックス', '1001002008');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'グローバルエリート', '1001002008');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002008', '00:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002008', '01:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002008', '01:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002008', '02:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002008', 'コーチング募集');
 
 -- ユーザー9
@@ -105,7 +129,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002009', 'black', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'プラチナ', '1001002009');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'グランドマスター', '1001002009');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002009', '01:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002009', '01:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002009', '02:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002009', '02:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002009', '02:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002009', '03:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002009', 'カジュアル・アンランク');
 
 -- ユーザー10
@@ -116,8 +144,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002010', 'white', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'マスター', '1001002010');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ブロンズ', '1001002010');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002010', '01:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002010', '02:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002010', '02:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002010', '03:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002010', 'ゆったり');
+
 
 -- ユーザー11
 INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002011', 'yuji111', 'avatar011', '斎藤祐司');
@@ -127,7 +158,10 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002011', 'navy', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ブロンズ', '1001002011');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'ゴールド', '1001002011');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002011', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002011', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002011', '21:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002011', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002011', '22:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002011', '初心者');
 
 -- ユーザー12
@@ -138,7 +172,10 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002012', 'lime', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'ゴールド', '1001002012');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'ダイヤモンド', '1001002012');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002012', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002012', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002012', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002012', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002012', '00:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002012', 'ガチプレイ');
 
 -- ユーザー13
@@ -149,7 +186,10 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002013', 'pink', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '上級者', '1001002013');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ダイヤモンド', '1001002013');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002013', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002013', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002013', '22:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002013', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002013', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002013', '聞き専');
 
 -- ユーザー14
@@ -160,7 +200,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002014', 'orange',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'マスターガーディアン', '1001002014');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'ダイヤモンド', '1001002014');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002014', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002014', '22:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002014', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002014', '23:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002014', 'カジュアル・アンランク');
 
 -- ユーザー15
@@ -171,7 +213,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002015', 'yellow',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'ブロンズ', '1001002015');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'ゴールド', '1001002015');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002015', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002015', '21:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002015', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002015', '22:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002015', '初心者');
 
 -- ユーザー16
@@ -182,7 +226,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002016', 'black', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ダイヤモンド', '1001002016');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'イモータル', '1001002016');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002016', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002016', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002016', '00:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002016', '01:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002016', 'ガチプレイ');
 
 -- ユーザー17
@@ -193,7 +239,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002017', 'purple',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '初心者', '1001002017');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'ゴールド', '1001002017');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002017', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002017', '21:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002017', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002017', '22:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002017', 'ゆったり');
 
 -- ユーザー18
@@ -204,7 +252,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002018', 'red', 's
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'ダイヤモンド', '1001002018');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'プラチナ', '1001002018');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002018', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002018', '23:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002018', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002018', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002018', 'コーチング可');
 
 -- ユーザー19
@@ -215,7 +265,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002019', 'blue', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'マスター', '1001002019');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'グランドマスター', '1001002019');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002019', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002019', '22:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002019', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002019', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002019', '聞き専');
 
 -- ユーザー20
@@ -226,8 +278,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002020', 'green', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'ブロンズ', '1001002020');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'アイアン', '1001002020');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002020', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002020', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002020', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002020', '22:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002020', 'カジュアル・アンランク');
+
 
 -- ユーザー21
 INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002021', 'yuiko113', 'avatar021', '山口結子');
@@ -237,7 +292,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002021', 'mint', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'シルバー', '1001002021');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'コッパー', '1001002021');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002021', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002021', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002021', '21:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002021', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002021', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002021', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002021', 'ゆったり');
 
 -- ユーザー22
@@ -248,7 +307,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002022', 'gray', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'レイディアント', '1001002022');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'グランドマスター', '1001002022');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002022', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002022', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002022', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002022', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002022', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002022', '23:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002022', 'ガチプレイ');
 
 -- ユーザー23
@@ -259,7 +322,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002023', 'skyblue'
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'ゴールド', '1001002023');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'プレデター', '1001002023');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002023', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002023', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002023', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002023', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002023', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002023', '00:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002023', 'カジュアル・アンランク');
 
 -- ユーザー24
@@ -270,7 +337,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002024', 'brown', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Battlefield 2042', '中級者', '1001002024');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'シルバー', '1001002024');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002024', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002024', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002024', '23:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002024', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002024', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002024', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002024', 'ゆったり');
 
 -- ユーザー25
@@ -281,7 +352,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002025', 'white', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'シルバー', '1001002025');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '初心者', '1001002025');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002025', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002025', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002025', '21:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002025', '20:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002025', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002025', '21:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002025', '初心者');
 
 -- ユーザー26
@@ -292,7 +367,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002026', 'purple',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'ランクなし', '1001002026');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ゴールド', '1001002026');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002026', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002026', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002026', '23:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002026', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002026', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002026', '00:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002026', 'カジュアル・アンランク');
 
 -- ユーザー27
@@ -303,7 +382,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002027', 'red', 's
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'ダイヤモンド', '1001002027');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'マスター', '1001002027');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002027', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002027', '00:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002027', '00:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002027', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002027', '00:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002027', '01:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002027', 'ガチプレイ');
 
 -- ユーザー28
@@ -314,7 +397,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002028', 'teal', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'ゴールド', '1001002028');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'チャンピオン', '1001002028');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002028', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002028', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002028', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002028', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002028', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002028', '22:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002028', 'ランク');
 
 -- ユーザー29
@@ -325,7 +412,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002029', 'yellow',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'シルバー', '1001002029');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'ブロンズ', '1001002029');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002029', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002029', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002029', '21:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002029', '20:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002029', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002029', '21:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002029', 'ゆったり');
 
 -- ユーザー30
@@ -336,8 +427,13 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002030', 'brown', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'プラチナ', '1001002030');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'レジェンダリーイーグル', '1001002030');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002030', '19:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002030', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002030', '20:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002030', '20:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002030', '20:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002030', '21:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002030', 'カジュアル・アンランク');
+
 
 -- ユーザー31
 INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002031', 'yuka123', 'avatar031', '和田優香');
@@ -347,7 +443,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002031', 'skyblue'
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'マスター', '1001002031');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'ブロンズ', '1001002031');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002031', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002031', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002031', '23:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002031', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002031', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002031', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002031', 'ガチプレイ');
 
 -- ユーザー32
@@ -358,7 +458,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002032', 'lime', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'ダイヤモンド', '1001002032');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '上級者', '1001002032');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002032', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002032', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002032', '22:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002032', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002032', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002032', '23:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002032', 'ランク');
 
 -- ユーザー33
@@ -369,7 +473,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002033', 'pink', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'ゴールドノヴァ', '1001002033');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'トップ500', '1001002033');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002033', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002033', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002033', '21:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002033', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002033', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002033', '22:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002033', 'カジュアル・アンランク');
 
 -- ユーザー34
@@ -380,7 +488,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002034', 'navy', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'プラチナ', '1001002034');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'ブロンズ', '1001002034');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002034', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002034', '00:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002034', '00:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002034', '00:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002034', '01:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002034', '01:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002034', 'ガチプレイ');
 
 -- ユーザー35
@@ -391,7 +503,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002035', 'orange',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'シルバー', '1001002035');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'プラチナ', '1001002035');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002035', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002035', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002035', '21:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002035', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002035', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002035', '22:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002035', '初心者');
 
 -- ユーザー36
@@ -402,7 +518,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002036', 'green', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Battlefield 2042', '上級者', '1001002036');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'プラチナ', '1001002036');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002036', '19:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002036', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002036', '20:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002036', '20:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002036', '20:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002036', '21:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002036', 'ゆったり');
 
 -- ユーザー37
@@ -413,7 +533,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002037', 'pink', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Escape from Tarkov', '初心者', '1001002037');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ランクなし', '1001002037');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002037', '18:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002037', '18:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002037', '19:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002037', '19:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002037', '19:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002037', '20:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002037', '初心者');
 
 -- ユーザー38
@@ -424,7 +548,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002038', 'teal', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'マスター', '1001002038');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'プラチナ', '1001002038');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002038', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002038', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002038', '23:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002038', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002038', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002038', '00:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002038', 'コーチング可');
 
 -- ユーザー39
@@ -435,7 +563,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002039', 'white', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '中級者', '1001002039');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'レジェンダリーイーグル', '1001002039');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002039', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002039', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002039', '21:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002039', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002039', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002039', '22:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002039', 'カジュアル・アンランク');
 
 -- ユーザー40
@@ -446,8 +578,13 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002040', 'blue', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'ダイヤモンド', '1001002040');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'グランドマスター', '1001002040');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002040', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002040', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002040', '22:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002040', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002040', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002040', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002040', 'ガチプレイ');
+
 
 -- ユーザー41
 INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002041', 'mizuki133', 'avatar041', '西村瑞希');
@@ -456,8 +593,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002041', 'mint', 'zoom');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ダイヤモンド', '1001002041');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'ゴールド', '1001002041');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002041', '21:30');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002041', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002041', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002041', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002041', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002041', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002041', 'ゆったり');
 
 -- ユーザー42
@@ -467,8 +608,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002042', 'navy', 'fade');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '初心者', '1001002042');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'シルバー', '1001002042');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002042', '21:00');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002042', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002042', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002042', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002042', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002042', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002042', '初心者');
 
 -- ユーザー43
@@ -478,8 +623,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002043', 'gray', 'slide');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'グランドマスター', '1001002043');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'トップ500', '1001002043');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002043', '22:00');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002043', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002043', '23:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002043', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002043', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002043', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002043', 'ガチプレイ');
 
 -- ユーザー44
@@ -489,8 +638,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002044', 'brown', 'zoom');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'ゴールド', '1001002044');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ゴールド', '1001002044');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002044', '20:30');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002044', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002044', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002044', '21:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002044', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002044', '22:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002044', 'カジュアル・アンランク');
 
 -- ユーザー45
@@ -500,8 +653,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002045', 'skyblue', 'slide');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'プラチナ', '1001002045');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'マスターガーディアン', '1001002045');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002045', '23:00');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002045', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002045', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002045', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002045', '00:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002045', '01:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002045', 'ランク');
 
 -- ユーザー46
@@ -511,8 +668,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002046', 'white', 'fade');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'エース', '1001002046');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'マスター', '1001002046');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002046', '21:30');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002046', '22:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002046', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002046', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002046', '22:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002046', '23:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002046', '聞き専');
 
 -- ユーザー47
@@ -522,8 +683,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002047', 'teal', 'zoom');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'ブロンズ', '1001002047');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '上級者', '1001002047');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002047', '21:00');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002047', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002047', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002047', '21:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002047', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002047', '22:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002047', 'コーチング募集');
 
 -- ユーザー48
@@ -533,8 +698,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002048', 'pink', 'slide');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ダイヤモンド', '1001002048');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'プラチナ', '1001002048');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002048', '22:30');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002048', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002048', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002048', '23:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002048', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002048', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002048', 'ガチプレイ');
 
 -- ユーザー49
@@ -544,8 +713,12 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002049', 'yellow', 'zoom');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'マスター', '1001002049');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'シルバー', '1001002049');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002049', '20:00');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002049', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002049', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002049', '20:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002049', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002049', '21:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002049', 'ガチプレイ');
 
 -- ユーザー50
@@ -555,9 +728,14 @@ INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, sho
 INSERT INTO user_card_option (id, color, motion) VALUES ('1001002050', 'white', 'fade');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'ブロンズ', '1001002050');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Battlefield 2042', '中級者', '1001002050');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002050', '18:30');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002050', '19:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002050', '19:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002050', '19:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002050', '19:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002050', '20:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002050', 'カジュアル・アンランク');
+
 
 -- ユーザー51
 INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002051', 'risa143', 'avatar051', '佐々木理沙');
@@ -567,7 +745,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002051', 'purple',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ゴールド', '1001002051');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ブロンズ', '1001002051');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002051', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002051', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002051', '21:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002051', '20:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002051', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002051', '21:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002051', 'カジュアル・アンランク');
 
 -- ユーザー52
@@ -578,7 +760,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002052', 'green', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'プラチナ', '1001002052');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'ゴールドノヴァ', '1001002052');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002052', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002052', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002052', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002052', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002052', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002052', '00:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002052', 'ゆったり');
 
 -- ユーザー53
@@ -589,7 +775,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002053', 'blue', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'ランクなし', '1001002053');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'ブロンズ', '1001002053');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002053', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002053', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002053', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002053', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002053', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002053', '22:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002053', '初心者');
 
 -- ユーザー54
@@ -600,7 +790,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002054', 'pink', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'ダイヤモンド', '1001002054');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Battlefield 2042', '中級者', '1001002054');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002054', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002054', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002054', '23:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002054', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002054', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002054', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002054', '聞き専');
 
 -- ユーザー55
@@ -611,7 +805,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002055', 'yellow',
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'プラチナ', '1001002055');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ダイヤモンド', '1001002055');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002055', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002055', '00:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002055', '00:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002055', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002055', '00:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002055', '01:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002055', 'ランク');
 
 -- ユーザー56
@@ -622,7 +820,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002056', 'mint', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'シルバー', '1001002056');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Escape from Tarkov', '中級者', '1001002056');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002056', '20:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002056', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002056', '21:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002056', '21:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002056', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002056', '22:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002056', 'ゆったり');
 
 -- ユーザー57
@@ -633,7 +835,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002057', 'teal', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'チャンピオン', '1001002057');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'グランドマスター', '1001002057');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002057', '21:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002057', '21:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002057', '22:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002057', '21:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002057', '22:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002057', '22:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002057', 'ガチプレイ');
 
 -- ユーザー58
@@ -644,7 +850,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002058', 'gray', '
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'シルバー', '1001002058');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'ゴールド', '1001002058');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002058', '19:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002058', '20:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002058', '20:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002058', '20:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002058', '20:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002058', '21:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002058', 'カジュアル・アンランク');
 
 -- ユーザー59
@@ -655,7 +865,11 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002059', 'brown', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'アイアン', '1001002059');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'ランクなし', '1001002059');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002059', '22:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002059', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002059', '23:30');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002059', '23:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002059', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002059', '00:00');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002059', '聞き専');
 
 -- ユーザー60
@@ -666,115 +880,9 @@ INSERT INTO user_card_option (id, color, motion) VALUES ('1001002060', 'white', 
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'スプレームマスター', '1001002060');
 INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ゴールド', '1001002060');
 INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002060', '23:00');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002060', '23:30');
+INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002060', '00:00');
 INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002060', '23:30');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002060', '00:00');
+INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002060', '00:30');
 INSERT INTO user_playstyle (user_id, style) VALUES ('1001002060', 'ランク');
-
--- ユーザー61
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002061', 'yuto153', 'avatar061', '佐伯優斗');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002061', '夜型で遊んでます！', '2025-05-25T01:01:01.111111');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002061', 1, 1, 1, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002061', 'orange', 'zoom');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'シルバー', '1001002061');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ゴールド', '1001002061');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002061', '22:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002061', '22:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002061', 'カジュアル・アンランク');
-
--- ユーザー62
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002062', 'sakura154', 'avatar062', '青山桜');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002062', '初心者大歓迎！', '2025-05-25T01:02:02.222222');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002062', 0, 1, 0, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002062', 'pink', 'fade');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'ランクなし', '1001002062');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'ブロンズ', '1001002062');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002062', '20:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002062', '20:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002062', '初心者');
-
--- ユーザー63
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002063', 'shunpei155', 'avatar063', '井上俊平');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002063', '聞き専メインです。', '2025-05-25T01:03:03.333333');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002063', 1, 1, 1, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002063', 'mint', 'slide');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Counter-Strike 2', 'グローバルエリート', '1001002063');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '上級者', '1001002063');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002063', '23:30');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002063', '00:00');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002063', '聞き専');
-
--- ユーザー64
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002064', 'kaho156', 'avatar064', '山口果歩');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002064', 'エンジョイ勢です！', '2025-05-25T01:04:04.444444');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002064', 0, 0, 1, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002064', 'green', 'zoom');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'シルバー', '1001002064');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'ブロンズ', '1001002064');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002064', '21:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002064', '21:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002064', 'カジュアル・アンランク');
-
--- ユーザー65
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002065', 'fumi157', 'avatar065', '岩田文');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002065', 'ガチ勢です！', '2025-05-25T01:05:05.555555');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002065', 1, 1, 0, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002065', 'yellow', 'slide');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'レイディアント', '1001002065');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Overwatch 2', 'トップ500', '1001002065');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002065', '22:30');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002065', '23:00');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002065', 'ガチプレイ');
-
--- ユーザー66
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002066', 'shiori158', 'avatar066', '松原詩織');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002066', '昼間もよくインしてます！', '2025-05-25T01:06:06.666666');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002066', 0, 1, 1, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002066', 'teal', 'fade');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('PUBG: Battlegrounds', 'ダイヤモンド', '1001002066');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Paladins', 'ゴールド', '1001002066');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002066', '20:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002066', '20:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002066', 'ゆったり');
-
--- ユーザー67
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002067', 'ryusei159', 'avatar067', '高橋龍星');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002067', 'コーチング可です！', '2025-05-25T01:07:07.777777');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002067', 1, 1, 1, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002067', 'skyblue', 'zoom');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: Wz', 'グランドマスター', '1001002067');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Apex Legends', 'プレデター', '1001002067');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002067', '23:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002067', '23:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002067', 'コーチング可');
-
--- ユーザー68
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002068', 'riku160', 'avatar068', '藤本陸');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002068', '気軽にどうぞ！', '2025-05-25T01:08:08.888888');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002068', 0, 1, 0, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002068', 'brown', 'slide');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Halo Infinite', 'オニックス', '1001002068');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Destiny 2', '中級者', '1001002068');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002068', '22:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002068', '22:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002068', 'カジュアル・アンランク');
-
--- ユーザー69
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002069', 'sanae161', 'avatar069', '佐野早苗');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002069', '聞き専ですが楽しんでます。', '2025-05-25T01:09:09.999999');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002069', 1, 0, 1, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002069', 'yellow', 'zoom');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Battlefield 2042', '上級者', '1001002069');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Rainbow Six Siege', 'コッパー', '1001002069');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002069', '21:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002069', '21:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002069', '聞き専');
-
--- ユーザー70
-INSERT INTO user_auth (id, name, avatar, global_name) VALUES ('1001002070', 'takashi162', 'avatar070', '小池敬');
-INSERT INTO user_info (id, introduction, last_login_at) VALUES ('1001002070', 'ガチ勢目指して努力中！', '2025-05-25T01:10:10.123456');
-INSERT INTO user_option (id, show_gender, show_age, show_gender_to_same_sex, show_profile) VALUES ('1001002070', 0, 1, 0, 1);
-INSERT INTO user_card_option (id, color, motion) VALUES ('1001002070', 'navy', 'fade');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('VALORANT', 'ダイヤモンド', '1001002070');
-INSERT INTO user_game (title, user_rank, user_id) VALUES ('Call of Duty: MWII', 'マスター', '1001002070');
-INSERT INTO user_playtime1 (user_id, time_slot) VALUES ('1001002070', '23:00');
-INSERT INTO user_playtime2 (user_id, preferred_slot) VALUES ('1001002070', '23:30');
-INSERT INTO user_playstyle (user_id, style) VALUES ('1001002070', 'ガチプレイ');
